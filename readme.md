@@ -1,4 +1,7 @@
 ![DisPerSE](https://github.com/thierry-sousbie/DisPerSE/blob/master/manual/web/images/logo.png "DisPerSE")
+Version 0.9.23  
+Copyright(c) 2011- by Thierry Sousbie. All rights reserved.  
+Author: Thierry Sousbie - tsousbie[a]gmail[dot]com  
 
 DisPerSE stands for "Discrete Persistent Structures Extractor" and its main purpose is the automatic identification of persistent topological features such as peaks, voids, walls and in particular filamentary structures within sampled distributions in 2D, 3D, and possibly more ...
 
