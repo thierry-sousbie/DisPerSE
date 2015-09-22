@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Disperse by thierry-sousbie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Disperse</h1>
+      <h2 class="project-tagline">DisPerSE: Automatic feature identification in 2D and 3D</h2>
+      <a href="https://github.com/thierry-sousbie/DisPerSE" class="btn">View on GitHub</a>
+      <a href="https://github.com/thierry-sousbie/DisPerSE/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/thierry-sousbie/DisPerSE/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p><img src="https://github.com/thierry-sousbie/DisPerSE/blob/master/manual/web/images/logo.png" alt="DisPerSE" title="DisPerSE"></p>
+
+<p>DisPerSE stands for "Discrete Persistent Structures Extractor" and its main purpose is the automatic identification of persistent topological features such as peaks, voids, walls and in particular filamentary structures within sampled distributions in 2D, 3D, and possibly more ...</p>
+
+<p>Although it was initially developed with cosmology in mind (for the study of the properties of filamentary structures in the so called comic web of galaxy distribution over large scales in the Universe), the present version is quite versatile and should be useful for any application where a robust structure identification is required, for segmentation or for studying the topology of sampled functions (like computing persistent Betti numbers for instance).</p>
+
+<p>DisPerSE is able to deal directly with noisy datasets using the concept of persistence (a measure of the robustness of topological features) and can work indifferently on many kinds of cell complex (such as structured and unstructured grids, 2D manifolds embedded within a 3D space, discrete point samples using delaunay tesselation, Healpix tesselations of the sphere, ...). The only constraint is that the distribution must be defined over a manifold, possibly with boundaries. </p>
+
+<p>For more information, read these two scientific articles: <a href="http://adsabs.harvard.edu/abs/2011MNRAS.414..350S" title="DisPerSE Theory article">Theory</a> and <a href="http://adsabs.harvard.edu/abs/2011MNRAS.414..384S" title="DisPerSE Application article">Application</a></p>
+
+<p>You can also visit <a href="http://www2.iap.fr/users/sousbie/web/html/indexd41d.html">DisPerSe</a> website at: <a href="http://www2.iap.fr/users/sousbie/web/html/indexd41d.html">http://www2.iap.fr/users/sousbie/web/html/indexd41d.html</a></p>
+
+<h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>REQUIREMENTS</h2>
+
+<p>Any recent version of gcc should work, but gcc4.3.3+ is required in order to enable multithreading. The program was not tested with other compilers.</p>
+
+<p>The following libraries/programs are used:</p>
+
+<pre><code>Cmake 2.8     (Required for compilation)
+GSL       (Required)
+CGAL 3.7      (Optional, for delaunay triangulation/DTFE)
+CFitsIO       (Optional, for reading FITS and Healpix maps)
+SDL/SDL-image (Optional, for loading jpg,bmp,...)
+mathGL 1.10+  (Optional, for visualizing persistence diagrams with pdview)
+              -&gt; A compatible version can be found in the 'external/' subdir
+Qt4           (Optional, for visualizing persistence diagrams with pdview)
+</code></pre>
+
+<p>An appropriate version of mathGL can be found int the <code>external/</code> subdir.</p>
+
+<h2>
+<a id="compilation" class="anchor" href="#compilation" aria-hidden="true"><span class="octicon octicon-link"></span></a>COMPILATION</h2>
+
+<p>Suppose the source package is uncompressed in ${DISPERSE_SRC}, then go to the ${DISPERSE_SRC}/build directory and run cmake:</p>
+
+<pre><code> cd ${DISPERSE_SRC}
+ cd build
+ cmake ../ 
+</code></pre>
+
+<p>This will check the configuration and generate the Makefile. Read the output to know which library were found, which were not, and how to specify their path (option -D{LIBNAME}_DIR="path/to/library/" where {LIBNAME} may be QT,GSL,SDL,MATHGL or CGAL).</p>
+
+<p>Then just compile with:</p>
+
+<pre><code> make
+</code></pre>
+
+<p>or 
+     make -j N (where N is the number of processors to use)</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>INSTALLATION</h2>
+
+<p>Typing :</p>
+
+<pre><code> make install
+</code></pre>
+
+<p>will install the programs in the "CMAKE_INSTALL_PREFIX" direction. By default, CMAKE_INSTALL_PREFIX=${DISPERSE_SRC}/bin, and the program is installed in the 'bin' subdirectory of the source package.
+You can choose a different location with:</p>
+
+<pre><code> cmake [...] -DCMAKE_INSTALL_PREFIX=PATH/TO/INSTALL/DIR
+</code></pre>
+
+<p>Two to five executables should be created in ${DISPERSE_SRC}/bin, depending on which libraries were found:</p>
+
+<pre><code>* delaunay_2D (Optionnal)
+* delaunay_3D (Optionnal)
+* pdview (Optionnal)
+* skelconv
+* netconv
+* mse
+</code></pre>
+
+<h2>
+<a id="troubleshooting" class="anchor" href="#troubleshooting" aria-hidden="true"><span class="octicon octicon-link"></span></a>TROUBLESHOOTING</h2>
+
+<p>LIBRAIRIES:</p>
+
+<p>In case you need to install a library in a non standard path, you can specify its location like this:</p>
+
+<pre><code> cmake [...] -D{LIBNAME}_DIR=path/to/library
+</code></pre>
+
+<p>where "LIBNAME" is the uppercase name of the library (ie QT,GSL,SDL,MATHGL or CGAL) and "path/to/library" points to the path where the library is installed (i.e. "path/to/library/lib" should contain the library itself and "path/to/library/includes" the header files).</p>
+
+<p>COMPILE ERRORS:</p>
+
+<p>Multithreading is enabled by default but so far, it works only with gcc4.3.3+. If you have an older version, the compiler will complain and return errors. You can choose to enable/disable multithreading with:</p>
+
+<pre><code> cmake [...] -DUSE_THREADS=true/false
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/thierry-sousbie/DisPerSE">Disperse</a> is maintained by <a href="https://github.com/thierry-sousbie">thierry-sousbie</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
