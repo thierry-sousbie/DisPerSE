@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!-- Mirrored from localhost/dotclear/index.php?post/NDnet_ascii-format by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>NDnet_ascii format - DisPerSE - persistent structures identification</title>
+  <meta name="description" lang="en" content="This ASCII format is a simpler version of the NDnet format, designed to be fully compatible but restricted to simplicial networks. It is easy to read and write and should probably" />
+  <meta name="copyright" content="sousbie" />
+  <meta name="author" content="thierry sousbie" />
+  <meta name="date" scheme="W3CDTF" content="2426-01-02T13:14:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="NDnet_ascii format" />
+  <meta name="dc.description" lang="en" content="This ASCII format is a simpler version of the NDnet format, designed to be fully compatible but restricted to simplicial networks. It is easy to read and write and should probably" />
+  <meta name="dc.creator" content="thierry sousbie" />
+  <meta name="dc.language" content="en" />
+  <meta name="dc.publisher" content="thierry sousbie" />
+  <meta name="dc.rights" content="sousbie" />
+  <meta name="dc.date" scheme="W3CDTF" content="2426-01-02T13:14:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Home" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexceff.html?post/NDnet-format"
+  title="NDnet format" />
+  
+  <link rel="prev" href="indexda8a.html?post/ply-format"
+  title="ply format" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="../images/index4ca3.php?feed/atom" />
+  
+  <link rel="shortcut icon" href="../images/favicon.ico" />
+
+<style type="text/css" media="screen">
+@import url(../images/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(../images/print.css);
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37686840-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  
+  <script type="text/javascript" src="../images/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Remember me on this blog';
+  //]]>
+  </script>
+
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+<!--
+<h1><span><a href="http://localhost/dotclear/index.php?">DisPerSE - persistent structures identification</a></span></h1>
+ -->
+
+  </div>
+
+<p id="prelude">
+<a href="indexd41d.html?">Home</a> |
+<a href="index888d.html?archive">Show all</a>
+</p>
+
+<!--
+<ul id="nav-box">
+2.
+<li><a href="http://localhost/dotclear/index.php?">Accueil</a></li>
+3.
+<li><a href="http://localhost/dotclear/index.php?archive" title="Liste des mois de publication">Archives</a></li>
+4.
+<li><a href="http://localhost/dotclear/index.php?contact" title="Formulaire de contact">Me contacter</a></li>
+5.
+</ul>
+ -->
+
+<div id="wrapper">
+
+<div id="main">
+  <div id="content">
+  
+  <p id="navlinks">
+ 
+  <a href="indexceff.html?post/NDnet-format"
+  title="NDnet format" class="prev">&#171; NDnet format</a>
+   <span>-</span> <a href="indexda8a.html?post/ply-format"
+  title="ply format" class="next">ply format &#187;</a>
+
+<!--
+  <a href="http://localhost/dotclear/index.php?post/ply-format"
+  title="ply format" class="prev">&#171; ply format</a>
+  <span>-</span> <a href="http://localhost/dotclear/index.php?post/NDnet-format"
+  title="NDnet format" class="next">NDnet format &#187;</a>
+-->
+  </p>
+  
+  <div id="p31" class="post">
+    <b1 class="post-title">NDnet_ascii format</b1>
+    <!--
+    <p class="post-info">By thierry sousbie    on Friday, January  2 2426, 13:14        - <a href="http://localhost/dotclear/index.php?category/Network-I-O">Network data</a>
+        - <a href="http://localhost/dotclear/index.php?post/NDnet_ascii-format">Permalink</a>
+    </p>
+    -->
+    
+    
+        
+    <div class="post-content"><p>This ASCII format is a simpler version of the <a href="indexceff.html?post/NDnet-format">NDnet</a> format, designed to be fully compatible but restricted to simplicial networks. It is easy to read and write and should probably be used for reasonably sized data sets.
+<br />
+<br />
+<ins>Note</ins>: The scalar function whose MS-complex is computed by <a href="index4656.html?post/mse">mse</a> can be stored as an additional data field
+named 'field_value' (case sensitive).</p>
+
+
+<p><br />
+<br /></p>
+<table border="1"><caption> NDnet_ascii format</caption><tr ><td  width="50%" ></td><td  width="50%" ></td></tr>
+<tr  valign="top"><th> ANDNET</th><td> header</td></tr>
+<tr  valign="top"><th> ndims</th><td> the number of dimensions</td></tr>
+<tr  valign="top"><th> #comments go here</th><td> OPTIONAL: should start with '#' if present (the 80 first characters are read and stored).</td></tr>
+<tr  valign="top"><th> BBOX [x0_1 .. x0_d] [delta_1 .. delta_d]</th><td> OPTIONAL: the bounding box, defined by the 'ndims' coordinates of the origin 'x0' and extent 'delta'.</td></tr>
+<tr  valign="top"><th> nv</th><td> number of vertices</td></tr>
+<tr  valign="top"><th> vx[0] vy[0] ...</th><td> the ndims coordinates of the first vertex</td></tr>
+<tr  valign="top"><th> ...</th><td> One line for each vertex</td></tr>
+<tr  valign="top"><td style="background:red" colspan="2" >Simplices definition (0-cells up to ndims-cells). One blue block should be added for each type of explicitly defined simplex. Note that only the highest dimension cells are sufficient to define a complex.</td></tr>
+<tr  valign="top"><th style="background:lightblue"> T N</th><td style="background:lightblue"> network has N T-simplices (each T-simplex has (T+1) vertices).</td></tr>
+<tr  valign="top"><th style="background:lightblue"> i[0] j[0] ...</th><td style="background:lightblue"> the T+1 indices (start at 0) of the vertices of the first T-simplex.</td></tr>
+<tr  valign="top"><th style="background:lightblue"> ...</th><td style="background:lightblue"> one line for each of the N T-simplices</td></tr>
+<tr  valign="top"><th> [ADDITIONAL_DATA]</th><td> OPTIONAL: indicate the beginning of the additional data section</td></tr>
+<tr  valign="top"><th> additional_data_name_1</th><td> name of the additional data (e.g. field_value for mse input files)</td></tr>
+<tr  valign="top"><th> T</th><td> type of simplex it is associated to (T-simplex, 0 means vertices)</td></tr>
+<tr  valign="top"><th> val[0]</th><td> value for the first T-simplex</td></tr>
+<tr  valign="top"><th> ...</th><td> One line for each T-simplex</td></tr>
+</table></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+<div id="sidebar">
+  <div id="blognav">
+    <div class="categories"><ul><li><a href="index1694.html?category/Download">Download</a></li><li><a href="indexba87.html?category/Install">Install</a></li><li><a href="index3c4a.html?category/Overview">Overview</a></li><li><a href="index4559.html?category/Terminology">Terminology</a></li><li><a href="index4f3e.html?category/Manual">Manual</a></li><li><a href="index55a0.html?category/Quick-start">Tutorial</a></li><li><a href="index3333.html?category/Skeleton-I-O">Skeleton data</a></li><li class="category-current"><a href="indexe2a5.html?category/Network-I-O">Network data</a></li><li><a href="indexc777.html?category/Field-I-O">Field data</a></li><li><a href="indexdc31.html?category/References">Contact &amp; References</a></li></ul></div>  </div> <!-- End #blognav -->
+   ____________________
+  <div id="blogextra">
+        <a href="indexe2a5.html?category/Network-I-O">&#94; Network data</a></br>
+    <a href="indexceff.html?post/NDnet-format">&#171; NDnet format</a></br>
+    <a href="indexda8a.html?post/ply-format">&#187; ply format</a></br>
+  </div> <!-- End #blogextra -->
+</div>
+
+</div> <!-- End #wrapper -->
+
+<div id="footer">
+  <p>Powered by <a href="http://www.dotclear.net/">DotClear</a> - Contact: sousbie<em>(AT)</em>iap<em>.</em>fr . </p>
+</div>
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from localhost/dotclear/index.php?post/NDnet_ascii-format by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

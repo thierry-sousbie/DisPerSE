@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!-- Mirrored from localhost/dotclear/index.php?post/ply-format by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>ply format - DisPerSE - persistent structures identification</title>
+  <meta name="description" lang="en" content="The PLY format is a relatively generic file format designed to store three dimensional data from 3D scanners with the possibility of associating properties to the polygons." />
+  <meta name="copyright" content="sousbie" />
+  <meta name="author" content="thierry sousbie" />
+  <meta name="date" scheme="W3CDTF" content="2426-01-03T13:14:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="ply format" />
+  <meta name="dc.description" lang="en" content="The PLY format is a relatively generic file format designed to store three dimensional data from 3D scanners with the possibility of associating properties to the polygons." />
+  <meta name="dc.creator" content="thierry sousbie" />
+  <meta name="dc.language" content="en" />
+  <meta name="dc.publisher" content="thierry sousbie" />
+  <meta name="dc.rights" content="sousbie" />
+  <meta name="dc.date" scheme="W3CDTF" content="2426-01-03T13:14:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Home" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexd2e2.html?post/NDnet_ascii-format"
+  title="NDnet_ascii format" />
+  
+  <link rel="prev" href="indexe8f9.html?post/vtk-network-format"
+  title="vtk network format" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="../images/index4ca3.php?feed/atom" />
+  
+  <link rel="shortcut icon" href="../images/favicon.ico" />
+
+<style type="text/css" media="screen">
+@import url(../images/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(../images/print.css);
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37686840-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  
+  <script type="text/javascript" src="../images/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Remember me on this blog';
+  //]]>
+  </script>
+
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+<!--
+<h1><span><a href="http://localhost/dotclear/index.php?">DisPerSE - persistent structures identification</a></span></h1>
+ -->
+
+  </div>
+
+<p id="prelude">
+<a href="indexd41d.html?">Home</a> |
+<a href="index888d.html?archive">Show all</a>
+</p>
+
+<!--
+<ul id="nav-box">
+2.
+<li><a href="http://localhost/dotclear/index.php?">Accueil</a></li>
+3.
+<li><a href="http://localhost/dotclear/index.php?archive" title="Liste des mois de publication">Archives</a></li>
+4.
+<li><a href="http://localhost/dotclear/index.php?contact" title="Formulaire de contact">Me contacter</a></li>
+5.
+</ul>
+ -->
+
+<div id="wrapper">
+
+<div id="main">
+  <div id="content">
+  
+  <p id="navlinks">
+ 
+  <a href="indexd2e2.html?post/NDnet_ascii-format"
+  title="NDnet_ascii format" class="prev">&#171; NDnet_ascii format</a>
+   <span>-</span> <a href="indexe8f9.html?post/vtk-network-format"
+  title="vtk network format" class="next">vtk network format &#187;</a>
+
+<!--
+  <a href="http://localhost/dotclear/index.php?post/vtk-network-format"
+  title="vtk network format" class="prev">&#171; vtk network format</a>
+  <span>-</span> <a href="http://localhost/dotclear/index.php?post/NDnet_ascii-format"
+  title="NDnet_ascii format" class="next">NDnet_ascii format &#187;</a>
+-->
+  </p>
+  
+  <div id="p32" class="post">
+    <b1 class="post-title">ply format</b1>
+    <!--
+    <p class="post-info">By thierry sousbie    on Saturday, January  3 2426, 13:14        - <a href="http://localhost/dotclear/index.php?category/Network-I-O">Network data</a>
+        - <a href="http://localhost/dotclear/index.php?post/ply-format">Permalink</a>
+    </p>
+    -->
+    
+    
+        
+    <div class="post-content"><p>The PLY format is a relatively generic file format designed to store three dimensional data from 3D scanners with the possibility of associating properties to the polygons. Information on this format can be found on <a href="http://en.wikipedia.org/wiki/PLY_(file_format)" title="PLY format">wikipedia</a>  (see also the <em>External links</em> section). A very efficient C library for reading and writing PLY files in ASCII or binary format is <a href="http://w3.impa.br/~diego/software/rply/" title="RPly">RPly</a> (DisPerSE uses it for PLY files I/O, see files <em>NDnet_PLY_IO.c</em> and <em>NDnet_PLY_IO.h</em>).
+<br />
+<br />
+A typical header for a PLY file readable by <a href="index25e8.html?post/netconv">netconv</a> or <a href="index4656.html?post/mse">mse</a> is as follows:</p>
+
+
+<pre>ply
+format ascii 1.0
+element bbox 1
+property list uchar double x0 
+property list uchar double delta
+element vertex 77595
+property float x
+property float y
+property float z
+property double field_value
+element face 482867
+property list uchar uint vertex_indices
+end_header</pre>
+
+<p><br />
+<br /></p>
+<ul>
+<li>-<strong>format</strong> may be ASCII or little / big endian binary</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong>bbox</strong> element is used to define a bounding box if available (x0 is its origin and delta its extent)</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong>coordinates</strong> of the vertices are given as vertex properties labeled <em>x</em>, <em>y</em>, and <em>z</em> or <em>x0</em>, <em>x1</em>, ... (the number of this properties gives the dimension of the embedding space)</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong>faces</strong> are defined by the property vertex_indices, each element corresponding to a list of vertices. A cell is always supposed to be a simplex, so the number of vertices determine the dimension spanned by the complex (a 2D complex may be embedded in a 3D space).</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong>additional properties</strong> may be defined for cells and vertices. In particular, a  vertex property labeled <em>field_value</em> would be used as input function in <a href="index4656.html?post/mse">mse</a>.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+<div id="sidebar">
+  <div id="blognav">
+    <div class="categories"><ul><li><a href="index1694.html?category/Download">Download</a></li><li><a href="indexba87.html?category/Install">Install</a></li><li><a href="index3c4a.html?category/Overview">Overview</a></li><li><a href="index4559.html?category/Terminology">Terminology</a></li><li><a href="index4f3e.html?category/Manual">Manual</a></li><li><a href="index55a0.html?category/Quick-start">Tutorial</a></li><li><a href="index3333.html?category/Skeleton-I-O">Skeleton data</a></li><li class="category-current"><a href="indexe2a5.html?category/Network-I-O">Network data</a></li><li><a href="indexc777.html?category/Field-I-O">Field data</a></li><li><a href="indexdc31.html?category/References">Contact &amp; References</a></li></ul></div>  </div> <!-- End #blognav -->
+   ____________________
+  <div id="blogextra">
+        <a href="indexe2a5.html?category/Network-I-O">&#94; Network data</a></br>
+    <a href="indexd2e2.html?post/NDnet_ascii-format">&#171; NDnet_ascii format</a></br>
+    <a href="indexe8f9.html?post/vtk-network-format">&#187; vtk network format</a></br>
+  </div> <!-- End #blogextra -->
+</div>
+
+</div> <!-- End #wrapper -->
+
+<div id="footer">
+  <p>Powered by <a href="http://www.dotclear.net/">DotClear</a> - Contact: sousbie<em>(AT)</em>iap<em>.</em>fr . </p>
+</div>
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from localhost/dotclear/index.php?post/ply-format by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

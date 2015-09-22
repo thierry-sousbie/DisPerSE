@@ -1,0 +1,5 @@
+rm -f *~ \#*
+rm -f ./*/*~ ./*/\#*
+rm -f ./src/*/*~ ./src/*/\#*
+rm -rf ./build/*
+rm -f ./bin/*

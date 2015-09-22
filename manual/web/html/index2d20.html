@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!-- Mirrored from localhost/dotclear/index.php?post/Example-1 by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Point sample: 2D voids and filaments - DisPerSE - persistent structures identification</title>
+  <meta name="description" lang="en" content="This tutorial uses file ${DISPERSE}/data/simu_2D.ND which contains the projected distribution of the particles in a slice of an N-Body dark matter simulation of a 50 Mpc large" />
+  <meta name="copyright" content="sousbie" />
+  <meta name="author" content="thierry sousbie" />
+  <meta name="date" scheme="W3CDTF" content="2310-05-09T06:59:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Point sample: 2D voids and filaments" />
+  <meta name="dc.description" lang="en" content="This tutorial uses file ${DISPERSE}/data/simu_2D.ND which contains the projected distribution of the particles in a slice of an N-Body dark matter simulation of a 50 Mpc large" />
+  <meta name="dc.creator" content="thierry sousbie" />
+  <meta name="dc.language" content="en" />
+  <meta name="dc.publisher" content="thierry sousbie" />
+  <meta name="dc.rights" content="sousbie" />
+  <meta name="dc.date" scheme="W3CDTF" content="2310-05-09T06:59:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Home" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index38d8.html?post/regular-grid-%3A-filaments"
+  title="Persistence diagrams and filaments" />
+  
+  <link rel="prev" href="indexf6f1.html?post/Example-2"
+  title="Point sample: 3D walls and filaments" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="../images/index4ca3.php?feed/atom" />
+  
+  <link rel="shortcut icon" href="../images/favicon.ico" />
+
+<style type="text/css" media="screen">
+@import url(../images/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(../images/print.css);
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37686840-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  
+  <script type="text/javascript" src="../images/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Remember me on this blog';
+  //]]>
+  </script>
+
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+<!--
+<h1><span><a href="http://localhost/dotclear/index.php?">DisPerSE - persistent structures identification</a></span></h1>
+ -->
+
+  </div>
+
+<p id="prelude">
+<a href="indexd41d.html?">Home</a> |
+<a href="index888d.html?archive">Show all</a>
+</p>
+
+<!--
+<ul id="nav-box">
+2.
+<li><a href="http://localhost/dotclear/index.php?">Accueil</a></li>
+3.
+<li><a href="http://localhost/dotclear/index.php?archive" title="Liste des mois de publication">Archives</a></li>
+4.
+<li><a href="http://localhost/dotclear/index.php?contact" title="Formulaire de contact">Me contacter</a></li>
+5.
+</ul>
+ -->
+
+<div id="wrapper">
+
+<div id="main">
+  <div id="content">
+  
+  <p id="navlinks">
+ 
+  <a href="index38d8.html?post/regular-grid-%3A-filaments"
+  title="Persistence diagrams and filaments" class="prev">&#171; Persistence diagrams and filaments</a>
+   <span>-</span> <a href="indexf6f1.html?post/Example-2"
+  title="Point sample: 3D walls and filaments" class="next">Point sample: 3D walls and filaments &#187;</a>
+
+<!--
+  <a href="http://localhost/dotclear/index.php?post/Example-2"
+  title="Point sample: 3D walls and filaments" class="prev">&#171; Point sample: 3D walls and filaments</a>
+  <span>-</span> <a href="http://localhost/dotclear/index.php?post/regular-grid-%3A-filaments"
+  title="Persistence diagrams and filaments" class="next">Persistence diagrams and filaments &#187;</a>
+-->
+  </p>
+  
+  <div id="p18" class="post">
+    <b1 class="post-title">Point sample: 2D voids and filaments</b1>
+    <!--
+    <p class="post-info">By thierry sousbie    on Monday, May  9 2310, 06:59        - <a href="http://localhost/dotclear/index.php?category/Quick-start">Tutorial</a>
+        - <a href="http://localhost/dotclear/index.php?post/Example-1">Permalink</a>
+    </p>
+    -->
+    
+    
+        
+    <div class="post-content"><p>This tutorial uses file  <em>${DISPERSE}/data/simu_2D.ND</em> which contains the projected distribution of the particles in a slice of an N-Body dark matter simulation of a <em>50 Mpc</em> large chunk of the universe. Note that although we use a 2D slice for convenience here, the following procedure would also work with the full 3D distribution.
+<br />
+<br />
+In this example, the voids and filaments of the particle distribution will be computed from the underlying density function traced by the particles, so we first need to define the topology of the space (i.e. we need a notion of neighborhood for each particle) and to estimate the density function. This is achieved using the Delaunay tessellation of the particle distribution, which can be computed with <em><a href="index490e.html?post/Usage">delaunay_2D</a></em>.
+<br />
+<br />
+The distribution of the particles is periodic, so we could simply run:
+<br /><br /></p>
+<div style="text-align: center; border: 1px dotted gray;">delaunay_2D simu_2D.ND -periodic</div>
+
+
+<p><br />
+However, in this example we are going to pretend that the distribution has boundaries, which will make visualization easier (if boundary conditions are periodic, a filament crossing a boundary reappears on the other side, causing visual artifacts). We nevertheless would like to use the fact that boundary conditions are indeed periodic to correctly estimate density on the boundaries, which can be achieved using option <em><a href="index490e.html?post/Usage#btype">-btype</a></em>:
+<br /><br /></p>
+<div style="text-align: center; border: 1px dotted gray;">delaunay_2D simu_2D.ND -btype periodic</div>
+
+
+<p><br />
+The output file is named <em>simu_2D.ND.NDnet</em> by default, and it contains the Delauany tessellation as an <a href="index9cca.html?post/networks">unstructured network</a> in <a href="indexceff.html?post/NDnet-format">NDnet</a> format, as well as the density function estimated using DTFE at each vertex (i.e. the additional vertex data labeled <em>field_value</em> in the NDnet file). This file can be fed directly to <a href="index4656.html?post/mse">mse</a>, but we have to choose a persistence threshold first.
+<br />
+<br />
+Because the input file is a Delaunay tessellation, persistence is expressed as a ratio (density has a close to lognormal PDF) and the persistence threshold as a <em>number of sigmas</em> representing the probability that a persistence pair with given persistence ratio happens in a pure random discrete Poisson distribution. It is usually safe in such case to select a threshold between 2-sigmas and 4-sigmas, and we could directly compute the filaments of the distribution with the following command (see <a href="index4656.html?post/mse">mse</a> for more info):
+<br /><br /></p>
+<div style="text-align: center; border: 1px dotted gray;">mse simu_2D.ND.NDnet -nsig 3 -upSkl</div>
+
+
+<p><br />
+However, in this example, we will use a persistence diagram to decide the correct threshold (in case you do not have <a href="index8707.html?post/pdview">pdview</a>, replace <em><a href="index4656.html?post/mse#interactive">-interactive</a></em> with <em><a href="index4656.html?post/mse#nsig">-nsig 3</a></em> in the following commannd) and we would also like to identify the voids in the distribution (i.e. the ascending 3-manifolds originating from critical points of critical index 0; see option <em><a href="index4656.html?post/mse#dumpmanifolds">-dumpManifolds</a></em> of <a href="index4656.html?post/mse">mse</a>):
+<br /><br /></p>
+<div style="text-align: center; border: 1px dotted gray;">mse simu_2D.ND.NDnet -interactive -upSkl -dumpManifolds J0a</div>
+
+
+<p><br />
+After running this command line, you should be able to visualize the following diagrams:
+<br /><br />
+<img src="../images/per_diag_small.jpg" alt="per_diag_small.jpg" style="display:block; margin:0 auto;" />
+<br />
+On this picture, the maxima/saddle persistence pairs diagram is represented on the left and the minima/saddle one on the right. The fact that the second type of pairs are clearly less persistent reflects the known fact that dark matter haloes are very prominent structures because they belong to regions in the non linear regime where density increases exponentially fast. One nice feature of persistence diagrams is that they make it easy to choose the threshold above which underlying topological structures stand out of the noise : in the present case, we want to select the high persistence tails only that clearly stand out from the bunch of pairs generated by noise. This gives us a threshold of around <em>3-sigmas</em> that can be visually selected by clicking while holding <em>Ctrl</em> key down. Once the threshold is selected, simply press <em>Done</em> button.
+<br />
+<br />
+After this operation, <a href="index4656.html?post/mse">mse</a> should output two files: the filaments in a <a href="index661f.html?post/skeleton-formats">skeleton type</a> file (<em>simu_2D.ND.NDnet_s3.up.NDskl</em>) and the voids in a <a href="index9cca.html?post/networks">network type</a> file (<em>simu_2D.ND.NDnet_s3_manifolds_J0a.NDnet</em>).
+<br />
+<br />
+By default, <em>mse</em> associates maxima to vertices while minima are associated to d-<a href="index959e.html?post/definitions">simplices</a> (where d is the dimension of space). As a result, the network representing the voids defines a set of triangles each associated to a given void. This may not be very practical for post-treatment or visualization, but we can use option <em><a href="index4656.html?post/mse#vertexasminima">-vertexAsMinima</a></em> to reverse the convention (this will overwrite the previous file if the threshold is identical):
+<br /><br /></p>
+<div style="text-align: center; border: 1px dotted gray;">mse simu_2D.ND.NDnet -nsig 3 -vertexAsMinima -dumpManifolds J0a</div>
+
+
+<p><br />
+We can now visualize the result by converting the files to vtk formats using <a href="index6160.html?post/skelconv">skelconv</a> and <a href="index25e8.html?post/netconv">netconv</a>. The skeleton is smoothed and converted to <em><a href="indexb3eb.html?post/vtk-formats">vtp</a></em> format:
+<br /><br /></p>
+<div style="text-align: center; border: 1px dotted gray;">skelconv simu_2D.ND.NDnet_s3.up.NDskl -smooth 10 -to vtp</div>
+
+
+<p><br />
+and the input tesselation and output voids are converted to <em><a href="indexe8f9.html?post/vtk-network-format">vtu</a></em> format:
+<br /><br /></p>
+<div style="text-align: center; border: 1px dotted gray;">
+netconv simu_2D.ND.NDnet_s3_manifolds_J0a.NDnet -to vtu</br>
+netconv simu_2D.ND.NDnet -to vtu
+</div>
+
+
+<p><br /><a name="voids"></a>
+the result should look as follows when visualized with <em><a href="http://www.paraview.org/" title="paraview">paraview</a></em>: (the configuration file <em>${DISPERSE}/data/simu_2D_nonper.pvsm</em> can be directly loaded in paraview (<em>File-&gt;Load State</em>) to produce the following plot)
+<br /><br />
+<img src="../images/simu_2d_tuto_small.jpg" alt="simu_2D_tuto_small.jpg" style="display:block; margin:0 auto;" />
+<br /><br />
+<strong>Note</strong>: on the right figure, a different color is associated to the <em><a href="index9cca.html?post/networks#source">source_index</a></em> of each particle depending on which void it belongs to: each void originates from a different minimum of the field and each critical point has a specific index. This <em>source_index</em> corresponds to the  position of this critical point as a node in skeleton files or as a vertex in persistence pair networks obtained with <a href="index4656.html?post/mse">mse</a> (options <em><a href="index4656.html?post/mse#dumparcs">-dumpArcs</a></em> and <em><a href="index4656.html?post/mse#ppairs">-ppairs</a></em>). It can therefore also be used to cross-link information contained in manifold networks and skeletons or persistence pairs, such as for instance retrieving the hierarchy of the voids (i.e. using the <em><a href="index9cca.html?post/networks#parent">parent_index</a></em> of the critical points in <a href="index661f.html?post/skeleton-formats#parent">skeleton files</a> and persistence pairs networks).</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+<div id="sidebar">
+  <div id="blognav">
+    <div class="categories"><ul><li><a href="index1694.html?category/Download">Download</a></li><li><a href="indexba87.html?category/Install">Install</a></li><li><a href="index3c4a.html?category/Overview">Overview</a></li><li><a href="index4559.html?category/Terminology">Terminology</a></li><li><a href="index4f3e.html?category/Manual">Manual</a></li><li class="category-current"><a href="index55a0.html?category/Quick-start">Tutorial</a></li><li><a href="index3333.html?category/Skeleton-I-O">Skeleton data</a></li><li><a href="indexe2a5.html?category/Network-I-O">Network data</a></li><li><a href="indexc777.html?category/Field-I-O">Field data</a></li><li><a href="indexdc31.html?category/References">Contact &amp; References</a></li></ul></div>  </div> <!-- End #blognav -->
+   ____________________
+  <div id="blogextra">
+        <a href="index55a0.html?category/Quick-start">&#94; Tutorial</a></br>
+    <a href="index38d8.html?post/regular-grid-%3A-filaments">&#171; Persistence diagrams and filaments</a></br>
+    <a href="indexf6f1.html?post/Example-2">&#187; Point sample: 3D walls and filaments</a></br>
+  </div> <!-- End #blogextra -->
+</div>
+
+</div> <!-- End #wrapper -->
+
+<div id="footer">
+  <p>Powered by <a href="http://www.dotclear.net/">DotClear</a> - Contact: sousbie<em>(AT)</em>iap<em>.</em>fr . </p>
+</div>
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from localhost/dotclear/index.php?post/Example-1 by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

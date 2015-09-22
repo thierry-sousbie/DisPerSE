@@ -1,0 +1,222 @@
+NOTE: All indexes always start from 0.
+
+***********************************************
+** Description of the ASCII skeleton format. **
+***********************************************
+
+ANDSKEL              // header
+ndims               // the number of dimensions
+#comments go here       // OPTIONAL: should start with '#' if present (the 80 first characters are read and stored).
+BBOX [x0_1..x0_ndims] [delta_1..delta_ndims] //OPTIONAL: the bounding box
+[CRITICAL POINTS]   // critical points (CP) header
+ncrit               // the number of CP
+type pos[0] ... pos[ndims-1] value pairID boundary // info on the CP with index 0
+ nfil 
+ destId[0] filId[0] 
+ ... 
+ destId[nfil-1] filId[nfil-1] // info on its filaments
+  .
+  .
+  .
+type pos[0] ... pos[ndims-1] value pairId boundary // info on the CP with index ncrit-1
+ nfil 
+ destCritId[0] filId[0] 
+ ... 
+ destCritId[nfil-1] filId[nfil-1] // info on its filaments
+// 'type' is the index of the critical point (0=minimum ... ndims=maximum, ndims+1=bifurcation)
+// 'pos[i]' are the 'ndims' coordinates of each critical point (X->i=0 Y->i=1 in 2D)
+// 'value' is the function value (usually a density)
+// 'pairID' is the index of the other critical point in the persistence pair
+// 'boundary' takes value 0,1,2 or 3 when the point is regular, on the boundary, outside or at infinity
+// 'nfil' is the number of filaments that connect to the CP
+// 'destCritID[i]' is the index of the CP to which the ith filaments leads
+// 'filId[i]' is the index of the ith filament in the filaments list
+
+[FILAMENTS]           // filament list header
+nfil		      // total number of filaments
+CP1 CP2 nSamp         // index 0 filament endpoints index and number of sampling points
+ P[0][0] ... P[0][ndims-1] // first point Coordinates of first filament 
+ ... 
+ P[nSamp-1][0] ... P[nSamp-1][ndims-1] // last point coordinates of first filament 
+  .
+  .			// NOTE: each line contains at most 256 sampling points.
+  .                   	// If there are more in one filament, the line is split into
+  .                   	// n lines of 256 coordinates (ie 256*ndims values), plus a line 
+  .		    	// with the remaining nSamp-n*256 coordinates.
+  .
+CP1 CP2 nSamp		// index nfil-1 filament
+ P[0][0] ... P[0][ndims-1] //first point Coordinates of last filament 
+ ... 
+ P[nSamp-1][0] ... P[nSamp-1][nSamp-1] // last point coordinates of last filament 
+
+// 'CP1' and 'CP2' are the index of the critical points at the extremities of the filaments
+// 'nSamp' is the number of points that sample the filament
+// P[i][j] is the jth coordinate (X<=>j==0, Y<=>j==1, ...) of the ith sample (0 <= i < nSamp)
+// Note: points are ordered such that the distance from CP1 along the filament grows with i
+// Therefore, P[0][] are the coordinates of CP1 and P[nSamp-1][] that of CP2.
+
+[CRITICAL POINTS DATA] 	 // critical points additional data header
+N     	     	     	 // the number of fields
+CP_DATA_FIELD_NAME_1	 // name of the first field
+.
+.
+CP_DATA_FIELD_NAME_N	 // name of the last field
+val1[0] ... valN[0]  	 // values of each field for the first CP
+.
+.
+val1[ncrit-1] ... valN[ncrit-1]  // values of each field for the last CP
+
+[FILAMENTS DATA]   	 // filaments additional data header
+N     	     	     	 // the number of fields
+FIL_DATA_FIELD_NAME_1	 // name of the first field
+.
+.
+FIL_DATA_FIELD_NAME_N		// name of the last field
+val1[0][0] ... valN[0][0]  	// values of each field for the first point of the first filament
+.
+.
+.  	 
+val1[0][nsamp[0]] ... valN[0][nsamp[0]]	// values of each field for the last point of the first filament
+val1[1][0] ... valN[1][0]  	// values of each field for the first point of the second filament
+.
+.
+val1[1][nsamp[1]] ... valN[1][nsamp[1]]	// values of each field for the last point of the second filament
+.
+.
+.
+
+NOTE : 
+* The bounding box is defined by the position of its origin 'X0' and extent 'delta'.
+
+
+********************************************************
+** Description of the ASCII persistence pairs format  **
+********************************************************
+This format is kept for backward compatibility only, you may not want to use it :)
+prefered format is 'ndnet' (default) or 'ndnet_ascii', with vertices being critical points
+and segments (i.e. cells of type 1) being persistence pairs.
+
+PERSISTENCE PAIRS	// header
+ndims	    		// the number of dimensions
+Np[0] Ptype(=0)		// 'Np[0]' is the number of pairs of type 'Ptype'=0 (ie critical points of index 0 and 1 resp.)
+V1[0] V2[0]		// Value of the function at the location of the critical points in the first pair.
+.     			// V1 is always smaller (index 0) than V2 (index 1) (in 2D, min/saddle)
+.
+.
+V1[Np[0]-1] V2[Np[0]-1]	// Value of the function for the last pair.
+Np[1] Ptype(=1)		// the number of pairs of type 'Ptype'=1 (ie critical points of index 1 and 2 resp.)
+V1[0] V2[0]		// Value of the function for the first pair. 
+.     			// V1 has index 1 and V2 index 2 (in 2D, saddle/max)
+.
+.
+V1[Np[1]-1] V2[Np[1]-1] // Value of the function for the last pair. 
+.
+.
+.
+Np[ndims-1] Ptype(=ndims-1)	
+.
+.
+.
+
+NOTE : 
+* The type of a critical points pair is the critical index of the lowest of the two. 
+* Two critical points in a pair always  have a critical index difference of exactly 1.
+* Some critical points may not be paired (main topological features), and therefore do not appear in the file.
+  Those critical points appear in skeleton and network files.
+
+
+
+********************************************************
+** Description of the ASCII NDnet format.             **
+********************************************************
+ANDNET			// header
+ndims			// numberof of dimensions.
+#comments go here       // OPTIONAL: should start with '#' if present (the 80 first characters are read and stored).
+BBOX [x0_1..x0_ndims] [delta_1..delta_ndims] //OPTIONAL: the bounding box
+nv			// number of vertice
+vx[0] vy[0] ...		// the NDIMS coordinates of the first vertex (ndims determined by nummber of values)
+.
+.
+.
+vx[nv-1] vy[nv-1] ...	// the NDIMS coordinates of the last vertex 
+// ** NB : EACH SECTION BELOW HERE IS OPTIONAL, AT MOST ONE PER (DIMENSION+1) CAN BE DECLARED **
+type0 N0	 	// N0 faces of dimension type0 will follow (type0-simplices with (type0+1) vertices). 
+i[0] j[0] ...		// (type0+1) indices of the vertice of the first type-simplex
+.
+.
+.
+i[N0-1] j[N0-1] ...	// (type0+1) indices of the vertice of the last type-simplex
+type1 N1	 	// N1 faces of dimension type1 will follow (type1-simplices with (type1+1) vertices). 
+i[0] j[0] ...		// (type1+1) indices of the vertice of the first type1-simplex
+.
+.
+.
+i[N1-1] j[N1-1] ...	// (type1+1) indices of the vertice of the last type-simplex
+.
+.
+.
+[ADDITIONAL_DATA]	// header marking the end of topology section (ommit if no add. data is available)
+additional_data_name_1	// a string, describing the type of additional data at vertices
+type			// the type of faces it is associated to (0=>vertex, t=>t-faces)
+val[0]			// value of additional_data_name_1 for the first type-simplex
+.
+.
+.
+val[N[type]-1]		// value for the last type-simplex (N[type] is the number of type-simplices)
+type			//
+additional_data_name_2	// 
+.
+.
+.
+
+NOTE : 
+* The scalar function whose MS-complex is computed by 'mse' can be stored as an additional data field
+named 'field_value' (case sensitive).
+* The bounding box is defined by the position of its lower left corner 'X0' and extent 'delta'.
+
+
+
+
+********************************************************
+** Description of the ASCII NDfield format.             **
+********************************************************
+
+NDFIELD	COORDS			//header (COORDS keywords is optional)
+[N_1 ... N_ndims]		//size along each of the ndims dimensions
+BBOX [X0_1 ... X0_ndims] [delta_1 ... delta_ndims]    //this line is optional : bounding box definition 	
+V_1  	       		 // values
+V_2			 // no particular formating is required
+.			 // any number of values can be given on a single line
+.
+.
+V_(N_1*N_2*...*N_ndims)
+
+NOTES:
+* the bounding box is defined by the position of its lower left corner 'X0' and extent 'delta'.
+* If the COORDS keyword is present in the header, values are to be interpreted as coordinates
+  in an N_1 dimensionnal space (i.e. N_2*N_3*...*N_ndims coordinates, each having N_1 components).
+  In that case, the bounding box should have N_1 dimensions, not ndims ...
+
+  --sample file for the 3D coordinates of 1000 points with coordinates between 0 and 1000:
+
+     NDFIELD COORDS	
+     [3 1000]		// COORDS is defined => 3D space
+     BBOX [0 0 0] [1000 1000 1000]  // the points are contained within this box
+     V_1 V_2 V_3    // NO particular ordering is necessary (1 value per line would be fine)
+     V_4 V_5 V_6
+     .
+     .
+     .
+     V_998 V_999 V_1000
+
+  --sample file for a 20x20x100 pixels grid centered on the origin and with size 2x2x10
+
+     NDFIELD	
+     [10 10 10]  // COORDS not defined => 3D space
+     BBOX [-1 -1 -5] [2 2 10]
+     V_1 V_2 V_3    // NO particular ordering is necessary (1 value per line would be fine)
+     V_4 V_5 V_6
+     .
+     .
+     .
+     V_39998 V_39999 V_40000

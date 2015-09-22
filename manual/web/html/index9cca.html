@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!-- Mirrored from localhost/dotclear/index.php?post/networks by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Network files - DisPerSE - persistent structures identification</title>
+  <meta name="description" lang="en" content="This file type is designed to store any kind of unstructured network (such as delaunay tesselations or more generally cell complexes). In DisPerSE, its usage is restricted to" />
+  <meta name="copyright" content="sousbie" />
+  <meta name="author" content="thierry sousbie" />
+  <meta name="date" scheme="W3CDTF" content="2425-05-09T06:54:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Network files" />
+  <meta name="dc.description" lang="en" content="This file type is designed to store any kind of unstructured network (such as delaunay tesselations or more generally cell complexes). In DisPerSE, its usage is restricted to" />
+  <meta name="dc.creator" content="thierry sousbie" />
+  <meta name="dc.language" content="en" />
+  <meta name="dc.publisher" content="thierry sousbie" />
+  <meta name="dc.rights" content="sousbie" />
+  <meta name="dc.date" scheme="W3CDTF" content="2425-05-09T06:54:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Home" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexb3eb.html?post/vtk-formats"
+  title="vtk skeleton formats" />
+  
+  <link rel="prev" href="indexceff.html?post/NDnet-format"
+  title="NDnet format" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="../images/index4ca3.php?feed/atom" />
+  
+  <link rel="shortcut icon" href="../images/favicon.ico" />
+
+<style type="text/css" media="screen">
+@import url(../images/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(../images/print.css);
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37686840-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  
+  <script type="text/javascript" src="../images/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Remember me on this blog';
+  //]]>
+  </script>
+
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+<!--
+<h1><span><a href="http://localhost/dotclear/index.php?">DisPerSE - persistent structures identification</a></span></h1>
+ -->
+
+  </div>
+
+<p id="prelude">
+<a href="indexd41d.html?">Home</a> |
+<a href="index888d.html?archive">Show all</a>
+</p>
+
+<!--
+<ul id="nav-box">
+2.
+<li><a href="http://localhost/dotclear/index.php?">Accueil</a></li>
+3.
+<li><a href="http://localhost/dotclear/index.php?archive" title="Liste des mois de publication">Archives</a></li>
+4.
+<li><a href="http://localhost/dotclear/index.php?contact" title="Formulaire de contact">Me contacter</a></li>
+5.
+</ul>
+ -->
+
+<div id="wrapper">
+
+<div id="main">
+  <div id="content">
+  
+  <p id="navlinks">
+ 
+  <a href="indexb3eb.html?post/vtk-formats"
+  title="vtk skeleton formats" class="prev">&#171; vtk skeleton formats</a>
+   <span>-</span> <a href="indexceff.html?post/NDnet-format"
+  title="NDnet format" class="next">NDnet format &#187;</a>
+
+<!--
+  <a href="http://localhost/dotclear/index.php?post/NDnet-format"
+  title="NDnet format" class="prev">&#171; NDnet format</a>
+  <span>-</span> <a href="http://localhost/dotclear/index.php?post/vtk-formats"
+  title="vtk skeleton formats" class="next">vtk skeleton formats &#187;</a>
+-->
+  </p>
+  
+  <div id="p15" class="post">
+    <b1 class="post-title">Network files</b1>
+    <!--
+    <p class="post-info">By thierry sousbie    on Friday, May  9 2425, 06:54        - <a href="http://localhost/dotclear/index.php?category/Network-I-O">Network data</a>
+        - <a href="http://localhost/dotclear/index.php?post/networks">Permalink</a>
+    </p>
+    -->
+    
+    
+        
+    <div class="post-content"><p>This file type is designed to store any kind of unstructured network (such as delaunay tesselations or more generally cell complexes). In DisPerSE, its usage is restricted to networks of simplices though, and it is mainly used to store ascending and descending manifolds (voids and walls for instance) and persistence pairs as output by <a href="index4656.html?post/mse">mse</a> or Delaunay tessellations as output by <a href="index490e.html?post/Usage">delaunay_nD</a> (<a href="index661f.html?post/skeleton-formats">skeleton files</a> can also be converted to networks using <em><a href="index6160.html?post/skelconv">skelconv</a> -to NDnet</em>). Within network files, networks are represented by setz of vertices and cells of any dimension. A n-cell is a cell of dimension <em>n</em>, which is therefore described, in the case of a simplicial network, as a set of <em>n+1</em> vertices index. In the case of a simplicial <em>complex</em>, only the highest dimensional cell have to be explicitly given, but other type of cells may also be specified. Indeed, extended manifolds for instance are not described as complexes: an ascending 0-manifold in 3D is a set of tetrahedrons (3-cells), triangles (representing ascending 1-manifolds on its boundary), segments (ascending 2-manifolds on its boundary) and vertices (ascending 3-manifolds / critical points). Note that additional information can also be associated to each type of cell (see below).
+<br />
+The base network format is <a href="indexceff.html?post/NDnet-format">NDnet</a> which is used internally, but this format may be converted to several other more or less complex formats of network files adapted to different applications (see option <em>-to</em> in program <a href="index25e8.html?post/netconv">netconv</a>, a list of available formats is displayed when running the program without argument).<br />
+<br />
+<br />
+<strong><ins>Available formats</ins></strong>:
+<br />
+<br /></p>
+<ul>
+<li>-<strong><a href="indexceff.html?post/NDnet-format">NDnet</a></strong> (Read / Write):<br /> This is the format of the network files created or red by <a href="index4656.html?post/mse">mse</a>. It is a relatively complex binary format (it is actually more complex than needed as it is designed to store generic non-simplicial networks) that contains all the information on the geometry and topology of unstructured networks as well as additional data associated to each type of cells.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="indexd2e2.html?post/NDnet_ascii-format">NDnet_ascii</a></strong> (Read / Write):<br /> This ASCII format contains the same amount of information as <em>NDnet</em> files, but restricted to simplicial networks. It is easy to read and write so it may be used to write reasonably sized networks used as input for <em><a href="index4656.html?post/mse">mse</a></em>.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="indexda8a.html?post/ply-format">PLY</a></strong> and <strong><a href="indexda8a.html?post/ply-format">PLY_ascii</a></strong> (Read binary only / Write):<br /> This is a rather popular and simple binary or ASCII format that can be used as an interface with other software.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="indexe8f9.html?post/vtk-network-format">vtk</a></strong>, <strong><a href="indexe8f9.html?post/vtk-network-format">vtk_ascii</a></strong>, <strong><a href="indexe8f9.html?post/vtk-network-format">vtu</a></strong> and <strong><a href="index3bdb.html?post/vtk-network-formats">vtu_ascii</a></strong> (Write only):<br /> These formats are binary and ASCII legacy and XML <a href="http://www.vtk.org/">VTK</a> formats that are readable by several 3D visualization tools, such as <a href="https://wci.llnl.gov/codes/visit/">VisIt</a> or <a href="http://www.paraview.org/">ParaView</a> for instance.</li>
+</ul>
+<p><br />
+<br />
+<strong><ins>Additional data</ins></strong>: In addition to the topology and geometry of the network, arbitrary additional information may be associated to each type of cell. Run <em><a href="index25e8.html?post/netconv">netconv</a> filename -info</em> for a list of additional data available in the network file <em>filename</em>. By default, the name of additional data added by <a href="index4656.html?post/mse">mse</a> is relatively explicit, it includes (see also the <em>additional data</em> section of the <a href="index661f.html?post/skeleton-formats">skeleton file format</a> description):
+<br />
+<br /></p>
+<ul>
+<li>-<strong>field_value</strong> / <strong>log_field_value</strong> :<br /> The value of the field and its logarithm. The tag <em>field_value</em> corresponds to the input function for <em><a href="index4656.html?post/mse">mse</a></em>, whose Morse-Smale complex is to be computed.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong>cell</strong>:<br /> The <em>type</em> and <em>index</em> of a cell in the original network (prefix may be added). The value is a double precision floating number whose integer part is the index of the cell and decimal part its type. For instance, the 156th vertex (i.e. 0-cell) in the cell complex is represented as 156.0, while the 123th tetrahedron is 123.3. Note that the index of the 0-cell correpond to the index of the pixel / vertices in the original network from which the skeleton was computed.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong>type</strong>:<br /> This usually corresponds to the critical index of a critical point (for instance, vertices of persistence pairs networks), or the type of a persistence pair (i.e. the minimum critical index of the CP in the pair, for segments of persistence pairs networks).</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong>index</strong><br /> Usually the index of a vertex (e.g. for persistence pairs, additional segment data tagged <em>up_index</em> and <em>down_index</em> correspond to the indices of the vertices with lowest and highest critical index in the persistence pair respectively).</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong>persistence</strong> / <strong>persistence_ratio</strong> / <strong>persistence_nsigmas</strong> :<br /> The persistence (expressed as a difference, ratio or in <em>number of sigmas</em>) of the persistence pair containing the corresponding critical point. A negative or null value indicates that <em>persistence</em> is not relevant to this particular cell.</li>
+</ul>
+<p><br /><a name="parent"></a></p>
+<ul>
+<li>-<strong>parent_index</strong> / <strong>parent_log_index</strong> (vertices only):<br /> For persistence pairs type networks, for each vertex representing an extremum  (i.e. minima and maxima), the index of the vertex that corresponds to the other extremum into which it would be merged if its persistence pair was canceled (indices start at 0). This can be used to reconstruct the tree of the hierarchy of maxima and minima. The value is -1 for non extrema critical points. The difference between the two versions is that the second (<em>parent_log_index</em>) is the hierarchy computed from the logarithm of the field. The second version is useful only for discrete point samples whose MS-complex is obtained from the delaunay tessellation computed with <em><a href="index490e.html?post/Usage">delaunay_nD</a></em>.  Practically, <em>parent_log_index</em> can be used whenever persistence pairs are cancelled in order of increasing ratio (option <em><a href="index4656.html?post/mse#nsig">-nsig</a></em> in <em>mse</em>), and <em>parent_index</em> whenever persistence pairs are cancelled in order of increasing difference  (option <em><a href="index4656.html?post/mse#cut">-cut</a></em> in <em>mse</em>).</li>
+</ul>
+<p><br /><a name="source"></a></p>
+<ul>
+<li>-<strong>source_cell</strong> / <strong>source_index</strong>:<br /> For networks representing manifolds (voids, walls, ... obtained with option <a href="index4656.html?post/mse#dumpmanifolds">-dumpManifolds</a> of mse), this represents for each simplex the critical point from which the manifold it belongs to originates (for instance, the minimum corresponding to a void, or the saddle point corresponding to a filament). In <em>source_cell</em>, the critical points is represented by its cell in the initial cell complex (see <strong>cell</strong> above), while <em>source_index</em> gives the index of the critical point in the <a href="index661f.html?post/skeleton-formats">skeleton</a> file or persistence pair network obtained with <a href="index4656.html?post/mse">mse</a> (options <em><a href="index4656.html?post/mse#dumparcs">-dumpArcs</a></em> and <em><a href="index4656.html?post/mse#ppairs">-ppairs</a></em>). See also <a href="index2d20.html?post/Example-1#voids">here</a> and <a href="indexf6f1.html?post/Example-2#walls">there</a> in the tutorial section.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+<div id="sidebar">
+  <div id="blognav">
+    <div class="categories"><ul><li><a href="index1694.html?category/Download">Download</a></li><li><a href="indexba87.html?category/Install">Install</a></li><li><a href="index3c4a.html?category/Overview">Overview</a></li><li><a href="index4559.html?category/Terminology">Terminology</a></li><li><a href="index4f3e.html?category/Manual">Manual</a></li><li><a href="index55a0.html?category/Quick-start">Tutorial</a></li><li><a href="index3333.html?category/Skeleton-I-O">Skeleton data</a></li><li class="category-current"><a href="indexe2a5.html?category/Network-I-O">Network data</a></li><li><a href="indexc777.html?category/Field-I-O">Field data</a></li><li><a href="indexdc31.html?category/References">Contact &amp; References</a></li></ul></div>  </div> <!-- End #blognav -->
+   ____________________
+  <div id="blogextra">
+        <a href="indexe2a5.html?category/Network-I-O">&#94; Network data</a></br>
+    <a href="indexb3eb.html?post/vtk-formats">&#171; vtk skeleton formats</a></br>
+    <a href="indexceff.html?post/NDnet-format">&#187; NDnet format</a></br>
+  </div> <!-- End #blogextra -->
+</div>
+
+</div> <!-- End #wrapper -->
+
+<div id="footer">
+  <p>Powered by <a href="http://www.dotclear.net/">DotClear</a> - Contact: sousbie<em>(AT)</em>iap<em>.</em>fr . </p>
+</div>
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from localhost/dotclear/index.php?post/networks by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

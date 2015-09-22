@@ -1,0 +1,17 @@
+#ifndef __MY_SORT_INTERFACE_H__
+#define __MY_SORT_INTERFACE_H__
+
+#include "mytypes.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+    long *LongSortArrayUI(UINT *arr, long n, long stride,int reverse);
+    UINT *SortArrayUI(UINT *arr, long n, long stride,int reverse);
+    INT *SortArrayF(FLOAT *arr, long n, int reverse);
+    INT *SortArrayD(double *arr, long n, int reverse);
+#ifdef __cplusplus
+}
+#endif
+
+#endif

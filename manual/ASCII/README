@@ -1,0 +1,56 @@
+* Required libraries :
+**********************
+
+Cmake 2.8
+GSL
+CGAL 3.7 (Optional, for delaunay)
+CFitsIO  (Optional, for reading FITS)
+SDL/SDL-image (Optional, for loading jpg,bmp,...)
+mathGL 1.10 (Optional, for visualizing persistence diagrams with pdview)
+Qt4 (Optional, for visualizing persistence diagrams with pdview)
+
+* Compiling :
+*************
+
+Go to the ${DISPERSE_SRC}/build directory and type "cmake ../". This will check the configuration and generate the Makefile. Read the output to know which library were found, which were not, and how to specify their path (option -DLIBNAME_DIR="path/to/library/").
+Then just compile with "make install".
+Two to five executables should be created in ${DISPERSE_SRC}/bin, depending on which libraries were found:
+
+    * delaunay_2D (Optionnal)
+    * delaunay_3D (Optionnal)
+    * pdview (Optionnal)
+    * skelconv
+    * netconv
+    * mse
+    
+
+* Usage :
+*********
+Typing the name of a command displays the list of possible options.
+ - 'delaunay_dD' computed the delaunay tesselation of a point set. The output can be fed to 'mse'.
+ - 'mse' is used to extract the filaments.
+ - 'pdview' allows visualizing persistence diagrams and setting thresholds
+ - 'skelconv' can convert the binary skeleton output to a simpler ASCII format (see 'manual/ASCIIformat.txt'), smooth the filaments and do other stuffs.
+ - 'netconv'  can convert the binary network output to a simpler ASCII format (see 'manual/ASCIIformat.txt'), smooth the network and do other stuffs.
+
+'mse' accepts different file formats as input. If CFitsIO is present on the system, one of them is a regular FITS image file.
+Note that if the input file contains values of 'NaN', then the corresponding pixels are considered as masked. An additional mask can be defined using option '-mask fileName'. In that case, a value of '0' corresponds to a non-masked region while any other value corresponds to a masked region. This behavior can be reversed by adding a '~' (tilda) directly after the filename (without space).
+
+Typically, one would proceed as follows :
+
+  1/ mse <filename> -mask <Mask_file_name> -ppairs_ASCII
+  2/ mse <filename> -mask <Mask_file_name> -loadMSC <filename.MSC> -cut <persistence cut val>
+  3/ skelconv <filename.up.NDskl> -smooth <N>
+
+note: if 'pdview' was compiled, one can also replace step 1 and 2 with:
+       mse <filename> -mask <Mask_file_name> -interactive 
+ 
+
+The first step computes the raw Morse-smale complex of the ditribution with masked pixels given in file 'Mask_file_name'. Option '-no_sklDump' prevents the program from outputing the (huge) filamentary network while option '-ppairs_ASCII' forces it to output the peristence pairs in a simple ASCII format (see 'manual/ASCIIformat.txt'). From this file, one can then trace the persistence diagram of the saddle/maxima pairs to deduce the persistence cut value (one could also have used -ppairs to dump a binary file loadable with 'pdview', or directly use option -interactive). In 2D, this is achieved by considering all the pairs of type 1, and drawing a point for each pair, with coordinates the value of the lowest critical point (X) and the perisistence of the pair (Y, the absolute difference in value between the two points in the pair). By eye, one can easily deduce a good guess for the value of persistence cut.
+
+The second step actually computes the filaments, option '-cut <val>' being used to specify the persistence threshold (guessed from previous step). Binary files containg the filamentary distribution are outputed, the one corresponding to actual filaments is 'filename.up.NDskl'.
+
+Finally, the last step converts the binary file to a simpler ASCII format (see 'manual/ASCIIformat.txt'). Note that option '-smooth <N>' smoothes the filemants, forcing them to be smooth over 'N' consecutive sampling points. The output containg the skeleton is called 'filename.up.NDskel.ASCIIskl'. Note that in 'mse' and 'skelconv', the option 'outfname' and '-outName' can be used to specify a different output filename. 
+
+
+

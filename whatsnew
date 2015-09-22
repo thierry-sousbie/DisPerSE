@@ -1,0 +1,22 @@
+v0.9.22:
+- fixed multithreading support on OSX
+- fixed compilation problems on recent versions of gcc
+- included a compatible mathGL version in external directory
+
+V0.9.16:
+
+DELAUNAY:
+
+- added smoothData in netconv
+- added parallel version of delaunay
+- corrected a small bug in the mirrored boundary conditions in delaunay
+- added an INDEX tag in networks when particles have to be reordered.
+- margin size is now self adaptive
+- not saving the particles in the margins anymore
+- support for TR1 C++ instructions
+- option -minimal to compute only higest dim faces
+
+v0.9.17:
+
+- corrected several small bugs, in particular in the I/O
+- FITS file with N axes are now interpreted as (N-1) dimensional when the last axis has size 1.

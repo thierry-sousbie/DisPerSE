@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!-- Mirrored from localhost/dotclear/index.php?post/Usage by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>delaunay_nD - DisPerSE - persistent structures identification</title>
+  <meta name="description" lang="en" content="Delaunay_2D and Delaunay_3D are used to compute the Delaunay tessellation of a discrete particle distribution (such as a N-Body simulation or a catalog of object coordinates) in" />
+  <meta name="copyright" content="sousbie" />
+  <meta name="author" content="thierry sousbie" />
+  <meta name="date" scheme="W3CDTF" content="2220-05-09T05:22:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="delaunay_nD" />
+  <meta name="dc.description" lang="en" content="Delaunay_2D and Delaunay_3D are used to compute the Delaunay tessellation of a discrete particle distribution (such as a N-Body simulation or a catalog of object coordinates) in" />
+  <meta name="dc.creator" content="thierry sousbie" />
+  <meta name="dc.language" content="en" />
+  <meta name="dc.publisher" content="thierry sousbie" />
+  <meta name="dc.rights" content="sousbie" />
+  <meta name="dc.date" scheme="W3CDTF" content="2220-05-09T05:22:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Home" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index4656.html?post/mse"
+  title="mse" />
+  
+  <link rel="prev" href="index8707.html?post/pdview"
+  title="pdview" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="../images/index4ca3.php?feed/atom" />
+  
+  <link rel="shortcut icon" href="../images/favicon.ico" />
+
+<style type="text/css" media="screen">
+@import url(../images/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(../images/print.css);
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37686840-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  
+  <script type="text/javascript" src="../images/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Remember me on this blog';
+  //]]>
+  </script>
+
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+<!--
+<h1><span><a href="http://localhost/dotclear/index.php?">DisPerSE - persistent structures identification</a></span></h1>
+ -->
+
+  </div>
+
+<p id="prelude">
+<a href="indexd41d.html?">Home</a> |
+<a href="index888d.html?archive">Show all</a>
+</p>
+
+<!--
+<ul id="nav-box">
+2.
+<li><a href="http://localhost/dotclear/index.php?">Accueil</a></li>
+3.
+<li><a href="http://localhost/dotclear/index.php?archive" title="Liste des mois de publication">Archives</a></li>
+4.
+<li><a href="http://localhost/dotclear/index.php?contact" title="Formulaire de contact">Me contacter</a></li>
+5.
+</ul>
+ -->
+
+<div id="wrapper">
+
+<div id="main">
+  <div id="content">
+  
+  <p id="navlinks">
+ 
+  <a href="index4656.html?post/mse"
+  title="mse" class="prev">&#171; mse</a>
+   <span>-</span> <a href="index8707.html?post/pdview"
+  title="pdview" class="next">pdview &#187;</a>
+
+<!--
+  <a href="http://localhost/dotclear/index.php?post/pdview"
+  title="pdview" class="prev">&#171; pdview</a>
+  <span>-</span> <a href="http://localhost/dotclear/index.php?post/mse"
+  title="mse" class="next">mse &#187;</a>
+-->
+  </p>
+  
+  <div id="p10" class="post">
+    <b1 class="post-title">delaunay_nD</b1>
+    <!--
+    <p class="post-info">By thierry sousbie    on Tuesday, May  9 2220, 05:22        - <a href="http://localhost/dotclear/index.php?category/Manual">Manual</a>
+        - <a href="http://localhost/dotclear/index.php?post/Usage">Permalink</a>
+    </p>
+    -->
+    
+    
+        
+    <div class="post-content"><p><strong>Delaunay_2D</strong> and <strong>Delaunay_3D</strong> are used to compute the Delaunay tessellation of a discrete particle distribution (such as a N-Body simulation or a catalog of object coordinates) in 2D and 3D respectively and possibly in parallel. The output is an <a href="index9cca.html?post/networks">unstructured network</a> in <em>NDnet</em> format, with density computed for each vertex using DTFE (i.e. density at a given vertex is proportional to the total volume of the surrounding cells). In order to compute the correct topology and density close to the boundaries, the distribution is extrapolated over a band outside the domain of definition (see options <em>-<a href="#margin">margin</a></em>, <em>-<a href="#btype">btype</a></em> and <em>-<a href="#periodic">periodic</a></em>). The output network can be used as input file for <a href="index4656.html?post/mse">mse</a> to compute the Morse-Smale complex of the initial discrete sample (the index of the vertices in the output network correspond to the index of the sampling particles in the input file).
+<br />
+<br /></p>
+
+
+<p><ins>Usage:</ins></p>
+
+<pre> <strong>delaunay_nD</strong> &lt;<a href="#fname">fname</a>&gt; [-<a href="#outName">outName</a> &lt;fname&gt;] [-<a href="#outDir">outDir</a> &lt;dir&gt;]
+             [-<a href="#subbox">subbox</a> &lt;x0&gt; &lt;y0&gt; [&lt;z0&gt;] &lt;dx&gt; &lt;dy&gt; [&lt;dz&gt;]]
+             [-<a href="#periodic">periodic</a>] [-<a href="#minimal">minimal</a>]
+             [-<a href="#blocks">blocks</a> &lt;NChunks&gt; &lt;NThreads&gt;]
+             [-<a href="#margin">margin</a> &lt;M&gt;] [-<a href="#btype">btype</a> &lt;t=mirror&gt;]
+             [-<a href="#mask">mask</a> &lt;fname.ND&gt;]
+             [-<a href="#smooth">smooth</a> &lt;N=0&gt;]
+             [-<a href="#angmask">angmask</a> &lt;fname.fits&gt; [&lt;maximum angular size (degrees) = 5.00&gt;]]
+             [-<a href="#radialDensity">radialDensity</a> &lt;A&gt; &lt;Dr&gt; &lt;B&gt;]
+             [-<a href="#subSample">subSample</a> &lt; 0&lt;s&lt;1 &gt;]</pre>
+
+<p><br /><a name="fname"></a></p>
+<ul>
+<li><strong>&lt;fname&gt;</strong>:<br />
+<ul>
+<li>The name of a file containing the discrete particle coordinates in a <a href="indexa0c1.html?post/field-formats">field</a> format.</li>
+</ul></li>
+</ul>
+<p><br /><a name="outName"></a></p>
+<ul>
+<li><strong>-outName &lt;fname&gt;</strong>:<br />
+<ul>
+<li>Specifies the base name of the file in output (extensions are added to this base name depending on the output type).<br /><ins>Default value</ins>: the name of the input  file.</li>
+</ul></li>
+</ul>
+<p><br /><a name="outDir"></a></p>
+<ul>
+<li><strong>-outDir &lt;dir&gt;</strong>:<br />
+<ul>
+<li>Specifies the output directory. <br /><ins>Default value</ins>: the current working directory.</li>
+</ul></li>
+</ul>
+<p><br /><a name="subbox"></a></p>
+<ul>
+<li><strong>-subbox &lt;x0&gt; &lt;y0&gt; [&lt;z0&gt;] &lt;dx&gt; &lt;dy&gt; [&lt;dz&gt;]</strong>:<br />
+<ul>
+<li>Restricts the computation to a box of size [dx dy dz] and with origin [x0,y0,z0]. The box may be larger than the actual bounding box or cross its boundaries. The distribution outside the box will depend on the boundary type, as set with option <em>-<a href="#btype">btype</a></em>. Note that the distribution within the margin of the subbox (see option <em>-<a href="#margin">margin</a></em>) is still used to compute the topology close to the boundaries, so this option may be used to cut a large distribution into several small sub-boxes with matching boundary distribution.</li>
+</ul></li>
+</ul>
+<p><br /><a name="periodic"></a></p>
+<ul>
+<li><strong>-periodic</strong>:<br />
+<ul>
+<li>Use this option to force periodic boundary conditions for the output network. When this option is used, <em>delaunay_nD</em> will try to reconnect the simplices crossing the bounding box so that the space is compactified to a torus. The operation may fail if the margin size is too small, as cells crossing opposite boundaries may not match, so always check the output of the program as an estimation of the correct margin size will be indicated in that case (see also option <em>-<a href="#margin">margin</a></em>). Note that this option wil set default boundary type to <em>-<a href="#btype">btype</a> periodic</em>.</li>
+</ul></li>
+</ul>
+<p><br /><a name="minimal"></a></p>
+<ul>
+<li><strong>-minimal</strong>:<br />
+<ul>
+<li>when using this option, only the minimal necessary information to define the tesselation is stored in the output file (i.e. In dimensions D, the vertex coordinates and simplices of dimension D, and the additional data associated to them). Note that it is preferable NOT to use this option when the ouput file is to be fed to <a href="index4656.html?post/mse">mse</a>, as it will force the program to recompute the topology of intermediate simplices using a slower algorithm every time it is run.</li>
+</ul></li>
+</ul>
+<p><br /><a name="blocks"></a></p>
+<ul>
+<li><strong>-blocks &lt;NChunks&gt; &lt;NThreads&gt;</strong>:<br />
+<ul>
+<li>instead of computing the delaunay tesselation of the full distribution, divide it into <em>NChunks</em> overlapping sub blocks and process them <em>NThreads</em> at a time. The subblocks are then automatically reassembled into the full delaunay tesselation. This option can either be used to increase speed by parallelizing the process (for high values of <em>NThreads</em>) or decrease the memory consumption (when <em>NChunks</em>&gt;&gt;<em>NThreads</em>). Note that it is incompatible with options <em>-<a href="#mask">mask</a></em>, <em>-<a href="#btype">btype</a> smooth</em>, <em>-<a href="#angmask">angmask</a></em> and <em>-<a href="#radialDensity">radialDensity</a></em>.</li>
+</ul></li>
+</ul>
+<p><br /><a name="margin"></a></p>
+<ul>
+<li><strong>-margin &lt;M&gt;</strong>:<br />
+<ul>
+<li>Suggests a startup trial size for the additional margin used to compute the topology and density close to the boundary. The margin size is expressed as a fraction of the bounding box (or subbox if option <em>-<a href="#subbox">subbox</a></em> is used). Note the the program can probably make a better guess than you so it is not recommanded to set it by hand ...</li>
+</ul></li>
+</ul>
+<p><br /><a name="btype"></a></p>
+<ul>
+<li><strong>-btype &lt;t=mirror&gt;</strong>:<br />
+<ul>
+<li>This option sets the type of the boundaries. This option is used to set how the distribution should be extrapolated  outside the bounding box (an estimation of the distribution outside the bounding box is needed to correctly estimate the topology and density of the distribution close to its boundaries). Possible boundary types are:
+<ul>
+<li>- <em>mirror</em> : the distribution outside the bounding box is a mirrored copy of that inside.</li>
+<li>- <em>periodic</em> : use periodic boundary condition (i.e. space is paved with copies of the distribution in the bounding box). Note that this option does *NOT* enforce periodic boundary conditions as it does not tell <em>delaunay_nD</em> to reconnect the Delaunay cells that cross the bounding box (this is achieved with <em>-<a href="#periodic">periodic</a></em>).</li>
+<li>- <em>smooth</em> : a surface of guard particles is added outside the bounding box and new particles are added by interpolating the estimated density computed on the boundary of the distribution. This boundary type is useful when the actual boundaries of the sample are complex (i.e. not a cube), such as for a 3D galaxy catalog limited to a portion of the sky.</li>
+<li>- <em>void</em> : the distribution is supposed to be void outside the bounding box.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><br /><a name="mask"></a></p>
+<ul>
+<li><strong>-mask &lt;fname.ND&gt;</strong>:<br />
+<ul>
+<li>Specifies a mask. The file must be a 1D array of values of size the number of vertices (or pixels) in the network, in a readable <a href="indexa0c1.html?post/field-formats">grid format</a>. A value of <em>0</em> corresponds to a non-masked particle while any other value masks the particle. Note that masked particles are still used to compute the Delaunay tessellation and estimate the density but they will change the topology of the actual distribution.</li>
+</ul></li>
+</ul>
+<p><br /><a name="smooth"></a></p>
+<ul>
+<li><strong>-smooth &lt;N=0&gt;</strong>:<br />
+<ul>
+<li>Smooth the estimated DTFE density by averaging N times its value at each vertex with that at the neighboring vertices (i.e two vertices are considered neighbors if they both belong to the boundary of at list one given cell).</li>
+</ul></li>
+</ul>
+<p><br /><a name="angmask"></a></p>
+<ul>
+<li><strong>-angmask &lt;fname.fits&gt; [&lt;maximum angular size (degrees) = 5.00&gt;]</strong>:<br />
+<ul>
+<li>Not documented ... you should not use it anyway :)</li>
+</ul></li>
+</ul>
+<p><br /><a name="radialDensity"></a></p>
+<ul>
+<li><strong>-radialDensity &lt;A&gt; &lt;Dr&gt; &lt;B&gt;</strong>:<br />
+<ul>
+<li>Not documented ...</li>
+</ul></li>
+</ul>
+<p><br /><a name="subSample"></a></p>
+<ul>
+<li><strong>-subSample &lt; 0&lt;s&lt;1 &gt;</strong>:<br />
+<ul>
+<li>Computes the Delaunay tessellation over a subsets of the actual distribution containing only a randomly selected fraction <em>0&lt;s&lt;1</em> of the particles.</li>
+</ul></li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+<div id="sidebar">
+  <div id="blognav">
+    <div class="categories"><ul><li><a href="index1694.html?category/Download">Download</a></li><li><a href="indexba87.html?category/Install">Install</a></li><li><a href="index3c4a.html?category/Overview">Overview</a></li><li><a href="index4559.html?category/Terminology">Terminology</a></li><li class="category-current"><a href="index4f3e.html?category/Manual">Manual</a></li><li><a href="index55a0.html?category/Quick-start">Tutorial</a></li><li><a href="index3333.html?category/Skeleton-I-O">Skeleton data</a></li><li><a href="indexe2a5.html?category/Network-I-O">Network data</a></li><li><a href="indexc777.html?category/Field-I-O">Field data</a></li><li><a href="indexdc31.html?category/References">Contact &amp; References</a></li></ul></div>  </div> <!-- End #blognav -->
+   ____________________
+  <div id="blogextra">
+        <a href="index4f3e.html?category/Manual">&#94; Manual</a></br>
+    <a href="index4656.html?post/mse">&#171; mse</a></br>
+    <a href="index8707.html?post/pdview">&#187; pdview</a></br>
+  </div> <!-- End #blogextra -->
+</div>
+
+</div> <!-- End #wrapper -->
+
+<div id="footer">
+  <p>Powered by <a href="http://www.dotclear.net/">DotClear</a> - Contact: sousbie<em>(AT)</em>iap<em>.</em>fr . </p>
+</div>
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from localhost/dotclear/index.php?post/Usage by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

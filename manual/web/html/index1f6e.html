@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!-- Mirrored from localhost/dotclear/index.php?post/general-concepts by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>General concepts of Morse theory - DisPerSE - persistent structures identification</title>
+  <meta name="description" lang="en" content="In DisPerSE, structures are identified as components of the Morse-Smale complex of an input function defined over a - possibly bounded - manifold. The Morse-Smale complex of a" />
+  <meta name="copyright" content="sousbie" />
+  <meta name="author" content="thierry sousbie" />
+  <meta name="date" scheme="W3CDTF" content="2160-05-10T07:41:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="General concepts of Morse theory" />
+  <meta name="dc.description" lang="en" content="In DisPerSE, structures are identified as components of the Morse-Smale complex of an input function defined over a - possibly bounded - manifold. The Morse-Smale complex of a" />
+  <meta name="dc.creator" content="thierry sousbie" />
+  <meta name="dc.language" content="en" />
+  <meta name="dc.publisher" content="thierry sousbie" />
+  <meta name="dc.rights" content="sousbie" />
+  <meta name="dc.date" scheme="W3CDTF" content="2160-05-10T07:41:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Home" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index6458.html?post/Examples-of-applications"
+  title="Examples of applications" />
+  
+  <link rel="prev" href="indexd3dd.html?post/Persistence-and-simplification"
+  title="Persistence and simplification" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="../images/index4ca3.php?feed/atom" />
+  
+  <link rel="shortcut icon" href="../images/favicon.ico" />
+
+<style type="text/css" media="screen">
+@import url(../images/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(../images/print.css);
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37686840-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  
+  <script type="text/javascript" src="../images/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Remember me on this blog';
+  //]]>
+  </script>
+
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+<!--
+<h1><span><a href="http://localhost/dotclear/index.php?">DisPerSE - persistent structures identification</a></span></h1>
+ -->
+
+  </div>
+
+<p id="prelude">
+<a href="indexd41d.html?">Home</a> |
+<a href="index888d.html?archive">Show all</a>
+</p>
+
+<!--
+<ul id="nav-box">
+2.
+<li><a href="http://localhost/dotclear/index.php?">Accueil</a></li>
+3.
+<li><a href="http://localhost/dotclear/index.php?archive" title="Liste des mois de publication">Archives</a></li>
+4.
+<li><a href="http://localhost/dotclear/index.php?contact" title="Formulaire de contact">Me contacter</a></li>
+5.
+</ul>
+ -->
+
+<div id="wrapper">
+
+<div id="main">
+  <div id="content">
+  
+  <p id="navlinks">
+ 
+  <a href="index6458.html?post/Examples-of-applications"
+  title="Examples of applications" class="prev">&#171; Examples of applications</a>
+   <span>-</span> <a href="indexd3dd.html?post/Persistence-and-simplification"
+  title="Persistence and simplification" class="next">Persistence and simplification &#187;</a>
+
+<!--
+  <a href="http://localhost/dotclear/index.php?post/Persistence-and-simplification"
+  title="Persistence and simplification" class="prev">&#171; Persistence and simplification</a>
+  <span>-</span> <a href="http://localhost/dotclear/index.php?post/Examples-of-applications"
+  title="Examples of applications" class="next">Examples of applications &#187;</a>
+-->
+  </p>
+  
+  <div id="p20" class="post">
+    <b1 class="post-title">General concepts of Morse theory</b1>
+    <!--
+    <p class="post-info">By thierry sousbie    on Saturday, May 10 2160, 07:41        - <a href="http://localhost/dotclear/index.php?category/Overview">Overview</a>
+        - <a href="http://localhost/dotclear/index.php?post/general-concepts">Permalink</a>
+    </p>
+    -->
+    
+    
+        
+    <div class="post-content"><p>In DisPerSE, structures are identified as components of the Morse-Smale complex of an input function defined over a - possibly bounded - manifold. The Morse-Smale complex of a real valued so-called Morse function is a construction of Morse theory which captures the relationship between the gradient of the function, its topology, and the topology of the manifold it is defined over.
+<br />
+<br /></p>
+<figure style="text-align:center;font-family:times;color:rgb(32,32,32);font-size:0.9em;">
+Figure 1: the Morse-Smale complex</br>
+<img src="../images/morse_illustration.jpg" alt="Blah"/><br>
+<legend style="text-align:justify;font-family:times;color:rgb(32,32,32);font-size:1em;line-height:90%;margin:0px 20px 0px 20px;">
+<i style="font-size:0.9em;">Upper left:</i> critical points (minima, saddle points and maxima pictured as blue, green and red disks), and three integral lines (pink curves) of a Morse function. Black arrows show the gradient of that function.
+<i style="font-size:0.9em;">Upper right:</i> ascending 2-manifolds : the set of points belonging to integral lines whose destination is the same minimum (critical point of index 0).
+<i style="font-size:0.9em;">Lower left:</i> descending 2-manifolds : the set of points belonging to integral lines whose origin is the same maximum (critical point of index 2).
+<i style="font-size:0.9em;">Lower right:</i> the Morse-Smale complex : a natural tesselation of space into cells induced by the gradient fo the function. Each cell is the set of points belonging to integral lines whose origin and destination are identical (i.e. each cell is the intersection of an ascending and a descending manifold). The purple region is a 2-cell: intersection of an ascending and a descending 2-manifold (red and blue regions) where all field lines have the same orgin and destination (a minimum and a maxium). The yellow curve is a 1-cell (also called an arc): the intersection of and ascending 2-manifold (blue region) and a descending 1-manifolds (green+yellow curves, originating from the same saddle point).
+</legend>
+</figure>
+
+
+<p><br />
+<br />
+Two central notions in Morse theory are that of <em>critical point</em> and <em>integral line</em> (also called <em>field line</em>) : (see the upper left frame of figure 1)
+<br />
+<br /></p>
+<ul>
+<li>-<strong>Critical points</strong> are the discrete set of points where the gradient of the function is null. For a function defined over a 2D space, there are three types of critical points (4 in 3D, ...), classified by their critical index. In 2D, minima have a critical index of 0, saddle points have a critical index of 1 and maxima have a critical index of 2. In 3D and more, different types of saddle points exist, one for each non extremal critical index.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong>Integral lines</strong> are curves tangent to the gradient field in every point. There exist exactly one integral line going through every non critical point of the domain of definition, and gradient lines must start and end at critical points (i.e. where the gradient is null).</li>
+</ul>
+<p><br />
+Because integral lines cover all space (there is exactly one critical line going through every point of space) and their extremities are critical points, they induce a tessellation of space into regions called ascending (resp. descending) <em>k-manifolds</em> where all the field lines originate (respectively lead) from the same critical point (see ascending and descending 2-manifolds on figure 1, upper right and lower left panels). The number of dimensions <em>k</em> of the regions spanned by a k-manifold depend directly on the critical index of the corresponding critical point: descending k-manifolds originate from critical points of critical index <em>k</em> while the critical index is <em>N-k</em> for ascending manifolds, with <em>N</em> the dimension of space.
+<br />
+<br />
+The set of all ascending (or descending) manifolds is called the <em>Morse complex</em> of the function. The <em>Morse-Smale complex</em> is an extension of this concept: the tessellation of space into regions called <em>p-cells</em> where all the integral lines have the same origin and destination (see figure 1, lower right frame). Each p-cell of the Morse-Smale complex is the intersection of an ascending and a descending manifold and the Morse-Smale complex itself is a natural tessellation of space induced by the gradient of the function. Figure 2 below illustrates how components of the Morse-Smale complex can be used to identify structures in a 3D distribution.
+<br />
+<br /></p>
+<figure style="text-align:center;font-family:times;color:rgb(32,32,32);font-size:0.9em;">
+Figure 2: 3D structures identified as component of the Morse-Smale complex
+<img src="../images/structures_as_manifolds.jpg" alt="Blah"/><br>
+<legend style="text-align:justify;font-family:times;color:rgb(32,32,32);font-size:1em;line-height:90%;margin:0px 20px 0px 20px;">
+<i style="font-size:0.9em;">Upper left:</i> Density distribution of dark matter in a chunk of the Universe represented by tracer particles from a N-Body cosmological simulation.
+<i style="font-size:0.9em;">Upper right:</i> Ascending 3-manifolds tracing the voids
+<i style="font-size:0.9em;">Lower left:</i> Ascending 2-manifolds tracing the walls
+<i style="font-size:0.9em;">Lower right:</i> The set of arcs with one maximum at their extremity, also called upper skeleton, tracing the filamentary structures. The maxima, not represented here, identify dark matter halos onto which filaments plug.
+</legend>
+</figure>
+
+
+<p><br />
+<br /></p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+<div id="sidebar">
+  <div id="blognav">
+    <div class="categories"><ul><li><a href="index1694.html?category/Download">Download</a></li><li><a href="indexba87.html?category/Install">Install</a></li><li class="category-current"><a href="index3c4a.html?category/Overview">Overview</a></li><li><a href="index4559.html?category/Terminology">Terminology</a></li><li><a href="index4f3e.html?category/Manual">Manual</a></li><li><a href="index55a0.html?category/Quick-start">Tutorial</a></li><li><a href="index3333.html?category/Skeleton-I-O">Skeleton data</a></li><li><a href="indexe2a5.html?category/Network-I-O">Network data</a></li><li><a href="indexc777.html?category/Field-I-O">Field data</a></li><li><a href="indexdc31.html?category/References">Contact &amp; References</a></li></ul></div>  </div> <!-- End #blognav -->
+   ____________________
+  <div id="blogextra">
+        <a href="index3c4a.html?category/Overview">&#94; Overview</a></br>
+    <a href="index6458.html?post/Examples-of-applications">&#171; Examples of applications</a></br>
+    <a href="indexd3dd.html?post/Persistence-and-simplification">&#187; Persistence and simplification</a></br>
+  </div> <!-- End #blogextra -->
+</div>
+
+</div> <!-- End #wrapper -->
+
+<div id="footer">
+  <p>Powered by <a href="http://www.dotclear.net/">DotClear</a> - Contact: sousbie<em>(AT)</em>iap<em>.</em>fr . </p>
+</div>
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from localhost/dotclear/index.php?post/general-concepts by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

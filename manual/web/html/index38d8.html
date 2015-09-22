@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!-- Mirrored from localhost/dotclear/index.php?post/regular-grid-%3A-filaments by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Persistence diagrams and filaments - DisPerSE - persistent structures identification</title>
+  <meta name="description" lang="en" content="In this tutorial, we will identify the persistent filamentary structures in a diHydrogen column density map of the interstellar medium in the Eagle Nebula (M16) as observed by" />
+  <meta name="copyright" content="sousbie" />
+  <meta name="author" content="thierry sousbie" />
+  <meta name="date" scheme="W3CDTF" content="2305-05-09T06:59:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Persistence diagrams and filaments" />
+  <meta name="dc.description" lang="en" content="In this tutorial, we will identify the persistent filamentary structures in a diHydrogen column density map of the interstellar medium in the Eagle Nebula (M16) as observed by" />
+  <meta name="dc.creator" content="thierry sousbie" />
+  <meta name="dc.language" content="en" />
+  <meta name="dc.publisher" content="thierry sousbie" />
+  <meta name="dc.rights" content="sousbie" />
+  <meta name="dc.date" scheme="W3CDTF" content="2305-05-09T06:59:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Home" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexf1b8.html?post/fieldconv"
+  title="fieldconv" />
+  
+  <link rel="prev" href="index2d20.html?post/Example-1"
+  title="Point sample: 2D voids and filaments" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="../images/index4ca3.php?feed/atom" />
+  
+  <link rel="shortcut icon" href="../images/favicon.ico" />
+
+<style type="text/css" media="screen">
+@import url(../images/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(../images/print.css);
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37686840-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  
+  <script type="text/javascript" src="../images/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Remember me on this blog';
+  //]]>
+  </script>
+
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+<!--
+<h1><span><a href="http://localhost/dotclear/index.php?">DisPerSE - persistent structures identification</a></span></h1>
+ -->
+
+  </div>
+
+<p id="prelude">
+<a href="indexd41d.html?">Home</a> |
+<a href="index888d.html?archive">Show all</a>
+</p>
+
+<!--
+<ul id="nav-box">
+2.
+<li><a href="http://localhost/dotclear/index.php?">Accueil</a></li>
+3.
+<li><a href="http://localhost/dotclear/index.php?archive" title="Liste des mois de publication">Archives</a></li>
+4.
+<li><a href="http://localhost/dotclear/index.php?contact" title="Formulaire de contact">Me contacter</a></li>
+5.
+</ul>
+ -->
+
+<div id="wrapper">
+
+<div id="main">
+  <div id="content">
+  
+  <p id="navlinks">
+ 
+  <a href="indexf1b8.html?post/fieldconv"
+  title="fieldconv" class="prev">&#171; fieldconv</a>
+   <span>-</span> <a href="index2d20.html?post/Example-1"
+  title="Point sample: 2D voids and filaments" class="next">Point sample: 2D voids and filaments &#187;</a>
+
+<!--
+  <a href="http://localhost/dotclear/index.php?post/Example-1"
+  title="Point sample: 2D voids and filaments" class="prev">&#171; Point sample: 2D voids and filaments</a>
+  <span>-</span> <a href="http://localhost/dotclear/index.php?post/fieldconv"
+  title="fieldconv" class="next">fieldconv &#187;</a>
+-->
+  </p>
+  
+  <div id="p41" class="post">
+    <b1 class="post-title">Persistence diagrams and filaments</b1>
+    <!--
+    <p class="post-info">By thierry sousbie    on Tuesday, May  9 2305, 06:59        - <a href="http://localhost/dotclear/index.php?category/Quick-start">Tutorial</a>
+        - <a href="http://localhost/dotclear/index.php?post/regular-grid-%3A-filaments">Permalink</a>
+    </p>
+    -->
+    
+    
+        
+    <div class="post-content"><p>In this tutorial, we will identify the persistent filamentary structures in a diHydrogen column density map of the interstellar medium in the Eagle Nebula (M16) as observed by <a href="http://www.esa.int/herschel" title="herschel">Herschel</a> . The map is encoded in a 2D double precision FITS image, with pixels set to <em>NaN</em> in unobserved regions:
+<br /><br />
+<img src="../images/m16_blue.png" alt="M16_blue.png" style="display:block; margin:0 auto;" />
+<br /><br />
+By default, <a href="index4656.html?post/mse">mse</a> will automatically mask NaN valued pixels so the FITS file could theoretically be fed directly to it. However, because of the complexity of the geometry of the observed region, it is preferable to use a mask to limit the analysis to a well defined region of interest (in particular, it is preferable that this region is simply connected - i.e. does not contain holes -). Designing a mask is relatively simple, as it consists in an image with pixels set to 0 in non-masked region and any other value in the masked regions (this behavior can be changed by adding a trailing '~' to the mask filename, see option <em><a href="index4656.html?post/mse#mask">-mask</a></em>). The following mask was created with <em><a href="http://www.gimp.org/" title="gimp">Gimp</a></em> and saved as a <em>.PNG</em> file (any readable <a href="indexa0c1.html?post/field-formats">field file format</a> is acceptable):
+<br /><br />
+<img src="../images/m16_mask.png" alt="M16_mask.png" style="display:block; margin:0 auto;" />
+<br /><br />
+<br /><br />
+With this mask, we can now use <em>mse</em> to identify the filamentary structures in the map (option <em><a href="index4656.html?post/mse#upskl">-upSkl</a></em>) with the help of an interactive persitence diagram (option <em><a href="index4656.html?post/mse#interactive">-interactive</a></em>) to select the correct persistent threshold as we do not want to impose any à-priori on its value. We therefore run the following command:
+<br /><br /></p>
+<div style="text-align: center; border: 1px dotted gray;">mse m16_zo_no70um_density.fits -mask M16_mask.png -interactive -upSkl</div>
+
+
+<p><br /><br />
+After some computations, the following diagram should appear (use buttons <em>logX</em>/<em>logY</em> to switch logarithmic coordinate and buttons <em>1</em>, <em>2</em> and <em>3</em> to show/hide different types of persistence pairs):
+<br /><br />
+<img src="../images/m16_persistence_diagram_2.png" alt="M16_persistence_diagram_2.png" style="display:block; margin:0 auto;" />
+<br /><br />
+On this diagram, each dot represents a <a href="index959e.html?post/definitions">persistence pair</a> of critical points (see <em><a href="indexd3dd.html?post/Persistence-and-simplification">overview</a></em> section), with its X coordinate being the value at the lowest critical point of the two (i.e. the <em>background</em> density) and its Y coordinate the persitence of the pair (i.e. the value difference between the two, interpreted as <em>contrast</em> of the topological feature it represents with respect to its background). Points located in the right side of this diagram represent features located in high valued regions of the map, while points in the upper side represent features that clearly stand out from their background. More specifically, the green squares stand for pairs of type <em>1</em> (i.e. saddle-point / maximum pairs) while blue disks stand for pairs of type <em>0</em> (i.e. minimum saddle-point pairs). This can be easily visualized on the following image, which represents a zoom on the map with critical points identified as blue squares, green crosses and red triangles for minima, saddle points and maxima respectively.  On this plot, the identified filaments are represented in black, and each persistence pair of type <em>0</em> or <em>1</em>  is represented as a blue or green segment linking its two critical points together (each segment corresponds to one point in the persistence diagram above):
+<br /><br />
+<img src="../images/m16_skel_nocut_ppairs_crit.png" alt="M16_skel_nocut_ppairs_crit.png" style="display:block; margin:0 auto;" />
+<br /><br /></p>
+
+
+<p>Basically, in 2D, removing a pair of type <em>0</em> (i.e. cancelling two critical points linked by a blue segment) amounts to deleting a piece of filament (i.e. 2 arcs departing from the saddle point) by merging two voids while removing a pair of type <em>1</em> (i.e. cancelling two critical points linked by a green segment) amounts to gluing pieces of filaments into longer ones  (i.e. two arcs departing from the saddle point with one other arc departing from the maximum). When selecting the persistence threshold without à-priori, we therefore want to keep only the pairs that stand out of the general distribution on the Y-axis (i.e. with high persitence) so that only the most significant topological features remain. Selecting a threshold of <em>~4.2E21</em> as shown on the persistence diagram above seems quite reasonable (using <em>Ctrl+left Click</em>, and clicking on the <em>DONE</em> button to proceed).
+<br /><br />
+<a name="trim_exp"></a>
+Visualizing a persistence diagram is a good way to determine the persistence threshold when assuming no previous knowledge of the data set. Note however that persistence could also have been set à-priori to the estimated amplitude of what is considered non-meaningful features or noise with option <em><a href="index4656.html?post/mse#cut">-cut &lt;val&gt;</a></em> instead of <em><a href="index4656.html?post/mse#interactive">-interactive</a></em>. It is nonetheless always useful to check the persistence diagram as it deeply reflects the topological nature of the distribution and can be used to understand it better. For instance, the following diagram (represented by a 2D histogram of the pairs distribution, instead of the pairs themselves) was computed from a totally different map, and it is a good example:
+<br /><br />
+<img src="../images/ic5146_col_dens_pers_diag.png" alt="ic5146_col_dens_pers_diag.png" style="display:block; margin:0 auto;" />
+<br /><br />
+Indeed, from this diagram, not only can one learn that the persistence threshold should be <em>~6.E20</em> (from the Y-axis), but one can easily see that the nature of the distribution is different for background values below or above "X=~4E20" on the X-axis. This feature reflects the fact that in some regions of this data-set, the signal was below the instrument detection threshold and the result is complex noise generated by the detectors. Meaningful features may stand out from these regions, so it does not affect the choice of the persistence threshold. However, this tells us that any region with a value <em>&lt;4E20</em> cannot be considered signal and identified filaments should therefore be trimmed wherever the value is below this threshold (this can be achieved by running mse with a persitencce threhold of <em>6.E20</em> and then running the following command on the output skeleton file: <em><a href="index6160.html?post/skelconv#trim">skelconv filaments.NDskl -trimBelow 4.E20</a></em>).
+<br /><br />
+Let us now come back to  our example, where no such trimming is necessary. Selecting a persistence threshold of <em>~4.2E21</em> as discussed previously, we obtain the following filamentary structures :
+<br /><br />
+<img src="../images/m16_skel.png" alt="M16_skel.png" style="display:block; margin:0 auto;" />
+<br /><br />
+Remember that DisPerSE identifies structures as features of the <a href="index959e.html?post/definitions">Morse-Smale complex</a>. The output of <em>mse</em> is <em>always</em> a valid (subset of the) Morse-Smale complex. In particular, filaments are identified as the set of <a href="index959e.html?post/definitions">arcs</a> joining maxima and critical points, which means that pieces of filament always link a maximum and a critical point: they cannot stop in any other point, and whenever two filaments merge in points that are not maxima (i.e. bifurcation point), they remain distinct filaments until they reach a maximum (i.e. although they are not <em>visually</em> distinct as they are infinitely close, they are still stored as separate arcs in the output file). This is illustrated on the following figure,  which shows a zoom on the identified filamentary structures with minima, saddle points and maxima represented as blue squares, green crosses and red triangles respectively:
+<br /><br />
+<img src="../images/m16_skel_nodes.png" alt="M16_skel_nodes.png" style="display:block; margin:0 auto;" />
+<br /><br />
+On this figure, individual pieces of filaments (i.e. arcs) link red triangles to green crosses, and several pieces of arcs may therefore overlap above bifurcation points. This is of course desirable for mathematical applications that require the computation of valid Morse-Smale complexes but can be problematic when one only needs to identify structures and measure their properties. Indeed, regions where several arcs overlap may accidentally be given a stronger weight in statistical analysis, biasing the results. One can fix this with the option <em><a href="index6160.html?post/skelconv#breakdown">-breakdown</a></em> of <a href="index6160.html?post/skelconv">skelconv</a> which is used to identify bifurcation points (adding them as dummy critical points of critical index <em>D+1</em>) and break filaments down into individual pieces of arcs.
+<br /><br />
+Another problem is the resolution of the filaments, which is roughly equal to that of the underlying map: filaments are described as sets of small segments linking neighbor pixels together in the oupout files of <em>mse</em>. As a result, they appear <em>jagged</em> on the previous image and they can locally only take a discrete set of orientation. Using option <em><a href="index6160.html?post/skelconv#smooth">-smooth N</a></em> of <a href="index6160.html?post/skelconv">skelconv</a>, one can fix this by ensuring their <em>smoothness</em> over a size of <em>~N pixels</em>. Note that only individual arcs or pieces of arcs are smoothed when using this option, critical points and bifurcation points remain fixed. As a result, the order of options <em><a href="index6160.html?post/skelconv#smooth">-smooth</a></em> and <em><a href="index6160.html?post/skelconv#breakdown">-breakdown</a></em> on the command line is important.
+<br />
+We choose to first smooth over  ~6 pixels and then break the network down :
+<br /><br /></p>
+<div style="text-align: center; border: 1px dotted gray;">skelconv m16_zo_no70um_density.fits_c4.2e+21.up.NDskl -smooth 6 -breakdown</div>
+
+
+<p><br /><br />
+The result is illustrated on the following figure:
+<br /><br />
+<img src="../images/m16_skelbs_nodes.png" alt="M16_skelBS_nodes.png" style="display:block; margin:0 auto;" />
+<br /><br />
+where filaments are now smooth and bifurcation points are now identified as yellow discs : pieces of filament now link critical or bifurcation points and therefore do not overlap anymore.
+<br /><br />
+Although the resulting filaments are perfectly usable as such for analysis, other useful post-treatment are available in DisPerSE. We give in the following an example of their possible usage, but note that it should of course be adapted to the particular results one wants to obtain ...
+<br /><br />
+Options <em><a href="index6160.html?post/skelconv#trim">-trimAbove</a></em> and <em><a href="index6160.html?post/skelconv#trim">-trimBelow</a></em>  for instance allow trimming portion of arcs so that they do not have to start/stop at critical or bifurcation points (dummy critical nodes are added at their extremities). By default, these options will trim the filaments above or below a given value of the field (see e.g. the example in the <a href="#trim_exp">section</a> on the persistence diagram above), but filaments can also be trimmed in any value tagged within the <a href="index661f.html?post/skeleton-formats">skeleton file</a> (the list of the tags can be displayed by running <em><a href="index6160.html?post/skelconv#info">skelconv filaments.NDskl -info</a></em> and arbitrary tags can be added with option <em><a href="index6160.html?post/skelconv#addfield">-addField</a></em>).
+<br /><br /><a name="robustness"></a>
+A useful trimming function is <em><a href="index959e.html?post/definitions#robustness">robustness</a></em> or <em>robustness_ratio</em>, which is not tagged by default in the <a href="index661f.html?post/skeleton-formats">skeleton files</a> but can computed using option <em><a href="index4656.html?post/mse#robustness">-robustness</a></em> of <em>mse</em> (you can use option <em><a href="index4656.html?post/mse#loadmsc">-loadMSC</a></em> to avoid recomputing the whole Morse-Smale complex):
+<br /><br /></p>
+<div style="text-align: center; border: 1px dotted gray;">mse m16_zo_no70um_density.fits -mask M16_mask.png -cut 4.2E21 -upSkl -loadMSC m16_zo_no70um_density.fits.MSC</div>
+
+
+<p><br /><br />
+Robustness implements an improved version of the concept of <em>separatrix persistence</em> (Weinkauf, T. and Gunther, D., 2009) that allows the extension of regular <em>persistence</em> to each points of the filaments (as opposed to critical points pairs). Running the following command:
+<br /><br /></p>
+<div style="text-align: center; border: 1px dotted gray;">skelconv m16_zo_no70um_density.fits_c4.2e+21.up.NDskl -breakdown -smooth 6 -trimBelow robustness 8E21</div>
+
+
+<p><br /><br />
+one can select the most meaningful subset of the filaments (you can try several robustness thresholds to see the result, but the selected threshold should probably be greater than the persistence threshold). Note that the concepts of persistence and robustness are different, and robustness basically allows selecting those subsets of persistent (topological) filaments that are most prominent. For that reason, it may make sense when trimming on robustness criteria to lower the persistence threshold (in <em>mse</em>) so that the significant pieces of less persistent filaments can still be conserved (you should probably experiment in order to find the best compromise between persistence and robustness thresholds for a given type of data set).
+In the present case, choosing a robustness threshold of 8E21 (i.e. slightly higher than the persistence threshold), one obtains the following filaments:
+<br /><br />
+<img src="../images/m16_skelbst_inc.png" alt="M16_skelBST_inc.png" style="display:block; margin:0 auto;" />
+<br /><br /></p>
+
+
+<p>Another interesting post-treatment is the option <em><a href="index6160.html?post/skelconv#assemble">-assemble</a></em> that allows merging individual aligned pieces of filaments into larger structures. On the following picture, each piece of filament is represented with a distinct color:
+<br /><br />
+<img src="../images/m16_skelbst_nodes_fil.png" alt="M16_skelBST_nodes_fil.png" style="display:block; margin:0 auto;" />
+<br /><br />
+Running the following command (note once again that the order of arguments is important, try changing it ...):
+<br /><br /></p>
+<div style="text-align: center; border: 1px dotted gray;">skelconv m16_zo_no70um_density.fits_c4.2e+21.up.NDskl -breakdown -smooth 6 -trimBelow robustness 1.0E22 -assemble 70</div>
+
+
+<p><br /><br />
+one can assemble pieces of filaments that form an angle smaller than <em>70</em> degrees, resulting in the following structures, where individual pieces are straight but as long as possible:
+<br /><br />
+<img src="../images/m16_skelbsta_nodes_fil.png" alt="M16_skelBSTA_nodes_fil.png" style="display:block; margin:0 auto;" />
+<br /><br /></p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+<div id="sidebar">
+  <div id="blognav">
+    <div class="categories"><ul><li><a href="index1694.html?category/Download">Download</a></li><li><a href="indexba87.html?category/Install">Install</a></li><li><a href="index3c4a.html?category/Overview">Overview</a></li><li><a href="index4559.html?category/Terminology">Terminology</a></li><li><a href="index4f3e.html?category/Manual">Manual</a></li><li class="category-current"><a href="index55a0.html?category/Quick-start">Tutorial</a></li><li><a href="index3333.html?category/Skeleton-I-O">Skeleton data</a></li><li><a href="indexe2a5.html?category/Network-I-O">Network data</a></li><li><a href="indexc777.html?category/Field-I-O">Field data</a></li><li><a href="indexdc31.html?category/References">Contact &amp; References</a></li></ul></div>  </div> <!-- End #blognav -->
+   ____________________
+  <div id="blogextra">
+        <a href="index55a0.html?category/Quick-start">&#94; Tutorial</a></br>
+    <a href="indexf1b8.html?post/fieldconv">&#171; fieldconv</a></br>
+    <a href="index2d20.html?post/Example-1">&#187; Point sample: 2D voids and filaments</a></br>
+  </div> <!-- End #blogextra -->
+</div>
+
+</div> <!-- End #wrapper -->
+
+<div id="footer">
+  <p>Powered by <a href="http://www.dotclear.net/">DotClear</a> - Contact: sousbie<em>(AT)</em>iap<em>.</em>fr . </p>
+</div>
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from localhost/dotclear/index.php?post/regular-grid-%3A-filaments by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

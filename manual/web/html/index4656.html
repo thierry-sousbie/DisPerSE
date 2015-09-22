@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!-- Mirrored from localhost/dotclear/index.php?post/mse by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>mse - DisPerSE - persistent structures identification</title>
+  <meta name="description" lang="en" content="mse is the main program in DisPerSE, it is used to compute Morse-smale complexes and extract filamentary structures (i.e. arcs), voids and walls (ascending/descending manifolds)," />
+  <meta name="copyright" content="sousbie" />
+  <meta name="author" content="thierry sousbie" />
+  <meta name="date" scheme="W3CDTF" content="2210-05-09T05:21:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="mse" />
+  <meta name="dc.description" lang="en" content="mse is the main program in DisPerSE, it is used to compute Morse-smale complexes and extract filamentary structures (i.e. arcs), voids and walls (ascending/descending manifolds)," />
+  <meta name="dc.creator" content="thierry sousbie" />
+  <meta name="dc.language" content="en" />
+  <meta name="dc.publisher" content="thierry sousbie" />
+  <meta name="dc.rights" content="sousbie" />
+  <meta name="dc.date" scheme="W3CDTF" content="2210-05-09T05:21:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Home" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index959e.html?post/definitions"
+  title="Definitions" />
+  
+  <link rel="prev" href="index490e.html?post/Usage"
+  title="delaunay_nD" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="../images/index4ca3.php?feed/atom" />
+  
+  <link rel="shortcut icon" href="../images/favicon.ico" />
+
+<style type="text/css" media="screen">
+@import url(../images/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(../images/print.css);
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37686840-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  
+  <script type="text/javascript" src="../images/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Remember me on this blog';
+  //]]>
+  </script>
+
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+<!--
+<h1><span><a href="http://localhost/dotclear/index.php?">DisPerSE - persistent structures identification</a></span></h1>
+ -->
+
+  </div>
+
+<p id="prelude">
+<a href="indexd41d.html?">Home</a> |
+<a href="index888d.html?archive">Show all</a>
+</p>
+
+<!--
+<ul id="nav-box">
+2.
+<li><a href="http://localhost/dotclear/index.php?">Accueil</a></li>
+3.
+<li><a href="http://localhost/dotclear/index.php?archive" title="Liste des mois de publication">Archives</a></li>
+4.
+<li><a href="http://localhost/dotclear/index.php?contact" title="Formulaire de contact">Me contacter</a></li>
+5.
+</ul>
+ -->
+
+<div id="wrapper">
+
+<div id="main">
+  <div id="content">
+  
+  <p id="navlinks">
+ 
+  <a href="index959e.html?post/definitions"
+  title="Definitions" class="prev">&#171; Definitions</a>
+   <span>-</span> <a href="index490e.html?post/Usage"
+  title="delaunay_nD" class="next">delaunay_nD &#187;</a>
+
+<!--
+  <a href="http://localhost/dotclear/index.php?post/Usage"
+  title="delaunay_nD" class="prev">&#171; delaunay_nD</a>
+  <span>-</span> <a href="http://localhost/dotclear/index.php?post/definitions"
+  title="Definitions" class="next">Definitions &#187;</a>
+-->
+  </p>
+  
+  <div id="p9" class="post">
+    <b1 class="post-title">mse</b1>
+    <!--
+    <p class="post-info">By thierry sousbie    on Wednesday, May  9 2210, 05:21        - <a href="http://localhost/dotclear/index.php?category/Manual">Manual</a>
+        - <a href="http://localhost/dotclear/index.php?post/mse">Permalink</a>
+    </p>
+    -->
+    
+    
+        
+    <div class="post-content"><p><strong>mse</strong> is the main program in DisPerSE, it is used to compute Morse-smale complexes and extract filamentary structures (i.e. arcs), voids and walls (ascending/descending manifolds), critical points and persistence pairs. By default, when no option is specified, the Morse-smale complex is computed and stored as a <em>filename.MSC</em> backup file in a format internal to mse, and no other file is produced. This file may later be loaded by mse (option <em><a href="#loadMSC">-loadMSC</a></em>) to skip the computation of the Morse-smale complex (this is useful when you want to produce different outputs from the same source).
+<br />
+<br /></p>
+
+
+<p><ins>Usage:</ins></p>
+
+<pre> <strong>mse</strong> &lt;<a href="#networkfilename">network filename</a>&gt; [-<a href="#field">field</a> &lt;fname&gt;]
+     [-<a href="#outname">outName</a> &lt;fname&gt;] [-<a href="#notags">noTags</a>] [-<a href="#outdir">outDir</a> &lt;dir&gt;] 
+     [-<a href="#periodicity">periodicity</a> &lt;val&gt;]
+     [-<a href="#mask">mask</a> &lt;fname&gt;[~]]
+     [-<a href="#nthreads">nthreads</a> &lt;N=$OMP_NUM_THREADS&gt;]
+ 
+     [-<a href="#nsig">nsig</a> &lt;n1, n2, ...&gt;] [-<a href="#cut">cut</a> &lt;l1, l2, ...&gt;]
+     [-<a href="#interactive">interactive</a> [&lt;full/path/to/pdview&gt;]]
+     [-<a href="#forceloops">forceLoops</a>]
+     [-<a href="#robustness">robustness</a>] [-<a href="#robustness">no_robustness</a>]
+ 
+     [-<a href="#manifolds">manifolds</a>] [-<a href="#interarcsgeom">interArcsGeom</a>] [-<a href="#no_arcsgeom">no_arcsGeom</a>]
+ 
+     [-<a href="#ppairs">ppairs</a>] [-<a href="#ppairs_ASCII">ppairs_ASCII</a>] 
+     [-<a href="#upskl">upSkl</a>] [-<a href="#downskl">downSkl</a>] [-<a href="#interskl">interSkl</a>]
+     [-<a href="#dumparcs">dumpArcs</a> &lt;CUID&gt;]
+     [-<a href="#dumpmanifolds">dumpManifolds</a> [&lt;JEP0123456789ad&gt;]] 
+ 
+     [-<a href="#compactify">compactify</a> &lt;type=natural&gt;]
+     [-<a href="#vertexasminima">vertexAsMinima</a>] [-<a href="#descendingfiltration">descendingFiltration</a>] 
+     [-<a href="#no_savemsc">no_saveMSC</a>] [-<a href="#loadMSC">loadMSC</a> &lt;fname&gt;]
+ 
+     [-<a href="#no_gfilter">no_gFilter</a>]
+     [-<a href="#diagram">diagram</a>] [-<a href="#smooth">smooth</a> &lt;Ntimes=0&gt;] 
+     [-<a href="#debug">debug</a>]</pre>
+
+<p><br /><a name="networkfilename"></a></p>
+<ul>
+<li><strong>&lt;network filename&gt;</strong>:<br />
+<ul>
+<li>The cell complex defining the topology of the space and optionally the function discretely sampled over it. The file may be a Healpix <em>FITS</em> file, a <a href="indexa0c1.html?post/field-formats">regular grid</a> or an <a href="index9cca.html?post/networks">unstructured network</a> readable by <em><a href="index25e8.html?post/netconv">netconv</a></em> or <em><a href="indexf1b8.html?post/fieldconv">fieldconv</a></em> (run <em>netconv</em> or <em>fieldconv</em> without argument for a list of supported file formats). The value of the function from which the Morse-smale complex will be computed should be given for each vertex (or pixel in case of a regular grid). In the case of an unstructured network, the function should be given in a field labeled <em>field_value</em>, or the function may also be set using option <em>-<a href="#field">field</a></em>.</li>
+</ul></li>
+</ul>
+<p><br /><a name="field"></a></p>
+<ul>
+<li><strong>-field &lt;fname&gt;</strong>:<br />
+<ul>
+<li>Specifies the scalar function whose morse complex will be computed. The function value should be given for each vertex (or pixel for regular grids), so the file must be a 1D array of values of size the number of vertices (or pixels) in the network, in a readable <a href="indexa0c1.html?post/field-formats">grid format</a>.</li>
+</ul></li>
+</ul>
+<p><br /><a name="outname"></a></p>
+<ul>
+<li><strong>-outName &lt;fname&gt;</strong>:<br />
+<ul>
+<li>Specifies the base name of the output file (extensions are added to this base name depending on the output type).<br /><ins>Default value</ins>: the name of the input network file.</li>
+</ul></li>
+</ul>
+<p><br /><a name="outdir"></a></p>
+<ul>
+<li><strong>-outDir &lt;dir&gt;</strong>:<br />
+<ul>
+<li>Specifies the output directory. <br /><ins>Default value</ins>: the current working directory.</li>
+</ul></li>
+</ul>
+<p><br /><a name="notags"></a></p>
+<ul>
+<li><strong>-noTags</strong>:<br />
+<ul>
+<li>Prevents mse from adding trailing extensions to the output filename such as the persistence cut levels ... Note that the last extension correponding to the file format is still added.</li>
+</ul></li>
+</ul>
+<p><br /><a name="periodicity"></a></p>
+<ul>
+<li><strong>-periodicity &lt;val&gt;</strong>:<br />
+<ul>
+<li>Specifies the periodicity of the domain. This is only applicable to grid types networks, which are considered by default to have periodic boundaries. The parameter <em>&lt;val&gt;</em> is a serie of <em>1</em>s and <em>0</em>s enabling/disabling periodic boundary conditions along the corresponding direction.<br /><ins>Exemple</ins>: <em>-periodicity 0</em> sets non periodic boundaries conditions (PBC) while <em>-periodicity 101</em> sets PBC along dims <em>0</em> and <em>2</em> (<em>x</em> and <em>z</em>) but not along <em>y</em> axis.<br /><ins>Default value</ins>: by default, boundary conditions are fully periodic.</li>
+</ul></li>
+</ul>
+<p><br /><a name="mask"></a></p>
+<ul>
+<li><strong>-mask &lt;fname&gt; [~]</strong>:<br />
+<ul>
+<li>Specifies a mask. The file must be a 1D array of values of size the number of vertices (or pixels) in the network, in a readable <a href="indexa0c1.html?post/field-formats">grid format</a>. By default, a value of <em>0</em> corresponds to a visible vertex/pixel while any other value masks the vertex/pixel. Adding a trailing <em>~</em> to the filename (without space) reverses this behavior, a value of 0 masking the corresponding pixels/vertices.</li>
+</ul></li>
+</ul>
+<p><br /><a name="nthreads"></a></p>
+<ul>
+<li><strong>-nthreads &lt;N=$OMP_NUM_THREADS&gt;</strong>:<br />
+<ul>
+<li>Specifies the number of threads.<br /><ins>Default value</ins>: the number of threads is set by the environment variable <em>$OMP_NUM_THREADS</em>  which is usually set to the total number of cores available by <em>openMP</em>.</li>
+</ul></li>
+</ul>
+<p><br /><a name="nsig"></a></p>
+<ul>
+<li><strong>-nsig &lt;n1, n2, ...&gt;</strong>:<br />
+<ul>
+<li>Specifies the persistence ratio threshold in terms of "number of sigmas". Any persistence pair with a persistence ratio (i.e. the ratio of the values of the points in the pair) that has a probability less than "n-sigmas" to appear in a random field will be cancelled. This may only be used for discretely sampled density fields (such as N-body simulations or discrete objects catalogs) whose density was estimated through the DTFE of a delaunay tesselation. This option is typically used when the input network was produced using <a href="index490e.html?post/Usage">delaunay_2D</a> or <a href="index490e.html?post/Usage">delaunay_3D</a>, in any other case, use <em>-cut</em> instead. See also option <a href="#interactive">-interactive</a></li>
+</ul></li>
+</ul>
+<p><br /><a name="cut"></a></p>
+<ul>
+<li><strong>-cut &lt;l1, l2, ...&gt;</strong>:<br />
+<ul>
+<li>Specifies the persistence threshold. Any persistence pair with persistence (i.e. the difference of value between the two points in the pair) lower than the given threshold will be cancelled. Use <em>-nsig</em> instead of this when the input network was produced with <em><a href="index490e.html?post/Usage">delaunay_2D</a></em> or <em><a href="index490e.html?post/Usage">delaunay_3D</a></em>. The cut value should be typically set to the estimated amplitude of the noise. See also option <a href="#interactive">-interactive</a>.</li>
+</ul></li>
+</ul>
+<p><br /><a name="interactive"></a></p>
+<ul>
+<li><strong>-interactive [&lt;full/path/to/pdview&gt;]</strong>:<br />
+<ul>
+<li>This option allows the user to interactively select the persistence threshold on a persistence diagram (using <a href="index8707.html?post/pdview">pdview</a>). if option <em>-cut</em> or <em>-nsig</em> is also used, the specified values are become default thresholds in pdview. The path to <em><a href="index8707.html?post/pdview">pdview</a></em> may be optionally indicated in case it cannot be found automatically.<br /><ins>Note</ins>: this option may only be used if pdview was compiled (requires <em>mathGL</em> and <em>Qt4</em> libraries).</li>
+</ul></li>
+</ul>
+<p><br /><a name="forceloops"></a></p>
+<ul>
+<li><strong>-forceLoops</strong>:<br />
+<ul>
+<li>Forces the simplification of non-cancellable persistence pairs (saddle-saddle pairs in 3D or more that are linked by at least 2 different arcs). When two critical points of critical index difference 1 are linked by 2 or more arcs, they may not be cancelled as this would result in a discrete gradient loop. This is not a problem in 2D as such pairs cannot form persistence pairs but in 3D, saddle-saddle persistence pairs may be linked by 2 or more arcs even though their persistence is low. By default those pairs are skipped in order to preserve the properties of the Morse-smale complex but as a result few non persistent features may remain (such as spurious filaments). Fortunately, there are usually none or only very few of those pairs, and their number is shown in the output of mse, in the <em>Simplifying complex</em> section. If you are only interested in identifying structures (as opposed to doing topology),  you should probably use '-forceLoops' to remove those spurious structures (such as small non significant filaments).</li>
+</ul></li>
+</ul>
+<p><br /><a name="robustness"></a></p>
+<ul>
+<li><strong>-robustness / -no_robustness</strong>:<br />
+<ul>
+<li>Enables or prevents the computation of <em><a href="index959e.html?post/definitions#robustness">robustness</a></em> and <em><a href="index959e.html?post/definitions#robustness">robustness ratio</a></em>. By default, <em>robustness</em> is not computed as it can be costly for very large data sets. When enabled, a robustness value is tagged for each segments and node of the output <a href="index661f.html?post/skeleton-formats">skeleton</a> files. See also options <em><a href="index6160.html?post/skelconv#trim">-trimBelow</a></em> of <a href="index6160.html?post/skelconv">skelconv</a> and the <a href="index38d8.html?post/regular-grid-%3A-filaments#robustness">tutorial section</a> for applications.</li>
+</ul></li>
+</ul>
+<p><br /><a name="manifolds"></a></p>
+<ul>
+<li><strong>-manifolds</strong>:<br />
+<ul>
+<li>Forces the computation and storage of all <a href="index959e.html?post/definitions">ascending and descending manifolds</a> (i.e. walls, voids, ...). By default, mse only stores manifolds geometry if required (for instance, when the option <em><a href="#dumpmanifolds">-dumpManifolds</a></em> is used), and the resulting backup MSC file will therefore not contain this information and may not be used later to compute manifolds.<br /><ins>Example</ins>: running the command 'mse filename' will produce a the backup file 'filename.MSC' that stores the Morse-smale complex information. A later call to <em>mse -loadMSC filename.MSC -upSkl</em> would skip the computation of the MS-complex and succeed in producing the skeleton of the filamentary structures (arcs) as arcs geometry is computed by default. Unfortunately, <em>mse -loadMSC filename.MSC -dumpManifolds J0a</em> would fail as the information needed to compute the ascending 3-manifolds (i.e. manifolds originating from a minimum, which trace the voids) is not avaialble by default. Running <em>mse filename -manifolds</em> in the beginning would solve this problem.</li>
+</ul></li>
+</ul>
+<p><br /><a name="interarcsgeom"></a></p>
+<ul>
+<li><strong>-interArcsGeom</strong>:<br />
+<ul>
+<li>This is similar to option <em><a href="#manifolds">-manifolds</a></em>, but for the arcs linking different types of saddle-points together (in 3D or more). By default, unless option <em><a href="#interskl">-interSkl</a></em> is specified, only the geometry of arcs linking extrema to saddle points is computed, so the backup <em>.MSC</em> file may not be used later to retrieve other types of arcs geometry. Specifying <em>-interArcsGeom</em> forces the computation and storage of all types of arcs in the <em>.MSC</em> backup file.</li>
+</ul></li>
+</ul>
+<p><br /><a name="no_arcsgeom"></a></p>
+<ul>
+<li><strong>-no_arcsGeom</strong>:<br />
+<ul>
+<li>By default, the geometry of arcs linking extrema and saddle point is always computed even when not directly needed, so that it is stored in the backup <em>.MSC</em> file for later use. Specifying <em>-no_arcsGeom</em> may be used to lower memory usage when only the critical points and/or their persistence pairings are needed.<br /><ins>Exemple</ins>: <em>mse filename -ppairs -no_arcsGeom</em>  will compute the critical points and persistence pairs using less memory than <em>mse filename -ppairs</em>, but the resulting <em>.MSC</em> file may not be later used to retrieve arcs geometry.</li>
+</ul></li>
+</ul>
+<p><br /><a name="ppairs"></a></p>
+<ul>
+<li><strong>-ppairs</strong>:<br />
+<ul>
+<li>Dumps the persistence pairs as a <em>NDnet</em> <a href="index9cca.html?post/networks">network type file</a>. The resulting file is a 1D network, where the critical points are the vertices and 1-cells (segments) represent pairs. Additional information such as the type, persistence, cell in the initial complex, ... of each critical points and pairs is also stored as additional information. Try running <em><a href="index25e8.html?post/netconv">netconv</a> filename.ppairs.NDnet -info</em> for a list of available additional data (see also <em>additional data</em> in the <a href="index9cca.html?post/networks">network file format</a> section).</li>
+</ul></li>
+</ul>
+<p><br /><a name="ppairs_ascii"></a></p>
+<ul>
+<li><strong>-ppairs_ASCII</strong>:<br />
+<ul>
+<li>Same as <em>-<a href="#ppairs">ppairs</a></em> but pairs are dumped in a easily readable ASCII format. This option is deprecated and should not be used, use <em>-ppairs</em> option instead and then run <em><a href="index25e8.html?post/netconv">netconv</a> filename.ppairs.NDnet -to NDnet_ascii</em>.</li>
+</ul></li>
+</ul>
+<p><br /><a name="upskl"></a></p>
+<ul>
+<li><strong>-upSkl</strong>:<br />
+<ul>
+<li>Dumps the "up" skeleton (i.e. arcs linking maxima to saddle-points, which trace the filamentary structures) as a <em>NDskl</em> type <a href="index661f.html?post/skeleton-formats">skeleton file</a>. This command is an alias of <em>-<a href="#dumparcs">dumpArcs</a> U</em>.</li>
+</ul></li>
+</ul>
+<p><br /><a name="downskl"></a></p>
+<ul>
+<li><strong>-downSkl</strong>:<br />
+<ul>
+<li>Dumps the "down" skeleton (i.e. arcs linking minima to saddle-points, which trace the anti-filaments, or void filaments) as a <em>NDskl</em> type <a href="index661f.html?post/skeleton-formats">skeleton file</a>. This command is an alias of <em>-<a href="#dumparcs">dumpArcs</a> D</em>.</li>
+</ul></li>
+</ul>
+<p><br /><a name="interskl"></a></p>
+<ul>
+<li><strong>-interSkl</strong>:<br />
+<ul>
+<li>Dumps the "inter" skeleton (i.e. arcs linking different types of saddle-points together) as a <em>NDskl</em> type <a href="index661f.html?post/skeleton-formats">skeleton file</a>. This will only work in 3D or more, and be careful that those type of arcs may have a very complex structure. This command is an alias of '-<a href="#dumparcs">dumpArcs</a> I''.</li>
+</ul></li>
+</ul>
+<p><br /><a name="dumparcs"></a></p>
+<ul>
+<li><strong>-dumpArcs &lt;CUID&gt;</strong>:<br />
+<ul>
+<li>Dumps the specified type of <a href="index959e.html?post/definitions">arcs</a> (i.e filaments) as a <em>NDskl</em> type <a href="index661f.html?post/skeleton-formats">skeleton file</a>. Any combination of the letter <em>C</em>, <em>U</em>, <em>I</em> and <em>D</em> may be used as parameter to indicate which type of arc should be saved:<br />
+<ul>
+<li>-<em>U</em>(p): arcs leading to maxima (see also <em><a href="#upskl">-upSkl</a></em>).</li>
+<li>-<em>D</em>(own): arcs leading to minima (see also <em><a href="#downskl">-downSkl</a></em>).</li>
+<li>-<em>I</em>(nter): other arcs linking saddle-points together (see also <em><a href="#interskl">-interSkl</a></em>).</li>
+<li>-<em>C</em>(onnect): keeps at least the connectivity information for all types of arcs.<br /></li>
+</ul></li>
+<li><ins>Exemple</ins>: <em>CUD</em> dumps geometry of arcs for which one extremity is and extremum (a maximum or a minimum), and the connectivity of saddle points is also stored (i.e. one can retrieve how they are linked in the Morse-Smale complex but not the actual geometry of the corresponding arcs).</li>
+</ul></li>
+</ul>
+<p><br /><a name="dumpmanifolds"></a></p>
+<ul>
+<li><strong>-dumpManifolds [&lt;JEP0123456789ad&gt;]</strong>:<br />
+<ul>
+<li>Dumps <a href="index959e.html?post/definitions">ascending and/or descending manifolds</a> (i.e. walls, voids, ...) as a <em>NDnet</em> type <a href="index9cca.html?post/networks">network file</a>. The first part of the argument must be a combination of letters <em>J</em>, <em>E</em> and <em>P</em> and the second, which indicates the type of manifold to dump as a digit indicating the critical index of the critical point it originates from followed by the letter <em>a</em> and/or <em>d</em> to select ascending and/or descending manifolds respectively:
+<ul>
+<li>- <em>J</em>(oin): join all the the manifolds in one single file. By default, one file is created for each manifold.</li>
+<li>- <em>E</em>(xtended): compute extended manifolds. For instance, when computing an ascending 2-manifold (i.e. a wallseparating two voids), the ascending 1-manifolds (i.e. filaments) on its boundary as well as the ascending 0-manifolds (i.e. critical points) on their boundaries are also dumped.</li>
+<li>- <em>P</em>(reserve): do not merge infinitely close submanifolds. By default, the overlapping part of manifolds are merged (e.g. filaments may have bifurcation points but arcs only stop at critical points, so although two arcs continue above the bifurcation, only one path is stored). Using this option preserve the properties of the MS-complex but may result in very large files.</li>
+<li>- <em>D</em>(ual): compute dual cells geometry when appropriate. Descending and ascending manifolds are the dual of one another, so they should be represented by cells of the complex and their dual respectively. When this option is used, appropriate cells are replaced by their dual (for instance, ascending 0-manifolds of a delaunay tesselation are represented by sets of voronoi 3-cells, the dual of the 0-cells (vertices) of the delaunay tesselation). The default behavior is that descending manifolds belong to the dual, so ascending manifolds are always fine but one may want to use option <em>D</em> to compute dual cells or option <em><a href="#vertexasminima">-vertexAsMinima</a></em> to change this behavior in order to obtain correct descending manifolds.</li>
+<li>- <em>0123456789</em>: specifies the critical index of the critical points from which the manifold originates (ascending 0,1,2 and 3-manifolds in 3D trace the voids, walls, filaments and maxima/sources respectively).</li>
+<li>- <em>a/d</em>: compute the ascending and/or descending manifold.</li>
+</ul></li>
+<li><ins>Exemple 1</ins>: in 3D, argument <em>JD0a2ad3d</em> would dump to a single file the ascending manifolds of critical index 0 and 2, and the descending ones for critical index 2 and 3. Cells are replaced by their dual where appropriate (i.e. in 3D, the descending 2-manifolds would be 2-cells dual of segments, and descending 3 manifolds would be 3-cells dual to vertices).</li>
+<li><ins>Exemple 2</ins>: in 3D, argument <em>JE0a</em> would dump the union of the tetrahedrons within the voids, the walls separating the voids, as well as the filaments on their boundaries and the maxima at their extremity, as sets of triangles, segments and vertices of the input complex respectively, to a single file. As option <em>P</em> was not used, any overlapping region would be stored only once.</li>
+</ul></li>
+</ul>
+<p><br /><a name="compactify"></a></p>
+<ul>
+<li><strong>-compactify &lt;type=natural&gt;</strong>:<br />
+<ul>
+<li>This option is used to specify how to treat boundaries of manifolds with boundary (this option does not affect manifolds without boundary). Available type are:
+<ul>
+<li>- 'natural' is the default value, and almost always the best choice.</li>
+<li>- 'torus' creates reflective (i.e periodic) boundaries.</li>
+<li>- 'sphere' links boundaries to a cell at infinity.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><br /><a name="vertexasminima"></a></p>
+<ul>
+<li><strong>-vertexAsMinima</strong>:<br />
+<ul>
+<li>As mse uses discrete Morse theory, each type of critical point corresponds to a particular cell type. By defaults, 0-cells (vertices) are maxima, 1-cells are saddle points, .... and d-cells are minima (d is the number of dimensions). Using <em>-vertexAsMinima</em>, the association is reversed and 0-cells are associated to minima ... while d-cells are associated to maxima. This option can be useful to identify manifolds or arcs as lists of a particular type of cell.<br /><ins>Example</ins>: <em>mse input_filename -<a href="#dumpmanifolds">dumpManifolds</a> J0a -vertexAsMinima</em> can be used to identify voids (ascending 0-manifolds) as sets of 0-cells (vertices). As a result, voids are identified as sets of pixels or  particles (if input_filename is a grid or the delaunay tesselation of an N-body simulation respectiveley), which is easy to relate to the pixels/particles of the input file. If the command <em>mse input_filename -dumpManifolds J0a</em> had been issued instead, each void would have been described by a set of n-cells (in nD).</li>
+</ul></li>
+</ul>
+<p><br /><a name="descendingfiltration"></a></p>
+<ul>
+<li><strong>-descendingFiltration</strong>:<br />
+<ul>
+<li>By default, <em>mse</em> uses an ascending filtration to compute the discrete gradient. This option forces the program to use a descending filtration instead. Not that if mse works correctly (and it should hopefully be the case) the general properties of the Morse-smale complex are not affected, but simply critical points and  manifolds geometry will slightly differ.</li>
+</ul></li>
+</ul>
+<p><br /><a name="no_savemsc"></a></p>
+<ul>
+<li><strong>-no_saveMSC</strong>:<br />
+<ul>
+<li>Use this if you do not want <em>mse</em> to write a backup <em>.MSC</em> file.</li>
+</ul></li>
+</ul>
+<p><br /><a name="loadMSC"></a></p>
+<ul>
+<li><strong>-loadMSC &lt;fname&gt;</strong>:<br />
+<ul>
+<li>Loads a given backup <em>.MSC</em> file. This will basically skip the computation of the Morse-smale complex, therefore gaining a lot of time. By default, mse always write a backup <em>.MSC</em> after the MS-complex is computed. See options <em><a href="#manifolds">-manifolds</a></em> and <em><a href="#interarcsgeom">-interArcsGeom</a></em> for information on the limitations.</li>
+</ul></li>
+</ul>
+<p><br /><a name="no_gfilter"></a></p>
+<ul>
+<li><strong>-no_gFilter</strong>:<br />
+<ul>
+<li>Prevents the filtration of null-persistence pairs in the discrete gradient. There is no point in using this option except for debugging ...</li>
+</ul></li>
+</ul>
+<p><br /><a name="diagram"></a></p>
+<ul>
+<li><strong>-diagram</strong>:<br />
+<ul>
+<li>Draws a diagram of the connectivity of critical points to a <em>.ps</em> file. This should only be used when the number of critical points is very small (i.e. less than 100 or so).</li>
+</ul></li>
+</ul>
+<p><br /><a name="smooth"></a></p>
+<ul>
+<li><strong>-smooth &lt;Ntimes=0&gt;</strong>:<br />
+<ul>
+<li>Deprecated, don't use it ... use <em><a href="index6160.html?post/skelconv">skelconv</a> -smooth &lt;Ntimes=0&gt;</em> or <em><a href="index25e8.html?post/netconv">netconv</a> -smooth &lt;Ntimes=0&gt;</em> on the output files instead.</li>
+</ul></li>
+</ul>
+<p><br /><a name="debug"></a></p>
+<ul>
+<li><strong>-debug</strong>:<br />
+<ul>
+<li>Outputs some debug information and files.</li>
+</ul></li>
+</ul>
+<p><br /></p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+<div id="sidebar">
+  <div id="blognav">
+    <div class="categories"><ul><li><a href="index1694.html?category/Download">Download</a></li><li><a href="indexba87.html?category/Install">Install</a></li><li><a href="index3c4a.html?category/Overview">Overview</a></li><li><a href="index4559.html?category/Terminology">Terminology</a></li><li class="category-current"><a href="index4f3e.html?category/Manual">Manual</a></li><li><a href="index55a0.html?category/Quick-start">Tutorial</a></li><li><a href="index3333.html?category/Skeleton-I-O">Skeleton data</a></li><li><a href="indexe2a5.html?category/Network-I-O">Network data</a></li><li><a href="indexc777.html?category/Field-I-O">Field data</a></li><li><a href="indexdc31.html?category/References">Contact &amp; References</a></li></ul></div>  </div> <!-- End #blognav -->
+   ____________________
+  <div id="blogextra">
+        <a href="index4f3e.html?category/Manual">&#94; Manual</a></br>
+    <a href="index959e.html?post/definitions">&#171; Definitions</a></br>
+    <a href="index490e.html?post/Usage">&#187; delaunay_nD</a></br>
+  </div> <!-- End #blogextra -->
+</div>
+
+</div> <!-- End #wrapper -->
+
+<div id="footer">
+  <p>Powered by <a href="http://www.dotclear.net/">DotClear</a> - Contact: sousbie<em>(AT)</em>iap<em>.</em>fr . </p>
+</div>
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from localhost/dotclear/index.php?post/mse by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

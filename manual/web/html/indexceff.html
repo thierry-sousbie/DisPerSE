@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!-- Mirrored from localhost/dotclear/index.php?post/NDnet-format by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>NDnet format - DisPerSE - persistent structures identification</title>
+  <meta name="description" lang="en" content="This is the native binary format of DisPerSE. Functions for reading and writing NDnet format in C can be found within the file ${DISPERSE_SRC}/src/C/NDnetwork.c (see functions" />
+  <meta name="copyright" content="sousbie" />
+  <meta name="author" content="thierry sousbie" />
+  <meta name="date" scheme="W3CDTF" content="2426-01-01T13:14:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="NDnet format" />
+  <meta name="dc.description" lang="en" content="This is the native binary format of DisPerSE. Functions for reading and writing NDnet format in C can be found within the file ${DISPERSE_SRC}/src/C/NDnetwork.c (see functions" />
+  <meta name="dc.creator" content="thierry sousbie" />
+  <meta name="dc.language" content="en" />
+  <meta name="dc.publisher" content="thierry sousbie" />
+  <meta name="dc.rights" content="sousbie" />
+  <meta name="dc.date" scheme="W3CDTF" content="2426-01-01T13:14:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Home" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index9cca.html?post/networks"
+  title="Network files" />
+  
+  <link rel="prev" href="indexd2e2.html?post/NDnet_ascii-format"
+  title="NDnet_ascii format" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="../images/index4ca3.php?feed/atom" />
+  
+  <link rel="shortcut icon" href="../images/favicon.ico" />
+
+<style type="text/css" media="screen">
+@import url(../images/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(../images/print.css);
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37686840-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  
+  <script type="text/javascript" src="../images/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Remember me on this blog';
+  //]]>
+  </script>
+
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+<!--
+<h1><span><a href="http://localhost/dotclear/index.php?">DisPerSE - persistent structures identification</a></span></h1>
+ -->
+
+  </div>
+
+<p id="prelude">
+<a href="indexd41d.html?">Home</a> |
+<a href="index888d.html?archive">Show all</a>
+</p>
+
+<!--
+<ul id="nav-box">
+2.
+<li><a href="http://localhost/dotclear/index.php?">Accueil</a></li>
+3.
+<li><a href="http://localhost/dotclear/index.php?archive" title="Liste des mois de publication">Archives</a></li>
+4.
+<li><a href="http://localhost/dotclear/index.php?contact" title="Formulaire de contact">Me contacter</a></li>
+5.
+</ul>
+ -->
+
+<div id="wrapper">
+
+<div id="main">
+  <div id="content">
+  
+  <p id="navlinks">
+ 
+  <a href="index9cca.html?post/networks"
+  title="Network files" class="prev">&#171; Network files</a>
+   <span>-</span> <a href="indexd2e2.html?post/NDnet_ascii-format"
+  title="NDnet_ascii format" class="next">NDnet_ascii format &#187;</a>
+
+<!--
+  <a href="http://localhost/dotclear/index.php?post/NDnet_ascii-format"
+  title="NDnet_ascii format" class="prev">&#171; NDnet_ascii format</a>
+  <span>-</span> <a href="http://localhost/dotclear/index.php?post/networks"
+  title="Network files" class="next">Network files &#187;</a>
+-->
+  </p>
+  
+  <div id="p30" class="post">
+    <b1 class="post-title">NDnet format</b1>
+    <!--
+    <p class="post-info">By thierry sousbie    on Thursday, January  1 2426, 13:14        - <a href="http://localhost/dotclear/index.php?category/Network-I-O">Network data</a>
+        - <a href="http://localhost/dotclear/index.php?post/NDnet-format">Permalink</a>
+    </p>
+    -->
+    
+    
+        
+    <div class="post-content"><p>This is the native binary format of DisPerSE. Functions for reading and writing <em>NDnet</em> format  in <em>C</em> can be found within the file <code>${DISPERSE_SRC}/src/C/NDnetwork.c</code> (see functions <em>Load_NDnetwork</em> and <em>Save_NDnetwork</em>). The format may seem relatively complex, but most of it is actually optional and not used in disperse (only simplicial complexes are used in DisPerSE). To create DisPerSE input files, it is only necessary to define the highest dimensional n-simplices as a list of (n+1) vertices (see also function <em>CreateNetwork</em>).
+<br />
+<br />
+<ins>Note</ins>: The scalar function whose MS-complex is computed by <a href="index4656.html?post/mse">mse</a> can be stored as an additional data field
+named 'field_value' (case sensitive).
+<br />
+<ins>Warning</ins>: in the following, for legacy reasons, the terms <em>n-face</em> and <em>n-cell</em> are used indifferently to designate polygons of dimension <em>n</em> (which are always simplexes in DisPerSE).
+<br />
+<br />
+When using the C functions from Disperse, data is loaded into the following <em>C</em> structure which is close to the actual structure of the file (see file <code>${DISPERSE_SRC}/src/C/NDnetwork.h</code>):</p>
+
+<pre>typedef struct
+ {
+   int type; // the cell-type
+   char name[255];  // name of the field
+   double *data;  // value for each of the nfaces[n] n-cells
+} NDnetwork_Data;</pre>
+
+
+<pre>// NDnetwork_SupData is not used in disperse ...
+typedef struct
+{
+   int type; 
+   char name[255];
+   int datasize;
+   char datatype[255];// a string to identity how data should be casted
+   void *data;
+} NDnetwork_SupData;</pre>
+
+
+<pre>typedef struct 
+{
+   char comment[80];
+   int periodicity;
+   int ndims; // the number of spatial dimensions
+   int ndims_net; // number of dimension of the network itself (e.g. 2 for a sphere embedded in 3D)
+   int isSimpComplex;  // 1 if network is a simplicial complex (always true in disperse)
+   double *x0;  // origin of the bounding box
+   double *delta;  // size of the bounding box
+   int indexSize; // size of NDNET_UINT type in Bytes
+   int cumIndexSize; // size of NDNET_IDCUMT type in Bytes
+   char dummy[160-4*2]; // dummy data reserved for future extensions
+ 
+   NDNET_UINT nvertex;  // total number of vertices
+   float *v_coord; //vertices coodinates (X_0,Y_0,Z_0,X_1,Y_1,...,Z_nvertex-1)
+   
+   NDNET_UINT *nfaces; // number of cells of a given type t is given by nfaces[t]
+ 
+   int *haveVertexFromFace; // haveVertexFromFace[n] is 1 if we have an explicit definition of the n-cells (at least one type of cell must be defined).
+   NDNET_IDCUMT **f_numVertexIndexCum;// cumulative number of vertice in the t-cells, NULL when cells are simplexes (isSimpComplex=1)
+   NDNET_UINT **f_vertexIndex; // list of vertices defining the n-cells is stored in f_vertexIndex[n], all vertices being enumerated for each cell (the indices of the vertices in the kth n-cell start at f_vertexIndex[n][(n+1)*k] )
+   // see also macro  NUM_VERTEX_IN_FACE(net,type,face) and VERTEX_IN_FACE(net,type,face)
+ 
+   //This may be computed internally within DisPerSE but does not need to be defined explicitely
+   int *haveFaceFromVertex; // haveFaceFromVertex[n] is 1 if we have an explicit list of all the n-cells that contain each vertex (used to navigate within the network)
+   NDNET_IDCUMT **v_numFaceIndexCum; // cumulative number of t-cells a vertex v belongs to
+   NDNET_UINT **v_faceIndex; // indices of the t-cells in the co-boundary of v ( the list of n-cells of vertex k starts at v_faceIndex[n][net-&gt;v_numFaceIndexCum[n][k]] and ends at v_faceIndex[n][net-&gt;v_numFaceIndexCum[n][k+1]] )
+   // see also macro  NUM_FACE_IN_VERTEX(net,type,vertex) and  FACE_IN_VERTEX(net,type,vertex)
+   
+   // This can become extremely memory heavy ... NOT used in DisPerSE
+   int **haveFaceFromFace; // haveFaceFromFace[k][n] is 1 if we have an explicit list of all the n-cells that have a boundary/co-boundary relation with each k-cell (used to navigate within the network)
+   NDNET_IDCUMT ***f_numFaceIndexCum; //  cumulative number of n-cells having a boundary / co-boundary relation with each k-cell: f_numFaceIndexCum[k][n]
+   NDNET_UINT ***f_faceIndex; // indices of the cells (similar to v_faceIndex)
+   // see also macro NUM_FACE_IN_FACE(net,ref_type,ref_face,type) and FACE_IN_FACE(net,ref_type,ref_face,type)
+   
+   int haveVFlags;  // do we have flags associated to each vertex ?
+   int *haveFFlags;  // do we have flags associated to each n-cell ?
+   unsigned char *v_flag; // nvertex flag values (1 for each vertex) or NULL 
+   unsigned char **f_flag; // nfaces[n] flag values (1 of each n-cell) or NULL
+
+   int ndata; // number of additional data fields.
+   NDnetwork_Data *data; // array of all additionnal data (data in total)
+   
+   int nsupData;
+   NDnetwork_SupData *supData;
+
+} NDnetwork;</pre>
+
+<p><br />
+<br />
+The <em>NDnet</em> binary format is organized as follows (blocks are delimited by <em>dummy</em> variables indicating the size of the blocks for FORTRAN compatibility, but they are ignored in C):
+<br />
+<br /></p>
+<table style="margin: 1em auto 1em auto"><caption>NDnet binary format</caption><tr  valign="top"><td width="10%">field</td><td width="10%">type</td><td width="10%">size</td><td width="65%">comment</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"> for FORTRAN compatibility</td></tr>
+<tr  valign="top"><td>tag</td><td>char(1B)</td><td>16</td><td>identifies the file type. Value : "NDNETWORK"</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>ndims</td><td>int(4B)</td><td>1</td><td>number of dimensions of the embedding space</td></tr>
+<tr  valign="top"><td>ndims_net</td><td>int(4B)</td><td>1</td><td>ndims spanned by the network (=ndims by default)</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>comment</td><td>char(1B)</td><td>80</td><td>a comment on the file (string)</td></tr>
+<tr  valign="top"><td> periodicity</td><td>int(4B)</td><td>1</td><td> 0=non periodic, if p^th bit is set, boundary are periodic along dimension p</td></tr>
+<tr  valign="top"><td>isSimpComplex</td><td>int(4B)</td><td>1</td><td> 1 if network is made of simplices (must be 1 for DisPerSE)</td></tr>
+<tr  valign="top"><td>x0</td><td>double(8B)</td><td>ndims</td><td>origin of bounding box</td></tr>
+<tr  valign="top"><td>delta</td><td>double(8B)</td><td>ndims</td><td>size of bounding box</td></tr>
+<tr  valign="top"><td>index_size</td><td>int(4B)</td><td>1</td><td>size of NDNET_UINT integer format in Bytes</td></tr>
+<tr  valign="top"><td>cumindex_size</td><td>int(4B)</td><td>1</td><td>size of NDNET_IDCUMT integer format in Bytes</td></tr>
+<tr  valign="top"><td>dummy_ext</td><td>char(1B)</td><td>152</td><td>dummy data reserved for future extensions</td></tr>
+<tr  valign="top"><td>nvertex</td><td>NDNET_UINT</td><td>1</td><td>number of vertices</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>v_coords</td><td>float(4B)</td><td>ndims&timesnvertex</td><td>coordinates of the vertices [X0,Y0, ...]</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>nfaces</td><td>NDNET_UINT</td><td>ndims+1</td><td>number of cells of each type (N0,N1,...)</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>haveVertexFromFace</td><td>int(4B)</td><td>ndims+1</td><td>are n-cells explicitly defined ? (0=no, 1=yes)</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">*</td><td style="background:grey">*</td><td style="background:grey">*</td><td style="background:red"> next 3 lines are repeated for each (ndims+1) possible cells type , only if haveVertexFromFace[n] is true.</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:lightblue"></td></tr>
+<tr  valign="top"><td>f_vertexIndex[n]</td><td>NDNET_UINT</td><td>(n+1)&timesnfaces[n]</td><td style="background:lightblue">list of (n+1) vertex indices for each n-cell</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:lightblue"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>haveFaceFromVertex</td><td>int(4B)</td><td>ndims+1</td><td>are n-cells in the co-boundary of each vertex explicitly defined ? (0=no, 1=yes)</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">*</td><td style="background:grey">*</td><td style="background:grey">*</td><td style="background:red"> next 6 lines are repeated for each (ndims+1) possible cells type, only if haveFaceFromVertex[n] is true.</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:lightblue"></td></tr>
+<tr  valign="top"><td>numFaceIndexCum[n]</td><td>NDNET_IDCUMT</td><td>nvertex+1</td><td style="background:lightblue">cumulative count of n-cells on vertices co-boundary</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:lightblue"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:lightblue"></td></tr>
+<tr  valign="top"><td>v_faceIndex[n]</td><td>NDNET_UINT</td><td>numFaceIndexCum[n]</td><td style="background:lightblue">list of n-cells on the co-boundary of each vertex (vertex i have numFaceIndexCum[n][i+1]-numFaceIndexCum[n][i] of them)</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:lightblue"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>haveFaceFromFace</td><td>int(4B)</td><td>(ndims+1)^2</td><td>are n-cells in the co-boundary of each k-cell explicitly defined ? (0=no, 1=yes)</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>*</td><td>*</td><td>*</td><td style="background:red"> This section describes boundary relation between n-cells and k-cells. It is usually empty in DisPerSE (see NDnetwork.c for details) so SKIP IT :)</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>haveVFlags</td><td>int(4B)</td><td>1</td><td> 1 if vertex flags are defined</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>*</td><td>*</td><td>*</td><td style="background:red"> next 3 lines are skipped if haveVFlags=0</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:lightblue"></td></tr>
+<tr  valign="top"><td>v_flag</td><td>uchar(1B)</td><td>nvertex</td><td style="background:lightblue"> value of the flags for vertices</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:lightblue"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>haveFFlags</td><td>int(4B)</td><td>ndims+1</td><td> 1 if flags are defined for n-cells</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>*</td><td>*</td><td>*</td><td style="background:red"> next 3 lines are repeated for each n-cell such that haveFFlags[n]=1</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:lightblue"></td></tr>
+<tr  valign="top"><td>f_flag[n]</td><td>uchar(1B)</td><td>nfaces[n]</td><td style="background:lightblue"> value of the flags for n-cells</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:lightblue"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>ndata</td><td>int(4B)</td><td>1</td><td> total number of additional fields</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>*</td><td>*</td><td>*</td><td style="background:red"> next 7 lines are repeated for each additional field (&timesndata)</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:lightblue"></td></tr>
+<tr  valign="top"><td>type</td><td>int(4B)</td><td>1</td><td style="background:lightblue"> the type of cells (0=vertex, n = n-simplex)</td></tr>
+<tr  valign="top"><td>name</td><td>char(1B)</td><td>255</td><td style="background:lightblue"> name of the supplementary data</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:lightblue"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:lightblue"></td></tr>
+<tr  valign="top"><td>data</td><td>double(8B)</td><td>N</td><td style="background:lightblue"> data associated to cells or vertices. N is nfaces[n] or nvertex depending on the type value.</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:lightblue"></td></tr>
+</table></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+<div id="sidebar">
+  <div id="blognav">
+    <div class="categories"><ul><li><a href="index1694.html?category/Download">Download</a></li><li><a href="indexba87.html?category/Install">Install</a></li><li><a href="index3c4a.html?category/Overview">Overview</a></li><li><a href="index4559.html?category/Terminology">Terminology</a></li><li><a href="index4f3e.html?category/Manual">Manual</a></li><li><a href="index55a0.html?category/Quick-start">Tutorial</a></li><li><a href="index3333.html?category/Skeleton-I-O">Skeleton data</a></li><li class="category-current"><a href="indexe2a5.html?category/Network-I-O">Network data</a></li><li><a href="indexc777.html?category/Field-I-O">Field data</a></li><li><a href="indexdc31.html?category/References">Contact &amp; References</a></li></ul></div>  </div> <!-- End #blognav -->
+   ____________________
+  <div id="blogextra">
+        <a href="indexe2a5.html?category/Network-I-O">&#94; Network data</a></br>
+    <a href="index9cca.html?post/networks">&#171; Network files</a></br>
+    <a href="indexd2e2.html?post/NDnet_ascii-format">&#187; NDnet_ascii format</a></br>
+  </div> <!-- End #blogextra -->
+</div>
+
+</div> <!-- End #wrapper -->
+
+<div id="footer">
+  <p>Powered by <a href="http://www.dotclear.net/">DotClear</a> - Contact: sousbie<em>(AT)</em>iap<em>.</em>fr . </p>
+</div>
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from localhost/dotclear/index.php?post/NDnet-format by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

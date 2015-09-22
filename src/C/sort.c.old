@@ -1,0 +1,255 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <string.h>
+#include "mytypes.h"
+#include "sort.h"
+
+static UINT *global_arr_qsort; // used for quick sort
+static FLOAT *global_arr_qsortF;
+
+// used by qsort (in sortarray)
+// to sort indexes of an array (no the array itself)
+// -> ascending order
+int CompareUINT_a(const void *ap, const void *bp)
+{
+  UINT *d=global_arr_qsort;
+  UINT  a=*((UINT*)ap);
+  UINT  b=*((UINT*)bp);
+	
+  if (d[a]<d[b]) return -1;
+  else if (d[a]>d[b]) return 1;
+  else {
+      if (a==b) return 0;
+      else if (a<b) return -1;
+      else return 1;
+  }
+}
+
+// used by qsort (in sortarray)
+// same as CompareUINT_a, descending order
+int CompareUINT_d(const void *ap, const void *bp)
+{
+  UINT *d=global_arr_qsort;
+  UINT  a=*((UINT*)ap);
+  UINT  b=*((UINT*)bp);
+	
+  if (d[a]<d[b]) return 1;
+  else if (d[a]>d[b]) return -1;
+  else {
+      if (a==b) return 0;
+      else if (a<b) return -1;
+      else return 1;
+  }
+ 
+}
+
+int LongCompareUINT_a(const void *ap, const void *bp)
+{
+  UINT *d=global_arr_qsort;
+  long a=*((long*)ap);
+  long b=*((long*)bp);
+	
+  if (d[a]<d[b]) return -1;
+  else if (d[a]>d[b]) return 1;
+  else {
+      if (a==b) return 0;
+      else if (a<b) return -1;
+      else return 1;
+  }
+}
+
+// used by qsort (in sortarray)
+// same as CompareUINT_a, descending order
+int LongCompareUINT_d(const void *ap, const void *bp)
+{
+  UINT *d=global_arr_qsort;
+  long  a=*((long*)ap);
+  long  b=*((long*)bp);
+	
+  if (d[a]<d[b]) return 1;
+  else if (d[a]>d[b]) return -1;
+  else {
+      if (a==b) return 0;
+      else if (a<b) return -1;
+      else return 1;
+  }
+ 
+}
+
+// returns the array of index that sort array arr
+// n is the number of elments in arr
+// set reverse!=0 for descending order
+UINT *SortArrayUI(UINT *arr, long n, long stride_p, int reverse)
+{
+  UINT *index;
+  UINT i;
+  long stride=stride_p;
+
+  if (stride<=1) stride=1;
+  
+  index = malloc(sizeof(UINT)*n);
+  for (i=0;i<n;i++)
+      index[i]=i*stride;
+	
+  global_arr_qsort=arr;
+	
+  if (reverse)
+    qsort(index,n,sizeof(UINT),CompareUINT_d);
+  else
+    qsort(index,n,sizeof(UINT),CompareUINT_a);
+	
+  global_arr_qsort=NULL;
+
+  for (i=0;i<n;i++)
+      index[i]/=stride;
+
+  return index;
+}
+
+long *LongSortArrayUI(UINT *arr, long n, long stride_p, int reverse)
+{
+  long *index;
+  long i;
+  long stride=stride_p;
+
+  if (stride<=1) stride=1;
+  
+  index = malloc(sizeof(long)*n);
+  for (i=0;i<n;i++)
+      index[i]=i*stride;
+	
+  global_arr_qsort=arr;
+	
+  if (reverse)
+    qsort(index,n,sizeof(long),LongCompareUINT_d);
+  else
+    qsort(index,n,sizeof(long),LongCompareUINT_a);
+	
+  global_arr_qsort=NULL;
+
+  for (i=0;i<n;i++)
+      index[i]/=stride;
+
+  return index;
+}
+
+// used by qsort (in sortarray)
+// to sort indexes of an array (no the array itself)
+// -> ascending order
+int CompareFLOAT_a(const void *ap, const void *bp)
+{
+  FLOAT *d=global_arr_qsortF;
+  INT a=*((INT*)ap);
+  INT b=*((INT*)bp);
+	
+  if (d[a]<d[b]) return -1;
+  else if (d[a]>d[b]) return 1;
+  else {
+      if (a==b) return 0;
+      else if (a<b) return -1;
+      else return 1;
+  }
+
+}
+
+// used by qsort (in sortarray)
+// same as CompareFLOAT_a, descending order
+int CompareFLOAT_d(const void *ap, const void *bp)
+{
+  FLOAT *d=global_arr_qsortF;
+  INT a=*((INT*)ap);
+  INT b=*((INT*)bp);
+	
+  if (d[a]<d[b]) return 1;
+  else if (d[a]>d[b]) return -1;
+  else {
+      if (a==b) return 0;
+      else if (a<b) return -1;
+      else return 1;
+  }
+}
+
+// returns the array of index that sort array arr
+// n is the number of elments in arr
+// set reverse!=0 for descending order
+INT *SortArrayF(FLOAT *arr, long n, int reverse)
+{
+  INT *index;
+  INT i;
+	
+  index = malloc(sizeof(INT)*n);
+  for (i=0;i<n;i++)
+    index[i]=i;
+	
+  global_arr_qsortF=arr;
+	
+  if (reverse)
+    qsort(index,n,sizeof(INT),CompareFLOAT_d);
+  else
+    qsort(index,n,sizeof(INT),CompareFLOAT_a);
+	
+  global_arr_qsortF=NULL;
+  	
+  return index;
+}
+
+// used by qsort (in sortarray)
+// to sort indexes of an array (no the array itself)
+// -> ascending order
+int CompareDOUBLE_a(const void *ap, const void *bp)
+{
+  double *d=global_arr_qsortF;
+  INT a=*((INT*)ap);
+  INT b=*((INT*)bp);
+	
+  if (d[a]<d[b]) return -1;
+  else if (d[a]>d[b]) return 1;
+  else {
+      if (a==b) return 0;
+      else if (a<b) return -1;
+      else return 1;
+  }
+
+}
+
+// used by qsort (in sortarray)
+// same as Comparedouble_a, descending order
+int CompareDOUBLE_d(const void *ap, const void *bp)
+{
+  double *d=global_arr_qsortF;
+  INT a=*((INT*)ap);
+  INT b=*((INT*)bp);
+	
+  if (d[a]<d[b]) return 1;
+  else if (d[a]>d[b]) return -1;
+  else {
+      if (a==b) return 0;
+      else if (a<b) return -1;
+      else return 1;
+  }
+}
+
+// returns the array of index that sort array arr
+// n is the number of elments in arr
+// set reverse!=0 for descending order
+INT *SortArrayD(double *arr, long n, int reverse)
+{
+  INT *index;
+  INT i;
+	
+  index = malloc(sizeof(INT)*n);
+  for (i=0;i<n;i++)
+    index[i]=i;
+	
+  global_arr_qsortF=arr;
+	
+  if (reverse)
+    qsort(index,n,sizeof(INT),CompareDOUBLE_d);
+  else
+    qsort(index,n,sizeof(INT),CompareDOUBLE_a);
+	
+  global_arr_qsortF=NULL;
+  	
+  return index;
+}

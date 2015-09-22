@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!-- Mirrored from localhost/dotclear/index.php?post/NDskl-format by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>NDskl format - DisPerSE - persistent structures identification</title>
+  <meta name="description" lang="en" content="This is the native binary format of DisPerSE. Functions for reading and writing NDskl format in C can be found within the file ${DISPERSE_SRC}/src/C/NDskeleton.c (see functions" />
+  <meta name="copyright" content="sousbie" />
+  <meta name="author" content="thierry sousbie" />
+  <meta name="date" scheme="W3CDTF" content="2420-05-02T15:01:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="NDskl format" />
+  <meta name="dc.description" lang="en" content="This is the native binary format of DisPerSE. Functions for reading and writing NDskl format in C can be found within the file ${DISPERSE_SRC}/src/C/NDskeleton.c (see functions" />
+  <meta name="dc.creator" content="thierry sousbie" />
+  <meta name="dc.language" content="en" />
+  <meta name="dc.publisher" content="thierry sousbie" />
+  <meta name="dc.rights" content="sousbie" />
+  <meta name="dc.date" scheme="W3CDTF" content="2420-05-02T15:01:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Home" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index661f.html?post/skeleton-formats"
+  title="Skeleton files" />
+  
+  <link rel="prev" href="indexbea5.html?post/NDskl_ascii-format"
+  title="NDskl_ascii format" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="../images/index4ca3.php?feed/atom" />
+  
+  <link rel="shortcut icon" href="../images/favicon.ico" />
+
+<style type="text/css" media="screen">
+@import url(../images/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(../images/print.css);
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37686840-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  
+  <script type="text/javascript" src="../images/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Remember me on this blog';
+  //]]>
+  </script>
+
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+<!--
+<h1><span><a href="http://localhost/dotclear/index.php?">DisPerSE - persistent structures identification</a></span></h1>
+ -->
+
+  </div>
+
+<p id="prelude">
+<a href="indexd41d.html?">Home</a> |
+<a href="index888d.html?archive">Show all</a>
+</p>
+
+<!--
+<ul id="nav-box">
+2.
+<li><a href="http://localhost/dotclear/index.php?">Accueil</a></li>
+3.
+<li><a href="http://localhost/dotclear/index.php?archive" title="Liste des mois de publication">Archives</a></li>
+4.
+<li><a href="http://localhost/dotclear/index.php?contact" title="Formulaire de contact">Me contacter</a></li>
+5.
+</ul>
+ -->
+
+<div id="wrapper">
+
+<div id="main">
+  <div id="content">
+  
+  <p id="navlinks">
+ 
+  <a href="index661f.html?post/skeleton-formats"
+  title="Skeleton files" class="prev">&#171; Skeleton files</a>
+   <span>-</span> <a href="indexbea5.html?post/NDskl_ascii-format"
+  title="NDskl_ascii format" class="next">NDskl_ascii format &#187;</a>
+
+<!--
+  <a href="http://localhost/dotclear/index.php?post/NDskl_ascii-format"
+  title="NDskl_ascii format" class="prev">&#171; NDskl_ascii format</a>
+  <span>-</span> <a href="http://localhost/dotclear/index.php?post/skeleton-formats"
+  title="Skeleton files" class="next">Skeleton files &#187;</a>
+-->
+  </p>
+  
+  <div id="p25" class="post">
+    <b1 class="post-title">NDskl format</b1>
+    <!--
+    <p class="post-info">By thierry sousbie    on Saturday, May  2 2420, 15:01        - <a href="http://localhost/dotclear/index.php?category/Skeleton-I-O">Skeleton data</a>
+        - <a href="http://localhost/dotclear/index.php?post/NDskl-format">Permalink</a>
+    </p>
+    -->
+    
+    
+        
+    <div class="post-content"><p>This is the native binary format of DisPerSE. Functions for reading and writing <em>NDskl</em> format  in <em>C</em> can be found within the file <code>${DISPERSE_SRC}/src/C/NDskeleton.c</code> (see functions <em>Load_NDskel</em>, <em>Save_NDskel</em> and also <em>Create_NDskel</em>). In this format, the arcs of the Morse-Smale complex are described as arrays of nodes and segments with data associated to each of them. Each node contains information on critical points (which may also be bifurcations points or trimmed extremities of filaments). Each segment contains information on the local geometry of the arcs and global properties of the skeleton.
+<br />
+<br />
+When using the C functions from Disperse, data is loaded into the following <em>C</em> structure which is close to the actual structure of the file (see file <code>${DISPERSE_SRC}/src/C/NDskeleton.h</code>):</p>
+
+
+<pre>struct NDskl_seg_str {
+   int nodes[2];  // index of the nodes at the extremity of the arc. Segment is oriented from nodes[0] toward nodes[1]
+   float *pos;  // points to appropriate location in segpos
+   int flags;  // non null if on boundary 
+   int index;  // index of the segment in the Seg array
+   double *data;  // points to the nsegdata supplementary data for this segment
+   struct NDskl_seg_str *Next; // points to next segment in the arc, NULL if extremity (-&gt;connects to nodes[1])
+   struct NDskl_seg_str *Prev; // points to previous segment in the arc, NULL if extremity (-&gt;connects to nodes[0])
+ }; 
+ typedef struct NDskl_seg_str NDskl_seg;</pre>
+
+
+<pre> struct NDskl_node_str {
+   float *pos;  // points to appropriate location in nodepos
+   int flags;  // non null if on boundary 
+   int nnext;  // number of arcs connected
+   int type;  // critical index
+   int index;  // index of the node in the Node array
+   int *nsegs; // number pf segments in each of the the nnext arcs
+   double *data;   // points to the nnodedata supplementary data for this segment
+   struct NDskl_node_str **Next;  // points to the node at the other extremity of each of the nnext arcs
+   struct NDskl_seg_str **Seg;   // points to the first segment in the arcs, starting from current node.
+ }; 
+ typedef struct NDskl_node_str NDskl_node;</pre>
+
+
+<pre> typedef struct NDskel_str {
+   char comment[80];
+   
+   int ndims;  // number of dimensions
+   int *dims;  // dimension of the underlying grid, only meaningfull when computed from a regular grid
+   double *x0;  // origin of the bounding box
+   double *delta;  // dimension of the bounding box
+    
+   int nsegs;  // number of segments
+   int nnodes;  // number of nodes
+   
+   int nsegdata;  // number of additional data for segments
+   int nnodedata;  // number of additional data for nodes
+   char **segdata_info;  // name of additional fields for segments
+   char **nodedata_info;  // name of additional fields for nodes
+   
+   float *segpos;  // positions of the extremities of segments (2xndims coords for each segment)
+   float *nodepos; // positions of the nodes (ndims coords for each segment)
+   double *segdata; // additional data for segments (nsegs times nsegdata consecutive values)
+   double *nodedata; // additional data for nodes (nnodes times nnodedata consecutive values)
+   
+   NDskl_seg *Seg;  // segment array (contains all segs)
+   NDskl_node *Node;  // nodes array (contains all nodes)
+ } NDskel;</pre>
+
+<p><br />
+<br />
+The <em>NDskl</em> binary format is organized as follows (blocks are delimited by <em>dummy</em> variables indicating the size of the blocks for FORTRAN compatibility, but they are ignored in C):
+<br />
+<br /></p>
+<table style="margin: 1em auto 1em auto"><caption>NDskl binary format</caption><tr  valign="top"><td width="10%">field</td><td width="10%">type</td><td width="10%">size</td><td width="65%">comment</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"> for FORTRAN compatibility</td></tr>
+<tr  valign="top"><td>tag</td><td>char(1B)</td><td>16</td><td>identifies the file type. Value : "NDSKEL"</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>comment</td><td>char(1B)</td><td>80</td><td>a comment on the file (string)</td></tr>
+<tr  valign="top"><td>ndims</td><td>int(4B)</td><td>1</td><td>number of dimensions</td></tr>
+<tr  valign="top"><td>dims</td><td>int(4B)</td><td>20</td><td>dimension of underlying grid (0=none, ndims values are read)</td></tr>
+<tr  valign="top"><td>x0</td><td>double(8B)</td><td>20</td><td>origin of bounding box (ndims first values are meaningful)</td></tr>
+<tr  valign="top"><td>delta</td><td>double(8B)</td><td>20</td><td>size of bounding box (ndims first values are meaningful)</td></tr>
+<tr  valign="top"><td>nsegs</td><td>int(4B)</td><td>1</td><td>number of segments</td></tr>
+<tr  valign="top"><td>nnodes</td><td>int(4B)</td><td>1</td><td>number of nodes</td></tr>
+<tr  valign="top"><td>nsegdata</td><td>int(4B)</td><td>1</td><td>number of additional data associated to segments.</td></tr>
+<tr  valign="top"><td>nnodedata</td><td>int(4B)</td><td>1</td><td>number of additional data associated to nodes.</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey">  this block is ommited if nsegdata=0</td></tr>
+<tr  valign="top"><td>seg_data_info</td><td>char(1B)</td><td>20&timesnsegdata</td><td>name of the segment data field</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"> this block is ommited if nsegdata=0</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey">  this block is ommited if nnodedata=0</td></tr>
+<tr  valign="top"><td>node_data_info</td><td>char(1B)</td><td>20&timesnnodedata</td><td>name of the node data field</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey">  this block is ommited if nnodedata=0</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>segpos</td><td>float(4B)</td><td>2&timesnsegs&timesndims</td><td>coordinates of segment extremities</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>nodepos</td><td>float(4B)</td><td>nnodes&timesndims</td><td>coordinates of nodes</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>segdata</td><td>double(8B)</td><td>nsegdata&timesnsegs</td><td>value of the segments data fields</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>nodedata</td><td>double(8B)</td><td>nnodedata&timesnnodes</td><td>value of the nodes data fields</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:red"> following block is repeated for each node (&timesnnodes).</td></tr>
+<tr  valign="top"><td>pos_index</td><td>int(4B)</td><td>1</td><td>index in the nodepos/nodedata arrays</td></tr>
+<tr  valign="top"><td>flags</td><td>int(4B)</td><td>1</td><td>flags (identify boundary nodes)</td></tr>
+<tr  valign="top"><td>nnext</td><td>int(4B)</td><td>1</td><td>number of connected arcs</td></tr>
+<tr  valign="top"><td>type</td><td>int(4B)</td><td>1</td><td>critical index (ndims+1 for bifurcations / trimmed arc axtremity)</td></tr>
+<tr  valign="top"><td>index</td><td>int(4B)</td><td>1</td><td>index of this node</td></tr>
+<tr  valign="top"><td>nsegs</td><td>int(4B)</td><td>nnext</td><td>number of segments in each connected arc</td></tr>
+<tr  valign="top"><td> * </td><td>*</td><td>*</td><td  style="background:red">blue section repeated for each connected arc (&timesnnext)</td></tr>
+<tr  valign="top"><td>nextNode</td><td>int(4B)</td><td>1</td><td style="background:lightblue">index of the other node of the arc</td></tr>
+<tr  valign="top"><td>nextSeg</td><td>int(4B)</td><td>1</td><td style="background:lightblue">index of the first segment on the arc</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:red"> following block is repeated for each segment (&timesnsegs).</td></tr>
+<tr  valign="top"><td>pos_index</td><td>int(4B)</td><td>1</td><td>index in the segpos/segdata arrays</td></tr>
+<tr  valign="top"><td>nodes</td><td>int(4B)</td><td>2</td><td>index of the 2 nodes at the endpoints of the current arc.</td></tr>
+<tr  valign="top"><td>flags</td><td>int(4B)</td><td>1</td><td>flags (identify boundary nodes)</td></tr>
+<tr  valign="top"><td>index</td><td>int(4B)</td><td>1</td><td>index of this segment</td></tr>
+<tr  valign="top"><td>next_seg</td><td>int(4B)</td><td>1</td><td>index of the next segment in the node (-1 if none)</td></tr>
+<tr  valign="top"><td>prev_seg</td><td>int(4B)</td><td>1</td><td>index of the previous segment in the node (-1 if none)</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"></tr>
+</table></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+<div id="sidebar">
+  <div id="blognav">
+    <div class="categories"><ul><li><a href="index1694.html?category/Download">Download</a></li><li><a href="indexba87.html?category/Install">Install</a></li><li><a href="index3c4a.html?category/Overview">Overview</a></li><li><a href="index4559.html?category/Terminology">Terminology</a></li><li><a href="index4f3e.html?category/Manual">Manual</a></li><li><a href="index55a0.html?category/Quick-start">Tutorial</a></li><li class="category-current"><a href="index3333.html?category/Skeleton-I-O">Skeleton data</a></li><li><a href="indexe2a5.html?category/Network-I-O">Network data</a></li><li><a href="indexc777.html?category/Field-I-O">Field data</a></li><li><a href="indexdc31.html?category/References">Contact &amp; References</a></li></ul></div>  </div> <!-- End #blognav -->
+   ____________________
+  <div id="blogextra">
+        <a href="index3333.html?category/Skeleton-I-O">&#94; Skeleton data</a></br>
+    <a href="index661f.html?post/skeleton-formats">&#171; Skeleton files</a></br>
+    <a href="indexbea5.html?post/NDskl_ascii-format">&#187; NDskl_ascii format</a></br>
+  </div> <!-- End #blogextra -->
+</div>
+
+</div> <!-- End #wrapper -->
+
+<div id="footer">
+  <p>Powered by <a href="http://www.dotclear.net/">DotClear</a> - Contact: sousbie<em>(AT)</em>iap<em>.</em>fr . </p>
+</div>
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from localhost/dotclear/index.php?post/NDskl-format by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

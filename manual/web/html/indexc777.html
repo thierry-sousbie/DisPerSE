@@ -1,0 +1,753 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!-- Mirrored from localhost/dotclear/index.php?category/Field-I-O by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="ROBOTS" content="NOINDEX, FOLLOW" />
+  
+  <title>Field data - DisPerSE - persistent structures identification</title>
+
+  <meta name="description" lang="en" content="" />
+  <meta name="copyright" content="sousbie" />
+  <meta name="author" content="thierry sousbie" />
+  <meta name="date" scheme="W3CDTF" content="2013-01-27T10:34:14+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" lang="en" content="Field data - DisPerSE - persistent structures identification" />
+  <meta name="dc.description" lang="en" content="" />
+  <meta name="dc.language" content="en" />
+  <meta name="dc.publisher" content="thierry sousbie" />
+  <meta name="dc.rights" content="sousbie" />
+  <meta name="dc.date" scheme="W3CDTF" content="2013-01-27T10:34:14+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  <!--
+  <link rel="top" href="http://localhost/dotclear/index.php?" title="Home" />
+  <link rel="contents" href="http://localhost/dotclear/index.php?archive" title="Archives" />
+   -->
+                    
+    <link rel="chapter" href="indexd991.html?post/vtk-field-format" title="vtk field format" />
+          
+    <link rel="chapter" href="indexb2ad.html?post/SDL-image" title="SDL-image format" />
+          
+    <link rel="chapter" href="index744c.html?post/survey_ascii-format" title="survey_ascii format" />
+          
+    <link rel="chapter" href="index7327.html?post/FITS-format" title="FITS format" />
+          
+    <link rel="chapter" href="index16de.html?post/NDfield-format" title="NDfield format" />
+          
+    <link rel="chapter" href="indexd473.html?post/NDfield_ascii-format" title="NDfield_ascii format" />
+          
+    <link rel="chapter" href="indexa0c1.html?post/field-formats" title="Field files" />
+    
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="../images/index133f.php?feed/category/Field-I-O/atom" />
+  
+  <link rel="shortcut icon" href="../images/favicon.ico" />
+
+<style type="text/css" media="screen">
+@import url(../images/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(../images/print.css);
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37686840-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body class="dc-category">
+<div id="page">
+<div id="top">
+<!--
+<h1><span><a href="http://localhost/dotclear/index.php?">DisPerSE - persistent structures identification</a></span></h1>
+ -->
+
+  </div>
+
+<p id="prelude">
+<a href="indexd41d.html?">Home</a> |
+<a href="index888d.html?archive">Show all</a>
+</p>
+
+<!--
+<ul id="nav-box">
+2.
+<li><a href="http://localhost/dotclear/index.php?">Accueil</a></li>
+3.
+<li><a href="http://localhost/dotclear/index.php?archive" title="Liste des mois de publication">Archives</a></li>
+4.
+<li><a href="http://localhost/dotclear/index.php?contact" title="Formulaire de contact">Me contacter</a></li>
+5.
+</ul>
+ -->
+
+<div id="wrapper">
+
+<div id="main">
+  <div id="content">
+
+  <div id="content-info">
+    <h1 class="title">    Field data</h1>
+    <p><br _moz_editor_blogus_node="TRUE" _moz_dirty="" /></p>    <!--
+          <p><a type="application/atom+xml" href="http://localhost/dotclear/index.php?feed/category/Field-I-O/atom"
+      title="This category's entries Atom feed" class="feed">Entries feed</a>
+	
+            </p>
+        -->
+  </div>
+   
+    <!--
+  <div class="context-nav">
+    Field data</br>
+    <ul>
+          <li><a href="http://localhost/dotclear/index.php?post/field-formats">&#187; Field files</a></li>
+          <li><a href="http://localhost/dotclear/index.php?post/NDfield-format">&#187; NDfield format</a></li>
+          <li><a href="http://localhost/dotclear/index.php?post/NDfield_ascii-format">&#187; NDfield_ascii format</a></li>
+          <li><a href="http://localhost/dotclear/index.php?post/FITS-format">&#187; FITS format</a></li>
+          <li><a href="http://localhost/dotclear/index.php?post/survey_ascii-format">&#187; survey_ascii format</a></li>
+          <li><a href="http://localhost/dotclear/index.php?post/SDL-image">&#187; SDL-image format</a></li>
+          <li><a href="http://localhost/dotclear/index.php?post/vtk-field-format">&#187; vtk field format</a></li>
+        </ul>
+  </div>
+-->
+
+  
+    <div id="p17" class="post odd first" lang="en" xml:lang="en">
+
+<!-- 
+    <p class="day-date">Tuesday, January  1 2430</p>  -->  
+<!-- 
+    <b1>&rsaquo;<a href="http://localhost/dotclear/index.php?post/field-formats">Field files</a></b1>
+ -->  
+
+    <h2 class="post-title"></br>&rsaquo;<a
+    href="indexa0c1.html?post/field-formats">Field files</a></h2>
+
+    <!-- 
+    <p class="post-info">By thierry sousbie    on Tuesday, January  1 2430, 06:56</p>
+     -->  
+    
+    
+    <!--
+        -->
+
+    <!--
+          <div class="post-content"><p>This file type is designed to store scalar fields sampled over regular grids (i.e. regular images in 2D, 3D and more) or, by extension, coordinates of tracer particles sampling an underlying density field. The main field format is <em>NDfield</em>, which allows to store any type of data (integer, simple or double precision floating point, ...) over arbitrary sized regular grids or as coordinates of tracer particles.
+<br />
+<br />
+<strong><ins>Available formats</ins></strong>:
+<br />
+<br /></p>
+<ul>
+<li>-<strong><a href="/dotclear/index.php?post/NDfield-format">NDfield</a></strong> (Read / Write):<br />This is the format used internally in DisPerSE, it is efficient and generic as it can store regular grids or sample particles coordinates indifferently.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="/dotclear/index.php?post/NDfield_ascii-format">NDfield_ascii</a></strong> (Read / Write):<br />A simple ASCII version of the NDfield format, it is as versatile but data is always considered to be double precision floating point.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="/dotclear/index.php?post/FITS-format">FITS</a></strong> (Read only):<br />Used to read 2D or 3D regular grids of arbitrary dimensions in the popular Flexible Image Transport System (<a href="http://en.wikipedia.org/wiki/FITS" title="FITSS format">FITS</a>) image format. Also used for <a href="http://healpix.jpl.nasa.gov/" title="HEALPIX">HEALPIX</a> tessellations of the sphere.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="/dotclear/index.php?post/survey_ascii-format">survey_ascii</a></strong>(Read only):<br />A simple ASCII format whose main purpose is to easily read coordinates of discretely sampled astrophysical surveys (e.g. such as an <a href="http://www.sdss.org/" title="SDSS">SDSS</a> galaxy catalog). Try this if you use spherical coordinates or if distance is measured by redshift for instance.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="/dotclear/index.php?post/SDL-image">SDL-image</a></strong> (Read only):<br />This input format is used to read 2D regular grids encoded in a popular picture format readable by <a href="http://www.libsdl.org/projects/SDL_image/docs/SDL_image.html" title="SDL-image">SDL-image</a> library (jpg, png, gif, ...).</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="/dotclear/index.php?post/vtk-field-format">vtk</a></strong>, <strong><a href="/dotclear/index.php?post/vtk-field-format">vtk_ascii</a></strong>, <strong><a href="/dotclear/index.php?post/vtk-field-format">vti</a></strong> and <strong><a href="/dotclear/index.php?post/vtk-field-format">vti_ascii</a></strong> (Write only):<br />These formats are binary and ASCII legacy and XML <a href="http://www.vtk.org/">VTK</a> formats that are readable by several 3D visualization tools, such as <a href="https://wci.llnl.gov/codes/visit/">VisIt</a> or <a href="http://www.paraview.org/">ParaView</a> for instance.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="/dotclear/index.php?post/networks">NDnet</a></strong> (Write only):<br /> Using this format, field files representing tracer particles coordinates can be converted to <a href="/dotclear/index.php?post/networks">unstructured networks</a> (use <em><a href="/dotclear/index.php?post/netconv">netconv</a></em> to convert <em>NDnet</em> files to other network formats). Regular grids conversion is not implemented yet due to the huge size of the output network.</li>
+</ul>
+<p><br />
+<br /></p></div>
+        -->
+    <div class="post-content"><p>This file type is designed to store scalar fields sampled over regular grids (i.e. regular images in 2D, 3D and more) or, by extension, coordinates of tracer particles sampling an underlying density field. The main field format is <em>NDfield</em>, which allows to store any type of data (integer, simple or double precision floating point, ...) over arbitrary sized regular grids or as coordinates of tracer particles.
+<br />
+<br />
+<strong><ins>Available formats</ins></strong>:
+<br />
+<br /></p>
+<ul>
+<li>-<strong><a href="index16de.html?post/NDfield-format">NDfield</a></strong> (Read / Write):<br />This is the format used internally in DisPerSE, it is efficient and generic as it can store regular grids or sample particles coordinates indifferently.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="indexd473.html?post/NDfield_ascii-format">NDfield_ascii</a></strong> (Read / Write):<br />A simple ASCII version of the NDfield format, it is as versatile but data is always considered to be double precision floating point.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="index7327.html?post/FITS-format">FITS</a></strong> (Read only):<br />Used to read 2D or 3D regular grids of arbitrary dimensions in the popular Flexible Image Transport System (<a href="http://en.wikipedia.org/wiki/FITS" title="FITSS format">FITS</a>) image format. Also used for <a href="http://healpix.jpl.nasa.gov/" title="HEALPIX">HEALPIX</a> tessellations of the sphere.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="index744c.html?post/survey_ascii-format">survey_ascii</a></strong>(Read only):<br />A simple ASCII format whose main purpose is to easily read coordinates of discretely sampled astrophysical surveys (e.g. such as an <a href="http://www.sdss.org/" title="SDSS">SDSS</a> galaxy catalog). Try this if you use spherical coordinates or if distance is measured by redshift for instance.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="indexb2ad.html?post/SDL-image">SDL-image</a></strong> (Read only):<br />This input format is used to read 2D regular grids encoded in a popular picture format readable by <a href="http://www.libsdl.org/projects/SDL_image/docs/SDL_image.html" title="SDL-image">SDL-image</a> library (jpg, png, gif, ...).</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="indexd991.html?post/vtk-field-format">vtk</a></strong>, <strong><a href="indexd991.html?post/vtk-field-format">vtk_ascii</a></strong>, <strong><a href="indexd991.html?post/vtk-field-format">vti</a></strong> and <strong><a href="indexd991.html?post/vtk-field-format">vti_ascii</a></strong> (Write only):<br />These formats are binary and ASCII legacy and XML <a href="http://www.vtk.org/">VTK</a> formats that are readable by several 3D visualization tools, such as <a href="https://wci.llnl.gov/codes/visit/">VisIt</a> or <a href="http://www.paraview.org/">ParaView</a> for instance.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="index9cca.html?post/networks">NDnet</a></strong> (Write only):<br /> Using this format, field files representing tracer particles coordinates can be converted to <a href="index9cca.html?post/networks">unstructured networks</a> (use <em><a href="index25e8.html?post/netconv">netconv</a></em> to convert <em>NDnet</em> files to other network formats). Regular grids conversion is not implemented yet due to the huge size of the output network.</li>
+</ul>
+<p><br />
+<br /></p></div>
+
+    
+                        </div>
+    
+      
+    <div id="p34" class="post  " lang="en" xml:lang="en">
+
+<!-- 
+    <p class="day-date">Wednesday, January  2 2430</p>  -->  
+<!-- 
+    <b1>&rsaquo;<a href="http://localhost/dotclear/index.php?post/NDfield-format">NDfield format</a></b1>
+ -->  
+
+    <h2 class="post-title"></br>&rsaquo;<a
+    href="index16de.html?post/NDfield-format">NDfield format</a></h2>
+
+    <!-- 
+    <p class="post-info">By thierry sousbie    on Wednesday, January  2 2430, 06:56</p>
+     -->  
+    
+    
+    <!--
+        -->
+
+    <!--
+          <div class="post-content"><p>This is the native binary format of DisPerSE. Functions for reading and writing <em>NDfield</em> format  in <em>C</em> can be found within the file <code>${DISPERSE_SRC}/src/C/NDfield.c</code> (see functions <em>Load_NDfield</em> and <em>Save_NDfield</em>).
+<br />
+<br />
+When using the C functions from Disperse, data is loaded into the following <em>C</em> structure which is close to the actual structure of the file (see file <code>${DISPERSE_SRC}/src/C/NDfield.h</code>):</p>
+
+
+<pre>#define ND_CHAR   (1&lt;&lt;0)
+#define ND_UCHAR  (1&lt;&lt;1)
+#define ND_SHORT  (1&lt;&lt;2)
+#define ND_USHORT (1&lt;&lt;3)
+#define ND_INT    (1&lt;&lt;4)
+#define ND_UINT   (1&lt;&lt;5)
+#define ND_LONG   (1&lt;&lt;6)
+#define ND_ULONG  (1&lt;&lt;7)
+#define ND_FLOAT  (1&lt;&lt;8)
+#define ND_DOUBLE (1&lt;&lt;9)</pre>
+
+
+<pre>typedef struct NDfield_str
+{
+ char comment[80];  // a comment on the data
+ int dims[NDFIELD_MAX_DIMS];  // dimensions of the grid, must be [ndims,nparticles] when data represents sample particles coordinates (i.e. when fdims_index!=0)
+ int ndims;  // number of dimensions of the space
+ int n_dims;  // number of meaningfull values in dims array
+ int fdims_index; // if 0, the field is a regular grid of dimensions dims, else the file contains the dims[0] coordinates of dims[1] particles.
+ int datatype;  // type of the data (one of the ND_... defined above)
+ double x0[NDFIELD_MAX_DIMS];  // origin of the bounding box
+ double delta[NDFIELD_MAX_DIMS];  // extent of the bounding box
+ char dummy[160];  // dummy data, for future extensions or for storing anything you want.
+
+ void *val;  // pointer to data
+
+ long nval;  // total number of particles (fdims_index==1) or pixels (fdims_index==0)
+ int datasize;  // size in bytes of datatype type.
+} NDfield;</pre>
+
+
+<p><br />
+<br />
+The <em>NDfield</em> binary format is organized as follows (blocks are delimited by <em>dummy</em> variables indicating the size of the blocks for FORTRAN compatibility, but they are ignored in C):
+<br />
+<br /></p>
+<table style="margin: 1em auto 1em auto"><caption>NDnet binary format</caption><tr ><td width="10%" >field</td><td width="10%" >type</td><td width="10%">size</td><td width="65%" >comment</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"> for FORTRAN compatibility</td></tr>
+<tr  valign="top"><td>tag</td><td>char(1B)</td><td>16</td><td>identifies the file type. Value : "NDFIELD"</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>ndims</td><td>int(4B)</td><td>1</td><td>number of dimensions of the embedding space</td></tr>
+<tr  valign="top"><td>dims</td><td>int(4B)</td><td>20</td><td>size of the grid in pixels along each dimension, or [ndims,nparticles] if data represents particle coordinates (i.e. fdims_index=1)</td></tr>
+<tr  valign="top"><td>fdims_index</td><td>int(4B)</td><td>1</td><td> 0 if data represents a regular grid, 1 if it represents coordinates of tracer particles</td></tr>
+<tr  valign="top"><td>datatype</td><td>int(4B)</td><td>1</td><td>type of data stored (see below)</td></tr>
+<tr  valign="top"><td>x0</td><td>double(8B)</td><td>20</td><td>origin of bounding box (first ndims val. are meaningfull)</td></tr>
+<tr  valign="top"><td>delta</td><td>double(8B)</td><td>20</td><td>size of bounding box (first ndims val. are meaningfull)</td></tr>
+<tr  valign="top"><td>dummy_ext</td><td>char(1B)</td><td>160</td><td>dummy data reserved for future extensions</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>data</td><td>size of datatype</td><td>N</td><td>data itself (N may be the number of pixels or ndism times the number of particles)</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+</table>
+
+<p><br />
+<br /></p>
+<table border="1"><caption> Possible data types</caption><tr align="center"><td width="20%" style="background:grey">name</td><td width="20%" style="background:grey">size (Bytes)</td><td width="20%" style="background:grey">type</td><td width="20%" style="background:grey">value</td></tr>
+<tr align="center"><td style="background:grey"> ND_CHAR </td><td> 1 </td><td> integer </td><td>  1 (=1<<0)</td></tr>
+<tr  align="center"><td style="background:grey"> ND_UCHAR </td><td> 1 </td><td> integer </td><td>  2 (=1<<1)</td></tr>
+<tr align="center"><td style="background:grey"> ND_SHORT </td><td> 2 </td><td> integer </td><td>  4 (=1<<2)</td></tr>
+<tr  align="center"><td style="background:grey"> ND_USHORT </td><td> 2 </td><td> integer </td><td>  8 (=1<<3)</td></tr>
+<tr  align="center"><td style="background:grey"> ND_INT </td><td> 4 </td><td> integer </td><td>  16 (=1<<4)</td></tr>
+<tr  align="center"><td style="background:grey"> ND_UINT  </td><td> 4 </td><td> integer </td><td>  32 (=1<<5)</td></tr>
+<tr  align="center"><td style="background:grey"> ND_LONG </td><td> 8 </td><td> integer </td><td>  64 (=1<<6)</td></tr>
+<tr  align="center"><td style="background:grey"> ND_ULONG </td><td> 8 </td><td> integer </td><td>  128 (=1<<7)</td></tr>
+<tr  align="center"><td style="background:grey"> ND_FLOAT </td><td> 4 </td><td> float </td><td>  256 (=1<<8)</td></tr>
+<tr  align="center"><td style="background:grey"> ND_DOUBLE </td><td> 8 </td><td> float </td><td>  512 (=1<<9)</td></tr>
+</table></div>
+        -->
+    <div class="post-content"><p>This is the native binary format of DisPerSE. Functions for reading and writing <em>NDfield</em> format  in <em>C</em> can be found within the file <code>${DISPERSE_SRC}/src/C/NDfield.c</code> (see functions <em>Load_NDfield</em> and <em>Save_NDfield</em>).
+<br />
+<br />
+When using the C functions from Disperse, data is loaded into the following <em>C</em> structure which is close to the actual structure of the file (see file <code>${DISPERSE_SRC}/src/C/NDfield.h</code>):</p>
+
+
+<pre>#define ND_CHAR   (1&lt;&lt;0)
+#define ND_UCHAR  (1&lt;&lt;1)
+#define ND_SHORT  (1&lt;&lt;2)
+#define ND_USHORT (1&lt;&lt;3)
+#define ND_INT    (1&lt;&lt;4)
+#define ND_UINT   (1&lt;&lt;5)
+#define ND_LONG   (1&lt;&lt;6)
+#define ND_ULONG  (1&lt;&lt;7)
+#define ND_FLOAT  (1&lt;&lt;8)
+#define ND_DOUBLE (1&lt;&lt;9)</pre>
+
+
+<pre>typedef struct NDfield_str
+{
+ char comment[80];  // a comment on the data
+ int dims[NDFIELD_MAX_DIMS];  // dimensions of the grid, must be [ndims,nparticles] when data represents sample particles coordinates (i.e. when fdims_index!=0)
+ int ndims;  // number of dimensions of the space
+ int n_dims;  // number of meaningfull values in dims array
+ int fdims_index; // if 0, the field is a regular grid of dimensions dims, else the file contains the dims[0] coordinates of dims[1] particles.
+ int datatype;  // type of the data (one of the ND_... defined above)
+ double x0[NDFIELD_MAX_DIMS];  // origin of the bounding box
+ double delta[NDFIELD_MAX_DIMS];  // extent of the bounding box
+ char dummy[160];  // dummy data, for future extensions or for storing anything you want.
+
+ void *val;  // pointer to data
+
+ long nval;  // total number of particles (fdims_index==1) or pixels (fdims_index==0)
+ int datasize;  // size in bytes of datatype type.
+} NDfield;</pre>
+
+
+<p><br />
+<br />
+The <em>NDfield</em> binary format is organized as follows (blocks are delimited by <em>dummy</em> variables indicating the size of the blocks for FORTRAN compatibility, but they are ignored in C):
+<br />
+<br /></p>
+<table style="margin: 1em auto 1em auto"><caption>NDnet binary format</caption><tr ><td width="10%" >field</td><td width="10%" >type</td><td width="10%">size</td><td width="65%" >comment</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"> for FORTRAN compatibility</td></tr>
+<tr  valign="top"><td>tag</td><td>char(1B)</td><td>16</td><td>identifies the file type. Value : "NDFIELD"</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>ndims</td><td>int(4B)</td><td>1</td><td>number of dimensions of the embedding space</td></tr>
+<tr  valign="top"><td>dims</td><td>int(4B)</td><td>20</td><td>size of the grid in pixels along each dimension, or [ndims,nparticles] if data represents particle coordinates (i.e. fdims_index=1)</td></tr>
+<tr  valign="top"><td>fdims_index</td><td>int(4B)</td><td>1</td><td> 0 if data represents a regular grid, 1 if it represents coordinates of tracer particles</td></tr>
+<tr  valign="top"><td>datatype</td><td>int(4B)</td><td>1</td><td>type of data stored (see below)</td></tr>
+<tr  valign="top"><td>x0</td><td>double(8B)</td><td>20</td><td>origin of bounding box (first ndims val. are meaningfull)</td></tr>
+<tr  valign="top"><td>delta</td><td>double(8B)</td><td>20</td><td>size of bounding box (first ndims val. are meaningfull)</td></tr>
+<tr  valign="top"><td>dummy_ext</td><td>char(1B)</td><td>160</td><td>dummy data reserved for future extensions</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+<tr  valign="top"><td>data</td><td>size of datatype</td><td>N</td><td>data itself (N may be the number of pixels or ndism times the number of particles)</td></tr>
+<tr  valign="top"><td style="background:grey">dummy</td><td style="background:grey">int(4B) </td><td style="background:grey">1</td><td style="background:grey"></td></tr>
+</table>
+
+<p><br />
+<br /></p>
+<table border="1"><caption> Possible data types</caption><tr align="center"><td width="20%" style="background:grey">name</td><td width="20%" style="background:grey">size (Bytes)</td><td width="20%" style="background:grey">type</td><td width="20%" style="background:grey">value</td></tr>
+<tr align="center"><td style="background:grey"> ND_CHAR </td><td> 1 </td><td> integer </td><td>  1 (=1<<0)</td></tr>
+<tr  align="center"><td style="background:grey"> ND_UCHAR </td><td> 1 </td><td> integer </td><td>  2 (=1<<1)</td></tr>
+<tr align="center"><td style="background:grey"> ND_SHORT </td><td> 2 </td><td> integer </td><td>  4 (=1<<2)</td></tr>
+<tr  align="center"><td style="background:grey"> ND_USHORT </td><td> 2 </td><td> integer </td><td>  8 (=1<<3)</td></tr>
+<tr  align="center"><td style="background:grey"> ND_INT </td><td> 4 </td><td> integer </td><td>  16 (=1<<4)</td></tr>
+<tr  align="center"><td style="background:grey"> ND_UINT  </td><td> 4 </td><td> integer </td><td>  32 (=1<<5)</td></tr>
+<tr  align="center"><td style="background:grey"> ND_LONG </td><td> 8 </td><td> integer </td><td>  64 (=1<<6)</td></tr>
+<tr  align="center"><td style="background:grey"> ND_ULONG </td><td> 8 </td><td> integer </td><td>  128 (=1<<7)</td></tr>
+<tr  align="center"><td style="background:grey"> ND_FLOAT </td><td> 4 </td><td> float </td><td>  256 (=1<<8)</td></tr>
+<tr  align="center"><td style="background:grey"> ND_DOUBLE </td><td> 8 </td><td> float </td><td>  512 (=1<<9)</td></tr>
+</table></div>
+
+    
+                        </div>
+    
+      
+    <div id="p35" class="post odd " lang="en" xml:lang="en">
+
+<!-- 
+      -->  
+<!-- 
+    <b1>&rsaquo;<a href="http://localhost/dotclear/index.php?post/NDfield_ascii-format">NDfield_ascii format</a></b1>
+ -->  
+
+    <h2 class="post-title"></br>&rsaquo;<a
+    href="indexd473.html?post/NDfield_ascii-format">NDfield_ascii format</a></h2>
+
+    <!-- 
+    <p class="post-info">By thierry sousbie    on Wednesday, January  2 2430, 06:56</p>
+     -->  
+    
+    
+    <!--
+        -->
+
+    <!--
+          <div class="post-content"><p>A simple ASCII version of the <a href="/dotclear/index.php?post/NDfield-format">NDfield</a> format used to represent either uniform grids or particles coordinates. Data type is always interpreted as double precision floating point.
+<br />
+<br /></p>
+<table border="1"><caption> NDfield_ascii format</caption><tr ><td  width="50%" ></td><td  width="50%" ></td></tr>
+<tr  valign="top"><th>ANDFIELD	COORDS</th><td>header (COORDS keyword is optional, if present, values are interpreted as coordinates, or else, as pixel values)</td></tr>
+<tr  valign="top"><th>[N_1 ... N_ndims]</th><td>size of the grid along each of the ndims dimensions (in pixels) or number of dimensions and number of particles if COORDS keyword is in the header (= [ndims,nparticles])</td></tr>
+<tr  valign="top"><th>BBOX [X0_1 ... X0_ndims] [delta_1 ... delta_ndims]</th><td>OPTIONAL: bounding box definition 	(origin and extent)</td></tr>
+<tr  valign="top"><th>V_1 V_2</th><td> values (any number of values can be on the same line)</td></tr>
+<tr  valign="top"><th>V_3</th><td> no particular formating is required</td></tr>
+<tr  valign="top"><th>...</th><td> Repeat enough time to define a number of values equal to the number of pixels or the number of particles (if COORDS keyword is in the header)</td></tr>
+</table></div>
+        -->
+    <div class="post-content"><p>A simple ASCII version of the <a href="index16de.html?post/NDfield-format">NDfield</a> format used to represent either uniform grids or particles coordinates. Data type is always interpreted as double precision floating point.
+<br />
+<br /></p>
+<table border="1"><caption> NDfield_ascii format</caption><tr ><td  width="50%" ></td><td  width="50%" ></td></tr>
+<tr  valign="top"><th>ANDFIELD	COORDS</th><td>header (COORDS keyword is optional, if present, values are interpreted as coordinates, or else, as pixel values)</td></tr>
+<tr  valign="top"><th>[N_1 ... N_ndims]</th><td>size of the grid along each of the ndims dimensions (in pixels) or number of dimensions and number of particles if COORDS keyword is in the header (= [ndims,nparticles])</td></tr>
+<tr  valign="top"><th>BBOX [X0_1 ... X0_ndims] [delta_1 ... delta_ndims]</th><td>OPTIONAL: bounding box definition 	(origin and extent)</td></tr>
+<tr  valign="top"><th>V_1 V_2</th><td> values (any number of values can be on the same line)</td></tr>
+<tr  valign="top"><th>V_3</th><td> no particular formating is required</td></tr>
+<tr  valign="top"><th>...</th><td> Repeat enough time to define a number of values equal to the number of pixels or the number of particles (if COORDS keyword is in the header)</td></tr>
+</table></div>
+
+    
+                        </div>
+    
+      
+    <div id="p36" class="post  " lang="en" xml:lang="en">
+
+<!-- 
+    <p class="day-date">Thursday, January  3 2430</p>  -->  
+<!-- 
+    <b1>&rsaquo;<a href="http://localhost/dotclear/index.php?post/FITS-format">FITS format</a></b1>
+ -->  
+
+    <h2 class="post-title"></br>&rsaquo;<a
+    href="index7327.html?post/FITS-format">FITS format</a></h2>
+
+    <!-- 
+    <p class="post-info">By thierry sousbie    on Thursday, January  3 2430, 06:56</p>
+     -->  
+    
+    
+    <!--
+        -->
+
+    <!--
+          <div class="post-content"><p>This field format is used to read 2D or 3D regular grids of arbitrary dimensions in the popular Flexible Image Transport System (<a href="http://en.wikipedia.org/wiki/FITS" title="FITSS format">FITS</a>) image format. A popular library for reading and writing FITS image in <em>C</em> or <em>FORTRAN</em> is <a href="http://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html" title="FITS IO">CFITSIO</a>, which must be installed for DisPerSE to be able to use this kind of files.
+<br />
+<br />
+This file format is also used for storing <a href="http://healpix.jpl.nasa.gov/" title="HEALPIX">HEALPIX</a> tesselations of the sphere. DisPerSE will automatically detect if the FITS file contains a HEALPIX tesselation.
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /></p></div>
+        -->
+    <div class="post-content"><p>This field format is used to read 2D or 3D regular grids of arbitrary dimensions in the popular Flexible Image Transport System (<a href="http://en.wikipedia.org/wiki/FITS" title="FITSS format">FITS</a>) image format. A popular library for reading and writing FITS image in <em>C</em> or <em>FORTRAN</em> is <a href="http://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html" title="FITS IO">CFITSIO</a>, which must be installed for DisPerSE to be able to use this kind of files.
+<br />
+<br />
+This file format is also used for storing <a href="http://healpix.jpl.nasa.gov/" title="HEALPIX">HEALPIX</a> tesselations of the sphere. DisPerSE will automatically detect if the FITS file contains a HEALPIX tesselation.
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /></p></div>
+
+    
+                        </div>
+    
+      
+    <div id="p37" class="post odd " lang="en" xml:lang="en">
+
+<!-- 
+    <p class="day-date">Friday, January  4 2430</p>  -->  
+<!-- 
+    <b1>&rsaquo;<a href="http://localhost/dotclear/index.php?post/survey_ascii-format">survey_ascii format</a></b1>
+ -->  
+
+    <h2 class="post-title"></br>&rsaquo;<a
+    href="index744c.html?post/survey_ascii-format">survey_ascii format</a></h2>
+
+    <!-- 
+    <p class="post-info">By thierry sousbie    on Friday, January  4 2430, 06:56</p>
+     -->  
+    
+    
+    <!--
+        -->
+
+    <!--
+          <div class="post-content"><p>This is a simple ASCII format whose main purpose is to easily read coordinates of discretely sampled astrophysical surveys (e.g. such as an <a href="http://www.sdss.org/" title="SDSS">SDSS</a> galaxy catalog). It should be considered when using spherical coordinates systems or if distance is measured by redshift for instance.
+<br />
+<br />
+In this format, particles properties are encoded in an ASCII array where each row corresponds to one particle and each column to one property. Each column must have a name defined in the header (the first line of the file, starting with character <em>#</em>). An survey_ascii file may look like this:
+<br />
+<br /></p>
+
+<pre># ra dec z my_field
++2.115401e+02	+6.313433e-01	+2.666800e-01  1	
++2.115633e+02	+7.550188e-01	+1.259900e-01  0	
++2.115687e+02	+8.108763e-01	+3.646600e-01  0	
++2.117158e+02	+6.393598e-01	+1.143600e-01  1	
++2.116826e+02	+6.528485e-01	+2.455700e-01  1	
++2.116993e+02	+6.509297e-01	+1.199000e-01  0	
++2.115738e+02	+7.772653e-01	+3.240600e-01  0	
++2.116198e+02	+6.950604e-01	+1.987300e-01  0	
++2.116773e+02	+7.085776e-01	+2.561900e-01  1</pre>
+
+<p><br />
+<br />
+The name of a column defines its role if it matches one of the following keywords:
+<br />
+<br /></p>
+<table border="1"><caption> header keywords</caption><tr align="center"><td width="20%" style="background:grey">Keyword</td><td width="40%" style="background:grey">Meaning</td></tr>
+<tr align="center"><td style="background:grey"> px </td><td> X coordinate of the particle</td></tr>
+<tr align="center"><td style="background:grey"> py </td><td> Y coordinate of the particle</td></tr>
+<tr align="center"><td style="background:grey"> pz </td><td> Z coordinate of the particle</td></tr>
+<tr align="center"><td style="background:grey"> vx </td><td> X component of the velocity</td></tr>
+<tr align="center"><td style="background:grey"> vy </td><td> Y component of the velocity</td></tr>
+<tr align="center"><td style="background:grey"> vz </td><td> Z component of the velocity</td></tr>
+<tr align="center"><td style="background:grey"> id </td><td> an index associated to the particle</td></tr>
+<tr align="center"><td style="background:grey"> ra </td><td> The <a href="http://en.wikipedia.org/wiki/Right_ascension">right ascension</a> of the particle</td></tr>
+<tr align="center"><td style="background:grey"> dec </td><td> The <a href="http://en.wikipedia.org/wiki/Declination">declination</a> of the particle</td></tr>
+<tr align="center"><td style="background:grey"> z </td><td> The <a href="http://en.wikipedia.org/wiki/Redshift">redshift</a> of the particle.</td></tr>
+</table>
+
+<p><br />
+<br />
+When particles coordinates are defined with <em>ra</em>, <em>dec</em> or <em>z</em> (redshift), DisPerSE automatically transform them into cartesian coordinates using the standard LCDM model to compute distances (Omega_m=0.27, Omega_L=0.73 ). This transformation can be inverted on the output skeletons and networks using options <em>-toRaDecZ</em> and <em>-toRaDecDist</em> of <a href="/dotclear/index.php?post/skelconv">skelconv</a> and <a href="/dotclear/index.php?post/netconv">netconv</a>.</p></div>
+        -->
+    <div class="post-content"><p>This is a simple ASCII format whose main purpose is to easily read coordinates of discretely sampled astrophysical surveys (e.g. such as an <a href="http://www.sdss.org/" title="SDSS">SDSS</a> galaxy catalog). It should be considered when using spherical coordinates systems or if distance is measured by redshift for instance.
+<br />
+<br />
+In this format, particles properties are encoded in an ASCII array where each row corresponds to one particle and each column to one property. Each column must have a name defined in the header (the first line of the file, starting with character <em>#</em>). An survey_ascii file may look like this:
+<br />
+<br /></p>
+
+<pre># ra dec z my_field
++2.115401e+02	+6.313433e-01	+2.666800e-01  1	
++2.115633e+02	+7.550188e-01	+1.259900e-01  0	
++2.115687e+02	+8.108763e-01	+3.646600e-01  0	
++2.117158e+02	+6.393598e-01	+1.143600e-01  1	
++2.116826e+02	+6.528485e-01	+2.455700e-01  1	
++2.116993e+02	+6.509297e-01	+1.199000e-01  0	
++2.115738e+02	+7.772653e-01	+3.240600e-01  0	
++2.116198e+02	+6.950604e-01	+1.987300e-01  0	
++2.116773e+02	+7.085776e-01	+2.561900e-01  1</pre>
+
+<p><br />
+<br />
+The name of a column defines its role if it matches one of the following keywords:
+<br />
+<br /></p>
+<table border="1"><caption> header keywords</caption><tr align="center"><td width="20%" style="background:grey">Keyword</td><td width="40%" style="background:grey">Meaning</td></tr>
+<tr align="center"><td style="background:grey"> px </td><td> X coordinate of the particle</td></tr>
+<tr align="center"><td style="background:grey"> py </td><td> Y coordinate of the particle</td></tr>
+<tr align="center"><td style="background:grey"> pz </td><td> Z coordinate of the particle</td></tr>
+<tr align="center"><td style="background:grey"> vx </td><td> X component of the velocity</td></tr>
+<tr align="center"><td style="background:grey"> vy </td><td> Y component of the velocity</td></tr>
+<tr align="center"><td style="background:grey"> vz </td><td> Z component of the velocity</td></tr>
+<tr align="center"><td style="background:grey"> id </td><td> an index associated to the particle</td></tr>
+<tr align="center"><td style="background:grey"> ra </td><td> The <a href="http://en.wikipedia.org/wiki/Right_ascension">right ascension</a> of the particle</td></tr>
+<tr align="center"><td style="background:grey"> dec </td><td> The <a href="http://en.wikipedia.org/wiki/Declination">declination</a> of the particle</td></tr>
+<tr align="center"><td style="background:grey"> z </td><td> The <a href="http://en.wikipedia.org/wiki/Redshift">redshift</a> of the particle.</td></tr>
+</table>
+
+<p><br />
+<br />
+When particles coordinates are defined with <em>ra</em>, <em>dec</em> or <em>z</em> (redshift), DisPerSE automatically transform them into cartesian coordinates using the standard LCDM model to compute distances (Omega_m=0.27, Omega_L=0.73 ). This transformation can be inverted on the output skeletons and networks using options <em>-toRaDecZ</em> and <em>-toRaDecDist</em> of <a href="index6160.html?post/skelconv">skelconv</a> and <a href="index25e8.html?post/netconv">netconv</a>.</p></div>
+
+    
+                        </div>
+    
+      
+    <div id="p38" class="post  " lang="en" xml:lang="en">
+
+<!-- 
+    <p class="day-date">Saturday, January  5 2430</p>  -->  
+<!-- 
+    <b1>&rsaquo;<a href="http://localhost/dotclear/index.php?post/SDL-image">SDL-image format</a></b1>
+ -->  
+
+    <h2 class="post-title"></br>&rsaquo;<a
+    href="indexb2ad.html?post/SDL-image">SDL-image format</a></h2>
+
+    <!-- 
+    <p class="post-info">By thierry sousbie    on Saturday, January  5 2430, 06:56</p>
+     -->  
+    
+    
+    <!--
+        -->
+
+    <!--
+          <div class="post-content"><p>This input format is used to read 2D regular grids encoded in a popular picture format readable by <a href="http://www.libsdl.org/projects/SDL_image/docs/SDL_image.html" title="SDL-image">SDL-image</a> library (jpg, png, gif, ...). When using this format as input to <a href="/dotclear/index.php?post/mse">mse</a>, the field whose topology is computed is the luminosity L of the image, a weighted average of the RED, GREEN and BLUE components of the image:
+<br />
+<br /></p>
+
+<pre>L = 0.2989*RED + 0.5870*GREEN + 0.1140*BLUE</pre>
+
+<p><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /></p></div>
+        -->
+    <div class="post-content"><p>This input format is used to read 2D regular grids encoded in a popular picture format readable by <a href="http://www.libsdl.org/projects/SDL_image/docs/SDL_image.html" title="SDL-image">SDL-image</a> library (jpg, png, gif, ...). When using this format as input to <a href="index4656.html?post/mse">mse</a>, the field whose topology is computed is the luminosity L of the image, a weighted average of the RED, GREEN and BLUE components of the image:
+<br />
+<br /></p>
+
+<pre>L = 0.2989*RED + 0.5870*GREEN + 0.1140*BLUE</pre>
+
+<p><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /></p></div>
+
+    
+                        </div>
+    
+      
+    <div id="p39" class="post odd " lang="en" xml:lang="en">
+
+<!-- 
+    <p class="day-date">Sunday, January  6 2430</p>  -->  
+<!-- 
+    <b1>&rsaquo;<a href="http://localhost/dotclear/index.php?post/vtk-field-format">vtk field format</a></b1>
+ -->  
+
+    <h2 class="post-title"></br>&rsaquo;<a
+    href="indexd991.html?post/vtk-field-format">vtk field format</a></h2>
+
+    <!-- 
+    <p class="post-info">By thierry sousbie    on Sunday, January  6 2430, 06:56</p>
+     -->  
+    
+    
+    <!--
+        -->
+
+    <!--
+          <div class="post-content"><p>VTK formats are developed for the Visualization Tool Kit library (<a href="/dotclear/index.php?post/vtk-formats">VTK</a>) and can be used for 3D visualization with software such as <a href="https://wci.llnl.gov/codes/visit/">VisIt</a> or <a href="http://www.paraview.org/">ParaView</a>. Only regular grids field types can be converted to VTK (for particle type fields, convert to <em>NDnet</em> <a href="/dotclear/index.php?post/networks">unstructured network</a> format first and then use <em><a href="/dotclear/index.php?post/netconv">netconv</a> -to vtk</em>). Regular grids are stored as <em>VTK image data</em> and can be output in fours different VTK formats:
+<br /><br /></p>
+<ul>
+<li>-<strong>vtk</strong>: the legacy format</li>
+<li>-<strong>vtk_ascii</strong>: ASCII version of the vtk format</li>
+<li>-<strong>vti</strong>: a more recently developed XML version of the vtk format,</li>
+<li>-<strong>vti_ascii</strong>: ASCII version of the vtu format</li>
+</ul>
+<p><br />
+<br />
+The specifications for these formats can be found in this <a href="www.vtk.org/VTK/img/file-formats.pdf" title="VTK formats PDF">PDF</a> file. See also <a href="http://www.cacr.caltech.edu/~slombey/asci/vtk/vtk_formats.simple.html">here</a> and <a href="http://mathema.tician.de/node/430" title="there">there</a> for additional information.
+<br />
+<br />
+<br />
+<br /></p></div>
+        -->
+    <div class="post-content"><p>VTK formats are developed for the Visualization Tool Kit library (<a href="indexb3eb.html?post/vtk-formats">VTK</a>) and can be used for 3D visualization with software such as <a href="https://wci.llnl.gov/codes/visit/">VisIt</a> or <a href="http://www.paraview.org/">ParaView</a>. Only regular grids field types can be converted to VTK (for particle type fields, convert to <em>NDnet</em> <a href="index9cca.html?post/networks">unstructured network</a> format first and then use <em><a href="index25e8.html?post/netconv">netconv</a> -to vtk</em>). Regular grids are stored as <em>VTK image data</em> and can be output in fours different VTK formats:
+<br /><br /></p>
+<ul>
+<li>-<strong>vtk</strong>: the legacy format</li>
+<li>-<strong>vtk_ascii</strong>: ASCII version of the vtk format</li>
+<li>-<strong>vti</strong>: a more recently developed XML version of the vtk format,</li>
+<li>-<strong>vti_ascii</strong>: ASCII version of the vtu format</li>
+</ul>
+<p><br />
+<br />
+The specifications for these formats can be found in this <a href="file-formats.html" title="VTK formats PDF">PDF</a> file. See also <a href="http://www.cacr.caltech.edu/~slombey/asci/vtk/vtk_formats.simple.html">here</a> and <a href="http://mathema.tician.de/node/430" title="there">there</a> for additional information.
+<br />
+<br />
+<br />
+<br /></p></div>
+
+    
+                        </div>
+    
+                  </div>
+</div> <!-- End #main -->
+
+<div id="sidebar">
+  <div id="blognav">
+    <div class="categories"><ul><li><a href="index1694.html?category/Download">Download</a></li><li><a href="indexba87.html?category/Install">Install</a></li><li><a href="index3c4a.html?category/Overview">Overview</a></li><li><a href="index4559.html?category/Terminology">Terminology</a></li><li><a href="index4f3e.html?category/Manual">Manual</a></li><li><a href="index55a0.html?category/Quick-start">Tutorial</a></li><li><a href="index3333.html?category/Skeleton-I-O">Skeleton data</a></li><li><a href="indexe2a5.html?category/Network-I-O">Network data</a></li><li class="category-current"><a href="indexc777.html?category/Field-I-O">Field data</a></li><li><a href="indexdc31.html?category/References">Contact &amp; References</a></li></ul></div>  </div> <!-- End #blognav -->
+  ____________________
+ 
+  <div id="blogextra">
+        Field data</br>
+  
+          <a href="indexa0c1.html?post/field-formats">&#187; Field files</a></br>
+          <a href="index16de.html?post/NDfield-format">&#187; NDfield format</a></br>
+          <a href="indexd473.html?post/NDfield_ascii-format">&#187; NDfield_ascii format</a></br>
+          <a href="index7327.html?post/FITS-format">&#187; FITS format</a></br>
+          <a href="index744c.html?post/survey_ascii-format">&#187; survey_ascii format</a></br>
+          <a href="indexb2ad.html?post/SDL-image">&#187; SDL-image format</a></br>
+          <a href="indexd991.html?post/vtk-field-format">&#187; vtk field format</a></br>
+      
+  </div> <!-- End #blogextra -->
+
+</div>
+
+</div> <!-- End #wrapper -->
+
+<div id="footer">
+  <p>Powered by <a href="http://www.dotclear.net/">DotClear</a> - Contact: sousbie<em>(AT)</em>iap<em>.</em>fr . </p>
+</div>
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from localhost/dotclear/index.php?category/Field-I-O by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

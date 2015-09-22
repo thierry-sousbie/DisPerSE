@@ -1,0 +1,7 @@
+make clean  >/dev/null 2>/dev/null
+rm -f *~ \#*
+rm -f cmake_install.cmake
+rm -f CMakeCache.txt
+rm -rf CMakeFiles
+rm -f Makefile
+rm -f *.user

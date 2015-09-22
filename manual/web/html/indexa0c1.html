@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!-- Mirrored from localhost/dotclear/index.php?post/field-formats by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Field files - DisPerSE - persistent structures identification</title>
+  <meta name="description" lang="en" content="This file type is designed to store scalar fields sampled over regular grids (i.e. regular images in 2D, 3D and more) or, by extension, coordinates of tracer particles sampling an" />
+  <meta name="copyright" content="sousbie" />
+  <meta name="author" content="thierry sousbie" />
+  <meta name="date" scheme="W3CDTF" content="2430-01-01T06:56:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Field files" />
+  <meta name="dc.description" lang="en" content="This file type is designed to store scalar fields sampled over regular grids (i.e. regular images in 2D, 3D and more) or, by extension, coordinates of tracer particles sampling an" />
+  <meta name="dc.creator" content="thierry sousbie" />
+  <meta name="dc.language" content="en" />
+  <meta name="dc.publisher" content="thierry sousbie" />
+  <meta name="dc.rights" content="sousbie" />
+  <meta name="dc.date" scheme="W3CDTF" content="2430-01-01T06:56:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Home" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexe8f9.html?post/vtk-network-format"
+  title="vtk network format" />
+  
+  <link rel="prev" href="index16de.html?post/NDfield-format"
+  title="NDfield format" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="../images/index4ca3.php?feed/atom" />
+  
+  <link rel="shortcut icon" href="../images/favicon.ico" />
+
+<style type="text/css" media="screen">
+@import url(../images/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(../images/print.css);
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37686840-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  
+  <script type="text/javascript" src="../images/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Remember me on this blog';
+  //]]>
+  </script>
+
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+<!--
+<h1><span><a href="http://localhost/dotclear/index.php?">DisPerSE - persistent structures identification</a></span></h1>
+ -->
+
+  </div>
+
+<p id="prelude">
+<a href="indexd41d.html?">Home</a> |
+<a href="index888d.html?archive">Show all</a>
+</p>
+
+<!--
+<ul id="nav-box">
+2.
+<li><a href="http://localhost/dotclear/index.php?">Accueil</a></li>
+3.
+<li><a href="http://localhost/dotclear/index.php?archive" title="Liste des mois de publication">Archives</a></li>
+4.
+<li><a href="http://localhost/dotclear/index.php?contact" title="Formulaire de contact">Me contacter</a></li>
+5.
+</ul>
+ -->
+
+<div id="wrapper">
+
+<div id="main">
+  <div id="content">
+  
+  <p id="navlinks">
+ 
+  <a href="indexe8f9.html?post/vtk-network-format"
+  title="vtk network format" class="prev">&#171; vtk network format</a>
+   <span>-</span> <a href="index16de.html?post/NDfield-format"
+  title="NDfield format" class="next">NDfield format &#187;</a>
+
+<!--
+  <a href="http://localhost/dotclear/index.php?post/NDfield-format"
+  title="NDfield format" class="prev">&#171; NDfield format</a>
+  <span>-</span> <a href="http://localhost/dotclear/index.php?post/vtk-network-format"
+  title="vtk network format" class="next">vtk network format &#187;</a>
+-->
+  </p>
+  
+  <div id="p17" class="post">
+    <b1 class="post-title">Field files</b1>
+    <!--
+    <p class="post-info">By thierry sousbie    on Tuesday, January  1 2430, 06:56        - <a href="http://localhost/dotclear/index.php?category/Field-I-O">Field data</a>
+        - <a href="http://localhost/dotclear/index.php?post/field-formats">Permalink</a>
+    </p>
+    -->
+    
+    
+        
+    <div class="post-content"><p>This file type is designed to store scalar fields sampled over regular grids (i.e. regular images in 2D, 3D and more) or, by extension, coordinates of tracer particles sampling an underlying density field. The main field format is <em>NDfield</em>, which allows to store any type of data (integer, simple or double precision floating point, ...) over arbitrary sized regular grids or as coordinates of tracer particles.
+<br />
+<br />
+<strong><ins>Available formats</ins></strong>:
+<br />
+<br /></p>
+<ul>
+<li>-<strong><a href="index16de.html?post/NDfield-format">NDfield</a></strong> (Read / Write):<br />This is the format used internally in DisPerSE, it is efficient and generic as it can store regular grids or sample particles coordinates indifferently.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="indexd473.html?post/NDfield_ascii-format">NDfield_ascii</a></strong> (Read / Write):<br />A simple ASCII version of the NDfield format, it is as versatile but data is always considered to be double precision floating point.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="index7327.html?post/FITS-format">FITS</a></strong> (Read only):<br />Used to read 2D or 3D regular grids of arbitrary dimensions in the popular Flexible Image Transport System (<a href="http://en.wikipedia.org/wiki/FITS" title="FITSS format">FITS</a>) image format. Also used for <a href="http://healpix.jpl.nasa.gov/" title="HEALPIX">HEALPIX</a> tessellations of the sphere.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="index744c.html?post/survey_ascii-format">survey_ascii</a></strong>(Read only):<br />A simple ASCII format whose main purpose is to easily read coordinates of discretely sampled astrophysical surveys (e.g. such as an <a href="http://www.sdss.org/" title="SDSS">SDSS</a> galaxy catalog). Try this if you use spherical coordinates or if distance is measured by redshift for instance.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="indexb2ad.html?post/SDL-image">SDL-image</a></strong> (Read only):<br />This input format is used to read 2D regular grids encoded in a popular picture format readable by <a href="http://www.libsdl.org/projects/SDL_image/docs/SDL_image.html" title="SDL-image">SDL-image</a> library (jpg, png, gif, ...).</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="indexd991.html?post/vtk-field-format">vtk</a></strong>, <strong><a href="indexd991.html?post/vtk-field-format">vtk_ascii</a></strong>, <strong><a href="indexd991.html?post/vtk-field-format">vti</a></strong> and <strong><a href="indexd991.html?post/vtk-field-format">vti_ascii</a></strong> (Write only):<br />These formats are binary and ASCII legacy and XML <a href="http://www.vtk.org/">VTK</a> formats that are readable by several 3D visualization tools, such as <a href="https://wci.llnl.gov/codes/visit/">VisIt</a> or <a href="http://www.paraview.org/">ParaView</a> for instance.</li>
+</ul>
+<p><br /></p>
+<ul>
+<li>-<strong><a href="index9cca.html?post/networks">NDnet</a></strong> (Write only):<br /> Using this format, field files representing tracer particles coordinates can be converted to <a href="index9cca.html?post/networks">unstructured networks</a> (use <em><a href="index25e8.html?post/netconv">netconv</a></em> to convert <em>NDnet</em> files to other network formats). Regular grids conversion is not implemented yet due to the huge size of the output network.</li>
+</ul>
+<p><br />
+<br /></p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+<div id="sidebar">
+  <div id="blognav">
+    <div class="categories"><ul><li><a href="index1694.html?category/Download">Download</a></li><li><a href="indexba87.html?category/Install">Install</a></li><li><a href="index3c4a.html?category/Overview">Overview</a></li><li><a href="index4559.html?category/Terminology">Terminology</a></li><li><a href="index4f3e.html?category/Manual">Manual</a></li><li><a href="index55a0.html?category/Quick-start">Tutorial</a></li><li><a href="index3333.html?category/Skeleton-I-O">Skeleton data</a></li><li><a href="indexe2a5.html?category/Network-I-O">Network data</a></li><li class="category-current"><a href="indexc777.html?category/Field-I-O">Field data</a></li><li><a href="indexdc31.html?category/References">Contact &amp; References</a></li></ul></div>  </div> <!-- End #blognav -->
+   ____________________
+  <div id="blogextra">
+        <a href="indexc777.html?category/Field-I-O">&#94; Field data</a></br>
+    <a href="indexe8f9.html?post/vtk-network-format">&#171; vtk network format</a></br>
+    <a href="index16de.html?post/NDfield-format">&#187; NDfield format</a></br>
+  </div> <!-- End #blogextra -->
+</div>
+
+</div> <!-- End #wrapper -->
+
+<div id="footer">
+  <p>Powered by <a href="http://www.dotclear.net/">DotClear</a> - Contact: sousbie<em>(AT)</em>iap<em>.</em>fr . </p>
+</div>
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from localhost/dotclear/index.php?post/field-formats by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

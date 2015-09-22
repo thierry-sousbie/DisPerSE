@@ -1,0 +1,351 @@
+project(DISPERSE)
+
+set(USE_LONG_INT_DEF false)
+set(USE_TR1_DEF true)
+set(USE_THREADS_DEF true)
+set(USE_PTHREADS_DEF true)
+set(CGAL_DIR_DEF "/home/thierry/soft/CGAL-4.1/")
+set(CFITSIO_DIR_DEF "/softs/cfitsio/3.290/")
+set(GSL_DIR_DEF "/softs/gsl/1.15/")
+set(SDL_DIR_DEF "")
+SET(MATHGL_DIR_DEF "")
+
+if (NOT CMAKE_BUILD_TYPE)
+  set (CMAKE_BUILD_TYPE Release)
+endif()
+
+#set (CMAKE_BUILD_TYPE Release)
+#set (CMAKE_BUILD_TYPE Debug)
+#set (CMAKE_BUILD_TYPE RelWithDebInfo)
+
+#set (CMAKE_C_COMPILER "gcc-4.4")
+#set (CMAKE_CXX_COMPILER "g++-4.4")
+
+set (DISPERSE_VERSION_MAJOR 0)
+set (DISPERSE_VERSION_MINOR 9)
+set (DISPERSE_VERSION_BUILD 23)
+
+########## NO MODIFICATION NEEDED BELOW THIS LINE ##########
+
+add_definitions(
+  -DVER_MAJOR=${DISPERSE_VERSION_MAJOR} 
+  -DVER_MINOR=${DISPERSE_VERSION_MINOR} 
+  -DVER_BUILD=${DISPERSE_VERSION_BUILD})
+
+#add_definitions(-Wall)
+set(USE_LONG_INT ${USE_LONG_INT_DEF} CACHE binary "use long integers")
+set(USE_TR1 ${USE_TR1_DEF} CACHE binary "use TR1 C++")
+set(USE_THREADS ${USE_THREADS_DEF} CACHE binary "use threads")
+set(USE_PTHREADS ${USE_PTHREADS_DEF} CACHE binary "use pthreads")
+set(CGAL_DIR ${CGAL_DIR_DEF} CACHE PATH "path to CGAL")
+set(CFITSIO_DIR ${CFITSIO_DIR_DEF} CACHE PATH "path to CFITSIO")
+set(GSL_DIR ${GSL_DIR_DEF} CACHE PATH "path to GSL")
+set(SDL_DIR ${SDL_DIR_DEF} CACHE PATH "path to SDL")
+set(MATHGL_DIR ${MATHGL_DIR_DEF} CACHE PATH "path to mathGL")
+set_property(CACHE USE_THREADS PROPERTY STRINGS true false)
+set_property(CACHE USE_PTHREADS PROPERTY STRINGS true false)
+
+IF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+SET(CMAKE_INSTALL_PREFIX "${PROJECT_SOURCE_DIR}" CACHE PATH "DISPERSE install prefix" FORCE
+)
+ENDIF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6.3)
+SET(CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS  true)
+LIST(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/modules")
+if("${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}" VERSION_GREATER 2.6.3)
+  if("${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}.${CMAKE_PATCH_VERSION}" VERSION_GREATER 2.8.3)
+    cmake_policy(VERSION 2.8.4)
+  else()
+    cmake_policy(VERSION 2.6.3)
+  endif()
+endif()
+
+SET( QT_USE_QTMAIN   TRUE )
+#SET( QT_USE_QTOPENGL   TRUE ) #not needed
+#SET( QT_USE_QT3SUPPORT TRUE ) #not needed  
+
+FIND_PACKAGE(GSL)
+
+if (USE_LONG_INT)
+  add_definitions(-DUSELONGINT)
+endif()
+
+if (USE_TR1)
+  FIND_PACKAGE(TR1)
+#  if (TR1_UNORDERED_MAP_FOUND)
+#    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+#  endif()
+endif()
+
+if (USE_THREADS)
+  add_definitions(-DUSE_THREADS)
+  if (USE_PTHREADS)
+    add_definitions(-DHAVE_PTHREADS)
+    link_libraries(-lpthread)  
+  endif()  
+endif()
+
+if(NOT NO_CGAL)
+  FIND_PACKAGE(CGAL QUIET COMPONENTS Core)
+  if (NOT CGAL_FOUND)
+    unset(CGAL_DIR CACHE)
+    set(CGAL_DIR ${CGAL_DIR_DEF}/lib/CGAL/ CACHE PATH "path to CGAL") 
+    FIND_PACKAGE(CGAL QUIET COMPONENTS Core)
+  endif()
+  if (NOT CGAL_FOUND)
+    unset(CGAL_DIR CACHE)
+    FIND_PACKAGE(CGAL QUIET COMPONENTS Core)
+  endif()
+endif()
+
+if(NOT NO_SDL)
+  FIND_PACKAGE(SDL)
+endif()
+
+if (NOT NO_CFITSIO)
+  FIND_PACKAGE(CFitsio)
+endif()
+
+if(NOT NO_MATHGL)
+  FIND_PACKAGE(MathGL 1.10 COMPONENTS Qt)
+endif()
+
+if(NOT NO_QT)
+  FIND_PACKAGE(Qt4)
+endif()
+
+if (TR1_UNORDERED_MAP_FOUND)
+  add_definitions(-DHAVE_TR1)
+  if (TR1_HEADER_PREFIX) 
+    add_definitions(-DHAVE_TR1_HEADER_PREFIX)
+  endif()
+  if (TR1_NAMESPACE_PREFIX) 
+    add_definitions(-DHAVE_TR1_NAMESPACE_PREFIX)
+  endif()
+endif()
+
+if (GSL_FOUND)
+  add_definitions(-DHAVE_GSL)
+  include_directories(${GSL_INCLUDE_DIR})
+  link_libraries(${GSL_LIBRARIES}) # GSL is linked to everything !!!
+endif()
+
+if (SDL-IMAGE_FOUND)
+  add_definitions(-DHAVE_SDL)
+  include_directories(${SDL_INCLUDE_DIR})
+  link_libraries(${SDL_LIBRARIES})# SDL is linked to everything !!!
+endif()
+
+
+if (CFITSIO_FOUND)
+  add_definitions(-DHAVE_CFITS_IO)
+  include_directories(${CFITSIO_INCLUDES})
+  link_libraries(${CFITSIO_LIBRARIES}) # CFITSIO is linked to everything !!!
+endif()
+
+MACRO(LIST_LENGTH var)
+  SET(entries)
+  FOREACH(e ${ARGN})
+    SET(entries "${entries}.")
+  ENDFOREACH(e)
+  STRING(LENGTH ${entries} ${var})
+ENDMACRO(LIST_LENGTH)
+
+if (CMAKE_COMPILER_IS_GNUCXX)
+  execute_process(COMMAND ${CMAKE_C_COMPILER} -dumpversion
+    OUTPUT_VARIABLE GCXX_VERSION)
+  string(REGEX MATCHALL "[0-9]+" GCXX_VERSION_COMPONENTS ${GCXX_VERSION})
+
+  LIST_LENGTH(length ${GCXX_VERSION_COMPONENTS})
+  
+  list(GET GCXX_VERSION_COMPONENTS 0 GCXX_MAJOR)
+
+  if(length GREATER 1)
+    list(GET GCXX_VERSION_COMPONENTS 1 GCXX_MINOR)
+  else()
+    SET(GCXX_MINOR 0)
+  endif()
+  
+  if(length GREATER 2)
+    list(GET GCXX_VERSION_COMPONENTS 2 GCXX_BUILD)
+  else()
+    SET(GCXX_BUILD 0)
+  endif()
+
+  message(STATUS "Compiling with g++ v${GCXX_MAJOR}.${GCXX_MINOR}.${GCXX_BUILD}")
+  if (GCXX_VERSION VERSION_LESS 4.3.3 )
+    SET(GNU_PARALLEL_SORT false)
+  else() 
+    if (USE_THREADS)
+      SET(GNU_PARALLEL_SORT true)
+      add_definitions(-fopenmp -DUSE_OPENMP -DUSE_GNU_PSORT)
+      link_libraries(-fopenmp)
+    else()
+      SET(GNU_PARALLEL_SORT false)
+    endif()
+  endif()
+
+else()  
+  SET(GNU_PARALLEL_SORT false)
+  #message(STATUS "Compiling with ${CMAKE_CXX_COMPILER}");  
+endif() 
+
+SET(TARGETS_LIST "")
+SET(NOT_BUILT_TARGETS_LIST "")
+SET(DISABLED_FEATURES_LIST "")
+
+add_subdirectory ("src/mse")
+add_subdirectory ("src/delaunay")
+add_subdirectory ("src/pdview")
+
+# build a CPack driven installer package
+include (InstallRequiredSystemLibraries)
+set (CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
+set (CPACK_PACKAGE_VERSION_MAJOR "${DISPERSE_VERSION_MAJOR}")
+set (CPACK_PACKAGE_VERSION_MINOR "${DISPERSE_VERSION_MINOR}")
+set (CPACK_PACKAGE_VERSION_PATCH "${DISPERSE_VERSION_BUILD}")
+
+include (CPack)
+
+message (STATUS "")
+message (STATUS "-----------------------------------")
+message (STATUS "*** REPORT for DisPerSE v${DISPERSE_VERSION_MAJOR}.${DISPERSE_VERSION_MINOR}.${DISPERSE_VERSION_BUILD} ***")
+message (STATUS "-----------------------------------")
+message (STATUS "")
+
+if (NOT GNU_PARALLEL_SORT)
+  if (NOT USE_THREADS) 
+    message(STATUS "   * PARALLEL SORT is DISABLED (enable with '-DUSE_THREADS=true').") 
+  else()
+    message(STATUS "   * PARALLEL SORT is DISABLED (requires gcc4.3.3+, current is v${GCXX_MAJOR}.${GCXX_MINOR}.${GCXX_BUILD}).") 
+  endif()
+endif()
+
+if (USE_PTHREADS) 
+  message(STATUS "   * PTHREADS with barrier ENABLED. Disable if you get related compile errors (disable with '-DUSE_PTHREADS=false').") 
+  else()
+    message(STATUS "   * PTHREADS with barrier DISABLED (enable with '-DUSE_PTHREADS=true').") 
+endif()
+
+if (USE_LONG_INT)
+  message(STATUS "   * Long integers are ENABLED (disable with '-DUSE_LONG_INT=false')")
+  message(STATUS "     It is recommanded to disable unless you are using VERY large datasets.")
+else()
+  LIST(APPEND DISABLED_FEATURES_LIST all:long_int)
+  message(STATUS "   * Long integers are DISABLED (enable with '-DUSE_LONG_INT=true')")
+  message(STATUS "     Enable only if you are using VERY large datasets.")
+endif()
+
+if (USE_TR1)
+  if (NOT TR1_UNORDERED_MAP_FOUND)
+    LIST(APPEND DISABLED_FEATURES_LIST all:tr1)
+    message(STATUS "   * TR1 C++ instructions were not found.")
+  else()
+    message(STATUS "   * TR1 C++ instructions are ENABLED (disable with '-DUSE_TR1=false').")
+    #message(STATUS "     warning: only compatibility with gcc was checked.")
+    
+    #message(STATUS "     You can disable it with 'cmake [..] -DUSE_THREADS=false'")
+    #message(STATUS "     in case your compiler do not support it.")
+  endif()
+else()
+  LIST(APPEND DISABLED_FEATURES_LIST all:tr1)
+  message(STATUS "   * TR1 C++ instructions are DISABLED (enable with '-DUSE_TR1=true').")
+  message(STATUS "     Enabling would greatly speedup multithreaded delaunay tesselations.")
+endif()
+
+if (USE_THREADS)
+  message(STATUS "   * MULTITHREADING is ENABLED (disable with '-DUSE_THREADS=false').")
+  #message(STATUS "     You can disable it with 'cmake [..] -DUSE_THREADS=false'")
+  #message(STATUS "     in case your compiler do not support it.")
+else()
+  LIST(APPEND DISABLED_FEATURES_LIST all:multithreading)
+  message(STATUS "   * MULTITHREADING is DISABLED (enable with '-DUSE_THREADS=true').")
+endif()
+
+if (CGAL_FOUND)
+  #include( ${CGAL_USE_FILE} )
+  message(STATUS "   * CGAL v${CGAL_MAJOR_VERSION}.${CGAL_MINOR_VERSION} was found.")
+else()
+  message(STATUS "   * CGAL was NOT found.")
+  message(STATUS "     This library is needed to build delaunay_2D and delaunay_3D.")
+  message(STATUS "     You will not be able to deal with discrete point samples.")
+  message(STATUS "     Specify its path with 'cmake [...] -DCGAL_DIR=<PATH/TO/CGAL>'.")
+  message(STATUS "     Note: CGAL_DIR is the path to the directory that contains 'CGAL_Common.cmake'.")
+endif()
+
+if (SDL-IMAGE_FOUND)
+  message(STATUS "   * SDL/SDL-IMAGE was found.")
+else()
+  message(STATUS "   * SDL/SDL-IMAGE was NOT found.")
+  message(STATUS "     This library is needed for files I/O.")
+  message(STATUS "     You will not be able to read from jpg, gif, bmp ... files. ")
+  message(STATUS "     Specify its path with 'cmake [...] -DSDL_DIR=<PATH/TO/SDL>'.")
+endif()
+
+if (CFITSIO_FOUND)
+  message(STATUS "   * CFITSIO was found.")
+else()
+  message(STATUS "   * CFITSIO was NOT found.")
+  message(STATUS "     This library is needed for FITS files I/O.")
+  message(STATUS "     You will not be able to use HEALPIX tesselations nor read FITS files.")
+  message(STATUS "     Specify its path with 'cmake [...] -DCFITSIO_DIR=<PATH/TO/CFITSIO>'.")
+endif()
+
+if (GSL_FOUND)
+  message(STATUS "   * GSL was found.")
+else()
+  message(STATUS "   * GSL was NOT found.")
+  message(STATUS "     This library is needed to build 'mse','delaunay_2D' and 'delaunay_3D'.")
+  message(STATUS "     You will not be able to do *ANYTHING* without it :(")
+  message(STATUS "     Specify its path with  'cmake [...] -DGSL_DIR=<PATH/TO/GSL>'.")
+endif()
+
+if (MATHGL_QT_FOUND)
+  message(STATUS "   * MATHGL with Qt support was found.")
+else()
+  if(MATHGL_FOUND)
+    message(STATUS "   * MATHGL was found but Qt support is missing.")
+    message(STATUS "     You can try installing the version present in the '/external' directory of disperse.")
+    message(STATUS "     Don't forget to enable QT using './configure --enable-qt'.")
+  else(MATHGL_FOUND)
+    message(STATUS "   * MATHGL was NOT found.")
+  endif(MATHGL_FOUND)
+  message(STATUS "     This library is needed to build 'pdview'.")
+  message(STATUS "     You will not be able to view persistence diagrams.")
+  message(STATUS "     You can try installing the version present in the '/external' directory of disperse.")
+  message(STATUS "     Don't forget to enable QT using './configure --enable-qt'.")  
+  message(STATUS "     Specify the path to mathGL with 'cmake [...] -DMATHGL_DIR=<PATH/TO/MATHGL>'.")
+endif()
+
+if (QT_FOUND)
+  message(STATUS "   * QT4 was found.")
+else()
+  message(STATUS "   * Qt was NOT found.")
+  message(STATUS "     This library is needed to build 'pdview'.")
+  message(STATUS "     You will not be able to view persistence diagrams.")
+endif()
+
+message(STATUS "")
+message(STATUS " The following binaries will be built:\n     ${TARGETS_LIST}")
+if (DEFINED NOT_BUILT_TARGETS_LIST)
+  message(STATUS " The following binaries will NOT be built:\n     ${NOT_BUILT_TARGETS_LIST}")
+endif()
+if (DEFINED DISABLED_FEATURES_LIST)
+  message(STATUS " The following features are DISABLED:\n     ${DISABLED_FEATURES_LIST}")
+endif()
+
+message(STATUS " Install directory can be set with : -DCMAKE_INSTALL_PREFIX=<prefix>")
+message(STATUS " DisPerSE will be installed in :\n     ${CMAKE_INSTALL_PREFIX}")
+
+message(STATUS " Mode : ${CMAKE_BUILD_TYPE}")
+
+message(STATUS "  set compile mode with '-DCMAKE_BUILD_TYPE={Debug,Release,Custom}',")
+message(STATUS "  custom flags are set with '-DCMAKE_CXX_FLAGS_CUSTOM=...' ")
+
+message (STATUS "")
+message (STATUS "-----------------------------------")
+message (STATUS "***        END OF REPORT        ***")
+message (STATUS "-----------------------------------")
+message (STATUS "")
+

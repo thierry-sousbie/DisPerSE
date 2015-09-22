@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!-- Mirrored from localhost/dotclear/index.php?post/skelconv by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>skelconv - DisPerSE - persistent structures identification</title>
+  <meta name="description" lang="en" content="skelconv is used to post-treat, convert and display information about skeleton format files. Run skelconv without argument to see a list of available input and output formats." />
+  <meta name="copyright" content="sousbie" />
+  <meta name="author" content="thierry sousbie" />
+  <meta name="date" scheme="W3CDTF" content="2250-05-09T06:49:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="skelconv" />
+  <meta name="dc.description" lang="en" content="skelconv is used to post-treat, convert and display information about skeleton format files. Run skelconv without argument to see a list of available input and output formats." />
+  <meta name="dc.creator" content="thierry sousbie" />
+  <meta name="dc.language" content="en" />
+  <meta name="dc.publisher" content="thierry sousbie" />
+  <meta name="dc.rights" content="sousbie" />
+  <meta name="dc.date" scheme="W3CDTF" content="2250-05-09T06:49:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Home" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index25e8.html?post/netconv"
+  title="netconv" />
+  
+  <link rel="prev" href="indexf1b8.html?post/fieldconv"
+  title="fieldconv" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="../images/index4ca3.php?feed/atom" />
+  
+  <link rel="shortcut icon" href="../images/favicon.ico" />
+
+<style type="text/css" media="screen">
+@import url(../images/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(../images/print.css);
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37686840-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  
+  <script type="text/javascript" src="../images/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Remember me on this blog';
+  //]]>
+  </script>
+
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+<!--
+<h1><span><a href="http://localhost/dotclear/index.php?">DisPerSE - persistent structures identification</a></span></h1>
+ -->
+
+  </div>
+
+<p id="prelude">
+<a href="indexd41d.html?">Home</a> |
+<a href="index888d.html?archive">Show all</a>
+</p>
+
+<!--
+<ul id="nav-box">
+2.
+<li><a href="http://localhost/dotclear/index.php?">Accueil</a></li>
+3.
+<li><a href="http://localhost/dotclear/index.php?archive" title="Liste des mois de publication">Archives</a></li>
+4.
+<li><a href="http://localhost/dotclear/index.php?contact" title="Formulaire de contact">Me contacter</a></li>
+5.
+</ul>
+ -->
+
+<div id="wrapper">
+
+<div id="main">
+  <div id="content">
+  
+  <p id="navlinks">
+ 
+  <a href="index25e8.html?post/netconv"
+  title="netconv" class="prev">&#171; netconv</a>
+   <span>-</span> <a href="indexf1b8.html?post/fieldconv"
+  title="fieldconv" class="next">fieldconv &#187;</a>
+
+<!--
+  <a href="http://localhost/dotclear/index.php?post/fieldconv"
+  title="fieldconv" class="prev">&#171; fieldconv</a>
+  <span>-</span> <a href="http://localhost/dotclear/index.php?post/netconv"
+  title="netconv" class="next">netconv &#187;</a>
+-->
+  </p>
+  
+  <div id="p13" class="post">
+    <b1 class="post-title">skelconv</b1>
+    <!--
+    <p class="post-info">By thierry sousbie    on Thursday, May  9 2250, 06:49        - <a href="http://localhost/dotclear/index.php?category/Manual">Manual</a>
+        - <a href="http://localhost/dotclear/index.php?post/skelconv">Permalink</a>
+    </p>
+    -->
+    
+    
+        
+    <div class="post-content"><p><strong>skelconv</strong>  is used to post-treat, convert and display information about <a href="index661f.html?post/skeleton-formats">skeleton format</a> files. Run <em>skelconv</em> without argument to see a list of available input and output formats. Note that skeleton files can also be converted to <a href="index9cca.html?post/networks">NDnet format</a> unstructured networks readable by <a href="index25e8.html?post/netconv">netconv</a>.
+<br /><ins><strong>nb</strong></ins>: in skelconv, the order of the argument on the command line is important and certain post-treatment do not commute.  In particular, be careful when using options <em>-<a href="#breakdown">breakdown</a></em>, <em>-<a href="#trim">trim</a></em>, <em>-<a href="#smooth">smooth</a></em> or <em>-<a href="#assemble">assemble</a></em> together as for instance <em>-smooth 3 -breakdown</em> or <em>-breakdown -smooth 3</em> will not produce the same output.
+<br />
+<br /></p>
+
+
+<p><ins>Usage:</ins></p>
+
+<pre> <strong>skelconv</strong> &lt;<a href="#filename">filename</a>&gt; 
+          [-<a href="#outName">outName</a> &lt;output filename&gt;] [-<a href="#outDir">outDir</a> &lt;dir&gt;] [-<a href="#noTags">noTags</a>]
+          [-<a href="#smooth">smooth</a> &lt;Ntimes=0&gt;] [-<a href="#breakdown">breakdown</a>]
+          [-<a href="#assemble">assemble</a> [[&lt;field_name&gt;] &lt;threshold&gt;] &lt;angle&gt;]
+          [-<a href="#trim">trimAbove</a> [&lt;field_name&gt;] &lt;threshold&gt;] 
+          [-<a href="#trim">trimBelow</a> [&lt;field_name&gt;] &lt;threshold&gt;] 
+          [-<a href="#rmBoundary">rmBoundary</a>] [-<a href="#rmOutside">rmOutside</a>]
+          [-<a href="#toRaDecZ">toRaDecZ</a>] [-<a href="#toRaDecDist">toRaDecDist</a>]
+          [-<a href="#toFITS">toFITS</a> [&lt;Xres&gt;] [&lt;Yres&gt;] [&lt;Zres&gt;]]
+          [-<a href="#info">info</a>] [-<a href="#addField">addField</a> &lt;filename&gt; &lt;field_name&gt;] [-<a href="#to">to</a> &lt;format&gt;]</pre>
+
+<p><br /><a name="filename"></a></p>
+<ul>
+<li><strong>&lt;filename&gt;</strong>:<br />
+<ul>
+<li>The name of a file containing a skeleton such as skeletons (filaments) output by <a href="index4656.html?post/mse">mse</a> in a readable <a href="index661f.html?post/skeleton-formats">skeleton format</a>.</li>
+</ul></li>
+</ul>
+<p><br /><a name="outName"></a></p>
+<ul>
+<li><strong>-outName &lt;fname&gt;</strong>:<br />
+<ul>
+<li>Specifies the base name of the output file (extensions are added to this base name depending on the output type).<br /><ins>Default value</ins>: the name of the input file.</li>
+</ul></li>
+</ul>
+<p><br /><a name="outDir"></a></p>
+<ul>
+<li><strong>-outDir &lt;dir&gt;</strong>:<br />
+<ul>
+<li>Specifies the output directory. <br /><ins>Default value</ins>: the current working directory.</li>
+</ul></li>
+</ul>
+<p><br /><a name="noTags"></a></p>
+<ul>
+<li><strong>-noTags</strong>:<br />
+<ul>
+<li>Prevents <em>skelconv</em> from adding trailing extensions to the output filename. Note that the last extension correponding to the file format is still added.</li>
+</ul></li>
+</ul>
+<p><br /><a name="smooth"></a></p>
+<ul>
+<li><strong>-smooth &lt;Ntimes=0&gt;</strong>:<br />
+<ul>
+<li>Smooth the skeleton N times. When using this option, the nodes (i.e. critical points) are fixed and the filaments are smoothed by averaging the coordinates of each points along a filament with that of its two neighbors. Smoothing <em>N</em> times effectively make filaments smooth over <em>~N</em> sampling points.</li>
+</ul></li>
+</ul>
+<p><br /><a name="breakdown"></a></p>
+<ul>
+<li><strong>-breakdown</strong>:<br />
+<ul>
+<li>By default, skeletons are composed of arcs linking critical points together, so an arc will always start and stop at a critical point. Different arcs with same destination may partially overlap though, between a so-called bifurcation and a critical point. If N arcs overlap in a given place, the N segments will describe their geometry in that place : this is topologically correct but may not be desirable when computing statistics along the filaments as it would artificially increase the weight of those regions. Using <em>-breakdown</em>, bifurcation points are replaced by fake critical points with critical index D+1 (where D is the number of dimensions), and infinitely close pieces of arcs are merged. This option should most probably be used before computing any statistical quantity along arcs ...</li>
+</ul></li>
+</ul>
+<p><br /><a name="assemble"></a></p>
+<ul>
+<li><strong>-assemble [[&lt;field_name&gt;] &lt;threshold&gt;] &lt;angle&gt;</strong>:<br />
+<ul>
+<li>Assemble arcs into longer filaments, with the constraint that they do not form an angle larger than <em>&lt;angle&gt;</em> (expressed in degrees) and optionally do not go below threshold <em>&lt;threshold&gt;</em> in the field <em>&lt;field_name&gt;</em>. See option <em>-<a href="#trim">trim</a></em> for explanations on the first two arguments. When using this option, the algorithm will try to find the longest possible aligned arcs and will join them, removing critical points and creating only straight filaments. Option <em>-<a href="#breakdown">breakdown</a></em> should almost always be used before using this (e.g. <em>skelconv filename.NDskl -breakdown -assemble 0 45</em>).</li>
+</ul></li>
+</ul>
+<p><br /><a name="trim"></a></p>
+<ul>
+<li><strong>-trimAbove/trimBelow [&lt;field_name&gt;] &lt;threshold&gt;</strong>:<br />
+<ul>
+<li>Trims the regions of the skeleton above or below threshold <em>&lt;threshold&gt;</em> and add nodes (fake critical points of index D+1) at the extremity of trimmed arcs. By default, the skeleton is trimmed according to <em>field_value</em> (i.e. the value of the function from which the skeleton was computed). One can specify a different function with <em>&lt;field_name&gt;</em> (a list of possible fields may be obtained running <em>skelconv filename.NDskl -info</em>). One particularly interesting trimming function is <em>robustness</em> which is an extension of the concept of persistence to each points of the arcs ( an improved version of the <em>separatrix persistence</em> described in <em>Weinkauf, T. and Gunther, D., 2009</em> ). Indeed, <em>robustness</em> can be considered a measure of how contrasted the filament is with respect to its <em>local</em> background, and it is therefore a good way to select only highly contrasted subsets of the filamentary structures. Note that robustness, like persistence, is defined as a difference or ratio between the value of the field in two points, so the robustness threshold has the same order of magnitude as the persistence threshold.</li>
+</ul></li>
+</ul>
+<p><br /><a name="toRaDecZ"></a></p>
+<ul>
+<li><strong>-toRaDecZ</strong>:<br />
+<ul>
+<li>Converts the coordinates to Ra (Right ascension), Dec (Declination) and Z (redshift). This is useful when the input file was computed from a particle distribution whose coordinates where given in the same system (such as a galaxy catalog for instance, see catalog format in <a href="indexa0c1.html?post/field-formats">field format</a>).</li>
+</ul></li>
+</ul>
+<p><br /><a name="toRaDecDist"></a></p>
+<ul>
+<li><strong>-toRaDecDist</strong>:<br />
+<ul>
+<li>Converts the coordinates to Ra (Right ascension), Dec (Declination) and Dist (Distance). This is useful when the input file was computed from a particle distribution whose coordinates where given in the same system (such as a galaxy catalog for instance, see catalog format in <a href="indexa0c1.html?post/field-formats">field format</a>).</li>
+</ul></li>
+</ul>
+<p><br /><a name="rmBoundary"></a></p>
+<ul>
+<li><strong>-rmBoundary</strong>:<br />
+<ul>
+<li>Remove the arcs and nodes that lay on the boundary or outside the domain of definition (e.g. nodes/arcs at infinity generated by boundary conditions).</li>
+</ul></li>
+</ul>
+<p><br /><a name="rmOutside"></a></p>
+<ul>
+<li><strong>-rmOutside</strong>:<br />
+<ul>
+<li>Remove the artificial arcs and nodes generated by the boundary conditions (e.g arcs/nodes at infinity) but keep boundaries (this is less restricitve than <em>-<a href="#rmBoundary">rmBoundary</a></em>).</li>
+</ul></li>
+</ul>
+<p><br /><a name="toFITS"></a></p>
+<ul>
+<li><strong>-toFITS [&lt;Xres&gt;] [&lt;Yres&gt;] [&lt;Zres&gt;]</strong>:<br />
+<ul>
+<li>Samples the skeleton to a FITS image with specified resolution. If the resolution is omitted (parameters <em>Xres</em>, <em>Yres</em> and/or <em>Zres</em>), then the output file will have the same resolution as the network that was used to compute the skeleton.</li>
+</ul></li>
+</ul>
+<p><br /><a name="info"></a></p>
+<ul>
+<li><strong>-info</strong>:<br />
+<ul>
+<li>Prints information on the input file, such as the number of arcs, critical points and the name and type of additional fields.</li>
+</ul></li>
+</ul>
+<p><br /><a name="addField"></a></p>
+<ul>
+<li><strong>-addField &lt;filename&gt; &lt;field_name&gt;</strong>:<br />
+<ul>
+<li>Tags each segment (i.e. pieces of arcs) and node (i.e. critical point) of the skeleton with the interpolated value of a field. The parameter <em>filename</em> is the name of a readable <a href="indexa0c1.html?post/field-formats">regular grid field format</a> file containing the grid to be interpolated, and <em>field_name</em> is the name of the additional field in the output file.</li>
+</ul></li>
+</ul>
+<p><br /><a name="to"></a></p>
+<ul>
+<li><strong>-to &lt;format&gt;</strong>:<br />
+<ul>
+<li>Outputs a file in the selected writable <a href="index661f.html?post/skeleton-formats">skeleton format</a>. A list of possible parameter values can be obtained by running <em>skelconv</em> without any argument. Note that skeleton files can be converted to <a href="index9cca.html?post/networks">NDnet format</a> unstructured networks readable by <a href="index25e8.html?post/netconv">netconv</a>.</li>
+</ul></li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+<div id="sidebar">
+  <div id="blognav">
+    <div class="categories"><ul><li><a href="index1694.html?category/Download">Download</a></li><li><a href="indexba87.html?category/Install">Install</a></li><li><a href="index3c4a.html?category/Overview">Overview</a></li><li><a href="index4559.html?category/Terminology">Terminology</a></li><li class="category-current"><a href="index4f3e.html?category/Manual">Manual</a></li><li><a href="index55a0.html?category/Quick-start">Tutorial</a></li><li><a href="index3333.html?category/Skeleton-I-O">Skeleton data</a></li><li><a href="indexe2a5.html?category/Network-I-O">Network data</a></li><li><a href="indexc777.html?category/Field-I-O">Field data</a></li><li><a href="indexdc31.html?category/References">Contact &amp; References</a></li></ul></div>  </div> <!-- End #blognav -->
+   ____________________
+  <div id="blogextra">
+        <a href="index4f3e.html?category/Manual">&#94; Manual</a></br>
+    <a href="index25e8.html?post/netconv">&#171; netconv</a></br>
+    <a href="indexf1b8.html?post/fieldconv">&#187; fieldconv</a></br>
+  </div> <!-- End #blogextra -->
+</div>
+
+</div> <!-- End #wrapper -->
+
+<div id="footer">
+  <p>Powered by <a href="http://www.dotclear.net/">DotClear</a> - Contact: sousbie<em>(AT)</em>iap<em>.</em>fr . </p>
+</div>
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from localhost/dotclear/index.php?post/skelconv by HTTrack Website Copier/3.x [XR&CO'2010], Sun, 27 Jan 2013 10:35:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>
