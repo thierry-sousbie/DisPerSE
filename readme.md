@@ -6,7 +6,7 @@ Although it was initially developed with cosmology in mind (for the study of the
 
 DisPerSE is able to deal directly with noisy datasets using the concept of persistence (a measure of the robustness of topological features) and can work indifferently on many kinds of cell complex (such as structured and unstructured grids, 2D manifolds embedded within a 3D space, discrete point samples using delaunay tesselation, Healpix tesselations of the sphere, ...). The only constraint is that the distribution must be defined over a manifold, possibly with boundaries. 
 
-For more information, read these two scientific articles: [Theory](http://adsabs.harvard.edu/abs/2011MNRAS.414..350S "DisPerSE Theory article") and [Application](http://adsabs.harvard.edu/abs/2011MNRAS.414..384S "DisPerSE Application article")
+For more information, read these two scientific articles: [Theory](http://adsabs.harvard.edu/abs/2011MNRAS.414..350S "DisPerSE Theory article") and [Application](http://adsabs.harvard.edu/abs/2011MNRAS.414..384S "DisPerSE Application article").
 
 You can also visit [DisPerSe](http://www2.iap.fr/users/sousbie/web/html/indexd41d.html) website at: http://www2.iap.fr/users/sousbie/web/html/indexd41d.html
 
@@ -18,7 +18,7 @@ Any recent version of gcc should work, but gcc4.3.3+ is required in order to ena
 The following libraries/programs are used:
 
     Cmake 2.8     (Required for compilation)
-    GSL	      (Required)
+    GSL	          (Required)
     CGAL 3.7      (Optional, for delaunay triangulation/DTFE)
     CFitsIO       (Optional, for reading FITS and Healpix maps)
     SDL/SDL-image (Optional, for loading jpg,bmp,...)
