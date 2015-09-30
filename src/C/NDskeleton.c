@@ -1758,8 +1758,8 @@ NDskel *NDskel_Subregion(NDskel *skl_p, double margin, int **seglist, long *nseg
     
     return skl;
 }
-
-long getNDskelFilTab(NDskel *skl, NDskl_seg ***filTab, int **filSize)
+/*
+long getNDskelFilTabWithDuplicates(NDskel *skl, NDskl_seg ***filTab, int **filSize)
 {
   long nfil=0;  
   long i,j;
@@ -1769,9 +1769,82 @@ long getNDskelFilTab(NDskel *skl, NDskl_seg ***filTab, int **filSize)
       NDskl_node *node=&(skl->Node[i]);
       for (j=0;j<node->nnext;j++) 
 	{
+	  //if (node->Seg[j]->nodes[0]==i) 
+	    {
+	      nfil++;
+	      //(*filTab)=(NDskl_seg**) realloc((*filTab),sizeof(NDskl_seg*)*(nfil+1));
+	      //(*filTab)[nfil++]=node->Seg[j];
+	    }
+	}
+    }
+
+  (*filTab)=(NDskl_seg**) realloc((*filTab),sizeof(NDskl_seg*)*(nfil));
+
+  for (i=0,nfil=0;i<skl->nnodes;i++)
+    {
+      NDskl_node *node=&(skl->Node[i]);
+      for (j=0;j<node->nnext;j++) 
+	{
+	  //if (node->Seg[j]->nodes[0]==i) 
+	    {
+	      //(*filTab)=(NDskl_seg**) realloc((*filTab),sizeof(NDskl_seg*)*(nfil+1));
+	      (*filTab)[nfil++]=node->Seg[j];
+	    }
+	}
+    }
+
+  if (filSize!=NULL)
+    {
+      (*filSize)=realloc((*filSize),nfil*sizeof(int));
+      for (i=0;i<nfil;i++)
+	{
+	  NDskl_seg *seg=(*filTab)[i];
+	  if (seg==NULL) (*filSize)[i]=0;
+	  else
+	    {
+	      j=1;
+	      while (seg->Next!=NULL)
+		{
+		  seg=seg->Next;
+		  j++;
+		}
+	      (*filSize)[i]=j;
+	    }
+	}
+    }
+
+  return nfil;
+}
+*/
+long getNDskelFilTab(NDskel *skl, NDskl_seg ***filTab, int **filSize)
+{
+  long nfil=0;  
+  long i,j;
+
+  for (i=0,nfil=0;i<skl->nnodes;i++)
+    {
+      NDskl_node *node=&(skl->Node[i]);
+      for (j=0;j<node->nnext;j++) 
+	{	  
 	  if (node->Seg[j]->nodes[0]==i) 
 	    {
-	      (*filTab)=(NDskl_seg**) realloc((*filTab),sizeof(NDskl_seg*)*(nfil+1));
+	      nfil++;
+	      //(*filTab)=(NDskl_seg**) realloc((*filTab),sizeof(NDskl_seg*)*(nfil+1));
+	      //(*filTab)[nfil++]=node->Seg[j];
+	    }
+	}
+    }
+
+  (*filTab)=(NDskl_seg**) realloc((*filTab),sizeof(NDskl_seg*)*(nfil));
+
+  for (i=0,nfil=0;i<skl->nnodes;i++)
+    {
+      NDskl_node *node=&(skl->Node[i]);
+      for (j=0;j<node->nnext;j++) 
+	{
+	  if (node->Seg[j]->nodes[0]==i) 
+	    {
+	      //(*filTab)=(NDskl_seg**) realloc((*filTab),sizeof(NDskl_seg*)*(nfil+1));
 	      (*filTab)[nfil++]=node->Seg[j];
 	    }
 	}
@@ -2002,21 +2075,47 @@ int Save_FITSskel(NDskel *skl,const char *filename, long *naxes_p)
   for (i=0,nelements=1;i<skl->ndims;i++) nelements*=naxes[i];
   array=(int*)calloc(nelements,sizeof(int));
 
+  
   NDskl_seg **filTab=NULL;
   long nfil=getNDskelFilTab(skl,&filTab,NULL);  
   float pos[skl->ndims];
   for (i=0;i<nfil;i++)
     {
       NDskl_seg *seg=filTab[i];
+      if (seg==NULL) continue;
       do {
 	for (j=0;j<skl->ndims;j++) pos[j]=0.5*(seg->pos[j]+seg->pos[j+skl->ndims]);
-	array[NDskel_pos2pix(skl,seg->pos,naxes)] = i;
-	array[NDskel_pos2pix(skl,seg->pos+skl->ndims,naxes)] = i;
-	array[NDskel_pos2pix(skl,pos,naxes)] = i;
+	array[NDskel_pos2pix(skl,seg->pos,naxes)] = i+1;
+	array[NDskel_pos2pix(skl,seg->pos+skl->ndims,naxes)] = i+1;
+	array[NDskel_pos2pix(skl,pos,naxes)] = i+1;
 	seg=seg->Next;
       } while (seg!=NULL);
-    }
+      }
   freeNDskelFilTab(&filTab,NULL);
+  
+  /*
+  float pos[skl->ndims];
+  for (j=0;j<skl->nsegs;++j)
+    {
+      NDskl_seg *seg=&skl->Seg[j];
+      long i=seg->nodes[0]+1;
+      //if (seg->nodes[0]<0) printf("node=%d\n",seg->nodes[0]);
+      int k;
+      for (k=0;k<skl->ndims;k++) pos[k]=0.5*(seg->pos[k]+seg->pos[k+skl->ndims]);
+
+      long pix=NDskel_pos2pix(skl,seg->pos,naxes);
+      if ((array[pix]==0)||(array[pix]>i))
+	array[pix] = i;
+      
+      pix=NDskel_pos2pix(skl,seg->pos+skl->ndims,naxes);
+      if ((array[pix]==0)||(array[pix]>i))
+	array[pix] = i;
+
+      pix=NDskel_pos2pix(skl,pos,naxes);
+      if ((array[pix]==0)||(array[pix]>i))
+	array[pix] = i;
+    }
+  */
   if (verbose>1) printf(" done.\nSaving file %s ...",filename);
   if ( fits_write_img(fptr, TINT, 1, nelements, array, &status) )
     NDSKEL_FITS_printerror( status );
@@ -2047,7 +2146,7 @@ int Save_FITSskel(NDskel *skl,const char *filename, long *naxes_p)
   return 0;
 
 }
-
+/*
 int Save_FITSskel_layered(NDskel *skl,const char *filename, long *naxes_p)
 {
   fitsfile *fptr;       
@@ -2129,5 +2228,5 @@ int Save_FITSskel_layered(NDskel *skl,const char *filename, long *naxes_p)
   return 0;
 
 }
-
+*/
 #endif
