@@ -1,3 +1,6 @@
+v0.9.24:
+- Corrected a bug in -toFITS that prevented the filament with index 0 from appearing in the FITS file. Pixel values now coorespond to the index of the starting node +1 !
+
 v0.9.22:
 - fixed multithreading support on OSX
 - fixed compilation problems on recent versions of gcc
