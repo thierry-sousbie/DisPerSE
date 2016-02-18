@@ -20,7 +20,7 @@ int pthread_barrier_init(pthread_barrier_t *barrier, const pthread_barrierattr_t
 {
     if(count == 0)
     {
-        errno = EINVAL;
+      //errno = EINVAL;
         return -1;
     }
     if(pthread_mutex_init(&barrier->mutex, 0) < 0)
