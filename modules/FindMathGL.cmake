@@ -52,13 +52,15 @@ FIND_PATH(MATHGL_INCLUDE_DIR
 
 FIND_LIBRARY(MATHGL_LIBRARY
              NAMES mgl
-             PATHS ${MATHGL_DIR}/include/
+             PATHS ${MATHGL_DIR}/ ${MATHGL_DIR}/lib/ 
              NO_DEFAULT_PATH)
 
 FIND_LIBRARY(MATHGL_LIBRARY
              NAMES mgl
-             PATHS ${MATHGL_DIR}/lib/ ${MATHGL_LIBRARY_DIR}
+             PATHS ${MATHGL_LIBRARY_DIR}
              DOC "The MathGL LIBRARY directory")
+
+MESSAGE(${MATHGL_INCLUDE_DIR})
 
 GET_FILENAME_COMPONENT(MATHGL_LIBRARY_DIR ${MATHGL_LIBRARY} PATH)
 
@@ -96,6 +98,7 @@ FOREACH(_Component ${MathGL_FIND_COMPONENTS})
   
   SET(MathGL_${_Component}_FIND_REQUIRED ${MathGL_FIND_REQUIRED})
   SET(MathGL_${_Component}_FIND_QUIETLY true)
+
   
   FIND_PATH(MATHGL_${_COMPONENT}_INCLUDE_DIR
             NAMES mgl/mgl_${_component}.h
@@ -103,6 +106,8 @@ FOREACH(_Component ${MathGL_FIND_COMPONENTS})
   FIND_LIBRARY(MATHGL_${_COMPONENT}_LIBRARY
                NAMES mgl-${_component}
                PATHS ${MATHGL_LIBRARY_DIR} NO_DEFAULT_PATH)
+  #message(${MATHGL_LIBRARY_DIR})
+  #message(${MATHGL_${_COMPONENT}_LIBRARY})
 
   FIND_PACKAGE_HANDLE_STANDARD_ARGS(MathGL_${_Component} DEFAULT_MSG
                                     MATHGL_${_COMPONENT}_LIBRARY
