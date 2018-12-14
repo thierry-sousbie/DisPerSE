@@ -38,7 +38,7 @@ Suppose the source package is uncompressed in ${DISPERSE_SRC}, then go to the ${
    
      cd ${DISPERSE_SRC}
      cd build
-     cmake ../ 
+     cmake ../
 
 This will check the configuration and generate the Makefile. Read the output to know which library were found, which were not, and how to specify their path (option -D{LIBNAME}_DIR="path/to/library/" where {LIBNAME} may be QT,GSL,SDL,MATHGL or CGAL).
 
