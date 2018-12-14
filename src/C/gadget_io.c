@@ -48,7 +48,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
-#include <xlocale.h>
+#include <locale.h>
 #include "gadget_io.h"
 #include "mystring.h"
 
