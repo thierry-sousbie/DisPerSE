@@ -144,6 +144,10 @@ if (CFITSIO_FOUND)
   link_libraries(${CFITSIO_LIBRARIES}) # CFITSIO is linked to everything !!!
 endif()
 
+if (CGAL_FOUND)
+  find_package(Boost REQUIRED COMPONENTS thread system)
+endif()
+
 MACRO(LIST_LENGTH var)
   SET(entries)
   FOREACH(e ${ARGN})
