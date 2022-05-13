@@ -537,6 +537,7 @@ public:
 	    for (j=0;j<net->ndims;j++) 
 		pos[j] = net->x0[j]+coords[j]*ninv*net->delta[j]/net->dims[j];
 	    
+		return pos;
 	}
 
     uint getNodeGroup(cellType cell) const

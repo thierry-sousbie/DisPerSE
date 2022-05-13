@@ -205,7 +205,7 @@ public:
     return str.size();
   }
 
-  bool setRefNetwork(NDnetwork *net)
+  void setRefNetwork(NDnetwork *net)
   {   
     if (ownRefNet) {
       FreeNDnetwork(&refNet);
@@ -262,7 +262,7 @@ public:
       }
   }  
 
-  bool insert(typename networkT::subCellsType &subList, typename networkT::cellsInfoType &subListInfo, bool useCOM=true, bool unique=true)
+  void insert(typename networkT::subCellsType &subList, typename networkT::cellsInfoType &subListInfo, bool useCOM=true, bool unique=true)
   {
     typename networkT::subCellsType::iterator s_it;
     typename networkT::cellsInfoType::second_type::iterator si_it;
@@ -277,7 +277,7 @@ public:
   }
 
   template<class TypeT, class IdT>
-  bool insert(const std::pair<TypeT,IdT> &p, bool useCOM=true, bool unique=true)
+  void insert(const std::pair<TypeT,IdT> &p, bool useCOM=true, bool unique=true)
   {
     std::vector<double> tmp(complementaryDataName.size(),0);   
     insert(p,tmp.begin(),tmp.end(),useCOM,unique);
@@ -366,7 +366,7 @@ public:
   template<class TypeT, class IdT>
   bool insertAsVertex(const std::pair<TypeT,IdT> &p, bool useCOM=true, bool unique=true)
   {    
-    insertAsVertexPrivate(p,useCOM,unique);  
+    return insertAsVertexPrivate(p,useCOM,unique).second;  
   }
 
   template<class InputIterator>  
