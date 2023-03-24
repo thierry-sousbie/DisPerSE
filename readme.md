@@ -1,5 +1,5 @@
 ![DisPerSE](https://github.com/thierry-sousbie/DisPerSE/blob/master/manual/web/images/logo.png "DisPerSE")
-Version 0.9.24  
+Version 0.9.25  
 Copyright(c) 2011- by Thierry Sousbie. All rights reserved.  
 Author: Thierry Sousbie - tsousbie[a]gmail[dot]com  
 
