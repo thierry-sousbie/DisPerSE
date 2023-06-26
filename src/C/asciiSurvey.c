@@ -52,7 +52,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <math.h>
-#include <xlocale.h>
+#include <locale.h>
 #include "mystring.h"
 
 void freeSurvey(asciiSurvey **S)

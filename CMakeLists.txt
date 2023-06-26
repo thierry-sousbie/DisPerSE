@@ -23,7 +23,7 @@ endif()
 
 set (DISPERSE_VERSION_MAJOR 0)
 set (DISPERSE_VERSION_MINOR 9)
-set (DISPERSE_VERSION_BUILD 24)
+set (DISPERSE_VERSION_BUILD 25)
 
 ########## NO MODIFICATION NEEDED BELOW THIS LINE ##########
 
@@ -144,6 +144,10 @@ if (CFITSIO_FOUND)
   link_libraries(${CFITSIO_LIBRARIES}) # CFITSIO is linked to everything !!!
 endif()
 
+if (CGAL_FOUND)
+  find_package(Boost REQUIRED COMPONENTS thread system)
+endif()
+
 MACRO(LIST_LENGTH var)
   SET(entries)
   FOREACH(e ${ARGN})
@@ -177,6 +181,7 @@ if (CMAKE_COMPILER_IS_GNUCXX)
   if (GCXX_VERSION VERSION_LESS 4.3.3 )
     SET(GNU_PARALLEL_SORT false)
   else() 
+    add_definitions(-fPIC)
     if (USE_THREADS)
       SET(GNU_PARALLEL_SORT true)
       add_definitions(-fopenmp -DUSE_OPENMP -DUSE_GNU_PSORT)

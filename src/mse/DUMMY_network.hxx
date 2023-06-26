@@ -58,6 +58,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdexcept>
 
 class dummyDataT
 {
@@ -87,30 +88,35 @@ private:
 public:
   int getPeriodicity() const 
   {
+    throw std::runtime_error("Dummy_network::getPeriodicity Not implemented"); 
   } 
 
   int setPeriodicity(int p) 
   {
+    throw std::runtime_error("Dummy_network::setPeriodicity Not implemented"); 
+
   }
 
   void freeData() 
   {
     // Free all allocated ressources here
+    throw std::runtime_error("Dummy_network::freeData Not implemented"); 
   }
     
   void setMask(std::vector<char> &mask, bool nullIsMasked)
   {
-    
+    throw std::runtime_error("Dummy_network::setMask Not implemented");     
   }
 
   bool isOut(cellType cell) const 
   {
     // return true if the cell is outside the valid domain
+    throw std::runtime_error("Dummy_network::isOut Not implemented"); 
   }
 
   bool isBoundary(cellType cell) const 
   {
-
+    throw std::runtime_error("Dummy_network::isBoundary Not implemented"); 
   }
 
   double getValueSum( cellType cell, double &sum, int getByMax)  const
@@ -118,6 +124,8 @@ public:
     // return the value of the cell, sum being the sum of the values for each vertex
     // sum is used to compare two different cells with identical type and value
     if (getByMax==-1) getByMax=ParentClass::getByMax();
+    throw std::runtime_error("Dummy_network::getValueSum Not implemented"); 
+
   }
 
   double getValueAll( cellType cell, std::vector<double> &values, int getByMax)  const
@@ -125,39 +133,46 @@ public:
     // return the value of the cell, sum being the sum of the values for each vertex
     // sum is used to compare two different cells with identical type and value
     if (getByMax==-1) getByMax=ParentClass::getByMax();
+    throw std::runtime_error("Dummy_network::getValueAll Not implemented");   
   }
 
   double getValue( cellType cell, int getByMax) const
   {
     // return the value of the cell
     if (getByMax==-1) getByMax=ParentClass::getByMax();
+    throw std::runtime_error("Dummy_network::getValue Not implemented");   
   }
 
   unsigned long getNFaces(int type) const
   {
     // returns the total number of faces of a given type 
+    throw std::runtime_error("Dummy_network::getNFaces Not implemented");   
   }
 
   void getCofaces(cellType cell, std::vector<cellType> &result) const
   {
     // set result to the IDs of the cofaces of cell(type,id)
     // A=cell(type,id) is a coface of B=cell(type-1,coID) if B is a face of A.
+    throw std::runtime_error("Dummy_network::getCofaces Not implemented");   
   }
     
   void getFaces(cellType cell, std::vector<cellType> &result) const
   {
     // set result to the IDs of the faces of cell(type,id)
+    throw std::runtime_error("Dummy_network::getFaces Not implemented");   
   }
     
   void getVertice(cellType cell, std::vector<cellType> &result) const
   {
     // set result the the IDs of the vertice of cell(type,id)
+    throw std::runtime_error("Dummy_network::getVertice Not implemented");   
   }
 
   float *getPosition(cellType cell,float *pos) const
   {
     // set pos to the position of cell(type,id)
     // no need to take care of memory allocation for pos
+    throw std::runtime_error("Dummy_network::getPosition Not implemented");   
   }
 
   uint getNodeGroup(cellType cell) const
@@ -165,12 +180,14 @@ public:
     // returns the group of cell(type,id)
     // 0 means no group
     // used to simplify by groups only
+    throw std::runtime_error("Dummy_network::getNodeGroup Not implemented");   
   }
 
   bool groupsAreDefined() const
   {
     // returns true if groups are defined for cells, false otherwise.
     // if "false", getNodeGroup(cellType cell) may return anything.
+    throw std::runtime_error("Dummy_network::groupsAreDefined Not implemented");   
   }
 
   
@@ -223,15 +240,18 @@ public:
   // This is optional ...
   static NetworkDataInterface<cellType> *Load(const char *filename) {
     //return NetworkDataInterface<cellType> *net = new Dummy_network(Load_DUMMY(filename),true);
+    throw std::runtime_error("Dummy_network::Load Not implemented");   
   }
 
   int getNDims(bool network) const 
   {
     // returns the number of dimensions
+    throw std::runtime_error("Dummy_network::getNDims Not implemented");   
   }
   void getBoundingBox(std::vector<double> &x0, std::vector<double> &delta) const 
   {
     // set x0 and delta to the origin and size of the cubic bounding box
+    throw std::runtime_error("Dummy_network::getBoundingBox Not implemented");   
   }
   
   bool sendMessage(messageT m)

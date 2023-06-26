@@ -664,6 +664,8 @@ public:
 	if (pos[1]<0) pos[1]+=2*M_PI;
 	if (pos[1]>2*M_PI) pos[1]-=2*M_PI;
       }
+
+  return pos;
   }
 
   uint getNodeGroup(cellType cell) const

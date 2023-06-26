@@ -55,6 +55,7 @@
 #include "healpix.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdexcept>
 
 #include "NDsubNetwork.hxx"
 #include "simplicialGrid.hxx"
@@ -352,6 +353,7 @@ public:
     // return the value of the cell, sum being the sum of the values for each vertex
     // sum is used to compare two different cells with identical type and value
     if (getByMax==-1) getByMax=ParentClass::getByMax();
+    throw std::runtime_error("SimplicialGrid_network::getValueAll not implemented");
   }
   
   double getValue( cellType cell, int getByMax) const
@@ -408,7 +410,7 @@ public:
   
   float *getPosition(cellType cell,float *pos) const
   {
-    grid.getPosition(cell,pos);
+    return grid.getPosition(cell,pos);
     //if (pos[1]<-1.5) {printf("(%d;%ld)\n",cell.type(),cell.id());exit(0);}
   }
 

@@ -65,7 +65,7 @@
 #define COUNTBITS(val,result,tmp) {tmp=val;result=0;while (tmp) {result++;tmp=(((tmp)!=0)?((tmp)&((tmp)-1)):0);}}
 
 
-inline int hCNP(n,p)
+inline int hCNP(int n, int p)
 {
   unsigned long int i;
   unsigned long int up=1;

@@ -521,7 +521,8 @@ public:
 	      Index2CoordsND(v[i].id(),coordsI);
 		for (j=0;j<net->ndims;j++) 
 		{
-		    if (abs(c0[j]-coordsI[j])<(net->dims[j]>>1))
+		    //if (abs(c0[j]-coordsI[j])<(net->dims[j]>>1))
+		    if (((c0[j] > coordsI[j]) ? c0[j]-coordsI[j] : coordsI[j]-c0[j])<(net->dims[j]>>1))
 			coords[j]+=coordsI[j];
 		    else
 		    {
@@ -536,6 +537,7 @@ public:
 	    for (j=0;j<net->ndims;j++) 
 		pos[j] = net->x0[j]+coords[j]*ninv*net->delta[j]/net->dims[j];
 	    
+		return pos;
 	}
 
     uint getNodeGroup(cellType cell) const

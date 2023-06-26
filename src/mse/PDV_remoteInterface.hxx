@@ -71,6 +71,7 @@ public:
     status = stat (fname, &st_buf);
     if (status != 0) return 0;
     if (S_ISREG (st_buf.st_mode)) return 1;
+    return 0;
   }
 
   static bool isPDV(const char *fname)

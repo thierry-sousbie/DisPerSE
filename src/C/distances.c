@@ -51,6 +51,7 @@
 #include <string.h>
 
 #include "distances.h"
+#include "mystring.h"
 
 double cosmoD_Z_STEP = 1.E-5; 
 double cosmoD_local_h=0.72;

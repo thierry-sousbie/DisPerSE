@@ -297,7 +297,7 @@ class simplicialGrid
   }  
 
   
-  long buildFaceCofaceTable()
+  void buildFaceCofaceTable()
   {
     long pref[5]={0,1,2,-1,0};
     long pid[NDIMS_MAX+1];
@@ -522,6 +522,8 @@ class simplicialGrid
       }//if (cell.id() == 32513) printf("\n");
     double inv=1./v.size();
     for (i=0;i<x.size();i++) pos[i]=x[i]*inv;
+
+    return pos;
   }
 
 
