@@ -1,6 +1,6 @@
 # Check availability of unordered maps
 cmake_policy(PUSH)
-cmake_minimum_required(VERSION 2.6.3)
+cmake_minimum_required(VERSION 3.10)
 cmake_policy(POP)
 
 INCLUDE (CheckCXXSourceCompiles)

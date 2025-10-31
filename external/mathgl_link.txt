@@ -1,0 +1,2 @@
+Due to GitHub limitations, compressed file is not uploaded.
+Instead, the url for downloadind it by wget or navigator is provided: http://downloads.sourceforge.net/mathgl/mathgl-8.0.3.tar.gz

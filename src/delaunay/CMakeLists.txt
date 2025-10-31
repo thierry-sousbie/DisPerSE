@@ -5,7 +5,7 @@ include_directories(${MSE_DIR})
 
 if(GSL_FOUND AND CGAL_FOUND)
 
-  include( ${CGAL_USE_FILE} )
+	# include( ${CGAL_USE_FILE} )
 
   if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
     STRING(REGEX REPLACE "-O2" " "  CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}" )
@@ -67,26 +67,22 @@ if(GSL_FOUND AND CGAL_FOUND)
     ${MSE_DIR}/sortID.cpp
     )
 
-  #include( CGAL_CreateSingleSourceCGALProgram )
-  #create_single_source_cgal_program(${DELAUNAY2D_SRC})
-  #create_single_source_cgal_program(${DELAUNAY3D_SRC})
-
   add_executable(delaunay_2D ${DELAUNAY2D_SRC})
   add_executable(delaunay_3D ${DELAUNAY3D_SRC})
   
-  #target_link_libraries(delaunay_2D ${GSL_LIBRARIES})
-  #target_link_libraries(delaunay_3D ${GSL_LIBRARIES})
+  target_link_libraries(delaunay_2D ${GSL_LIBRARIES} ${CGAL_LIBRARIES})
+  target_link_libraries(delaunay_3D ${GSL_LIBRARIES} ${CGAL_LIBRARIES})
 
   if (CFITSIO_FOUND)
-    #target_link_libraries(delaunay_2D ${CFITSIO_LIBRARIES})
-    #target_link_libraries(delaunay_3D ${CFITSIO_LIBRARIES})
+    target_link_libraries(delaunay_2D ${CFITSIO_LIBRARIES})
+    target_link_libraries(delaunay_3D ${CFITSIO_LIBRARIES})
   else()
     SET( DISABLED_FEATURES_LIST_LOC ${DISABLED_FEATURES_LIST_LOC} delaunay::angular_mask)
   endif()
 
   if (SDL-IMAGE_FOUND)
-    #target_link_libraries(delaunay_2D ${SDL_LIBRARIES})
-    #target_link_libraries(delaunay_3D ${SDL_LIBRARIES})
+    target_link_libraries(delaunay_2D ${SDL_LIBRARIES})
+    target_link_libraries(delaunay_3D ${SDL_LIBRARIES})
   endif()
 
   SET( TARGETS_LIST ${TARGETS_LIST} delaunay_2D delaunay_3D PARENT_SCOPE)

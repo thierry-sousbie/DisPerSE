@@ -54,7 +54,7 @@
 #include <vector>
 #include <list>
 
-#include <mgl/mgl_data.h>
+#include <mgl2/data.h>
 #include <string>
 
 

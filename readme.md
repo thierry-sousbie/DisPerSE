@@ -13,77 +13,203 @@ For more information, read these two scientific articles: [Theory](http://adsabs
 
 You can also visit [DisPerSe](http://www2.iap.fr/users/sousbie/web/html/indexd41d.html) website at: http://www2.iap.fr/users/sousbie/web/html/indexd41d.html
 
-REQUIREMENTS
-------------
+---
 
-Any recent version of gcc should work, but gcc4.3.3+ is required in order to enable multithreading. The program was not tested with other compilers.
+# Instalation options
 
-The following libraries/programs are used:
+If a no-visualization setup is acceptable, a practical option could be use Docker.
 
-    Cmake 2.8     (Required for compilation)
-    GSL	          (Required)
-    CGAL 3.7      (Optional, for delaunay triangulation/DTFE)
-    CFitsIO       (Optional, for reading FITS and Healpix maps)
-    SDL/SDL-image (Optional, for loading jpg,bmp,...)
-    mathGL 1.10+  (Optional, for visualizing persistence diagrams with pdview)
-                  -> A compatible version can be found in the 'external/' subdir
-    Qt4    	      (Optional, for visualizing persistence diagrams with pdview)
+The following docker image provides a full **no GUI** DisPerSE build (no `pdview` available)
+``` bash
+docker pull franucles/disperse:latest
+```
 
-An appropriate version of mathGL can be found int the `external/` subdir.
+It can be executed with
+``` bash
+docker run -it franucles/disperse:latest
+```
 
-COMPILATION
------------
+If a complete instalation is required, the below instructions must be followed.
 
-Suppose the source package is uncompressed in ${DISPERSE_SRC}, then go to the ${DISPERSE_SRC}/build directory and run cmake:
-   
-     cd ${DISPERSE_SRC}
-     cd build
-     cmake ../
+# Installing Required Packages
 
-This will check the configuration and generate the Makefile. Read the output to know which library were found, which were not, and how to specify their path (option -D{LIBNAME}_DIR="path/to/library/" where {LIBNAME} may be QT,GSL,SDL,MATHGL or CGAL).
+To avoid version conflicts with system packages, we will use a virtual environment.
 
-Then just compile with:
+Create a virtual environment for DisPerSE:
 
-     make
-  or 
-     make -j N (where N is the number of processors to use)
+```bash
+mamba env create -n disperse
+```
 
+The environment is now created, but we need to set a couple of environment variables for everything to work properly.
 
-INSTALLATION
-------------
+First, we need the path to the dynamic libraries. For example, run:
 
-Typing :
+```bash
+find /usr -name libmvec.so.1
+```
 
-     make install
+Take the directory from the result (in my case `/usr/lib/x86_64-linux-gnu`) and add it with:
 
-will install the programs in the "CMAKE_INSTALL_PREFIX" direction. By default, CMAKE_INSTALL_PREFIX=${DISPERSE_SRC}/bin, and the program is installed in the 'bin' subdirectory of the source package.
-You can choose a different location with:
+```bash
+conda env config vars set LDFLAGS="-L/usr/lib/x86_64-linux-gnu" LD_LIBRARY_PATH="/usr/lib/x86_64-linux-gnu:$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
+```
 
-     cmake [...] -DCMAKE_INSTALL_PREFIX=PATH/TO/INSTALL/DIR
+> ℹ️ This uses `conda` instead of `mamba` because `mamba` doesn’t support `env config vars set`.
 
-Two to five executables should be created in ${DISPERSE_SRC}/bin, depending on which libraries were found:
+Now we can install the required and optional packages. I installed all of them to use every tool that DisPerSE offers.
 
-    * delaunay_2D (Optionnal)
-    * delaunay_3D (Optionnal)
-    * pdview (Optionnal)
-    * skelconv
-    * netconv
-    * mse
+---
 
+## gcc
 
-TROUBLESHOOTING
----------------
+The most important tool since it is used to compile the code. Most systems already include gcc, but to be safe:
 
-LIBRAIRIES:
+```bash
+mamba install gcc
+```
 
-In case you need to install a library in a non standard path, you can specify its location like this:
-   
-     cmake [...] -D{LIBNAME}_DIR=path/to/library
+This will install the latest version. I got **gcc 15.1.0**, which works fine (minimum required is 4.3).
 
-where "LIBNAME" is the uppercase name of the library (ie QT,GSL,SDL,MATHGL or CGAL) and "path/to/library" points to the path where the library is installed (i.e. "path/to/library/lib" should contain the library itself and "path/to/library/includes" the header files).
+> ⚠️ Newer versions should work without issues. Tested successfully with gcc 15.1.0.
 
-COMPILE ERRORS:
+---
 
-Multithreading is enabled by default but so far, it works only with gcc4.3.3+. If you have an older version, the compiler will complain and return errors. You can choose to enable/disable multithreading with:
- 
-     cmake [...] -DUSE_THREADS=true/false
+## CMake
+
+Needed to generate Makefiles for building DisPerSE.
+
+```bash
+mamba install cmake
+```
+
+This installs the latest version.  
+The repository requires version 2.8, but this is very outdated. I installed **CMake 4.1.1**.  
+
+Since support for versions <3.5 was removed ([release log](https://cmake.org/cmake/help/latest/release/4.0.html#deprecated-and-removed-features)), some `CMakeLists` files must be modified. These changes are already included in [my repository](https://github.com/FranUcles/DisPerSE).
+
+---
+
+## GSL
+
+A math library:
+
+```bash
+mamba install gsl
+```
+
+Installed version: **2.8** (no compatibility issues).
+
+---
+
+## CGAL
+
+Optional. Used for Delaunay tessellation:
+
+```bash
+mamba install cgal
+```
+
+The repo requires 3.7, but I got **6.01**, which works fine.
+
+---
+
+## CFitsIO
+
+Optional. For reading FITS files:
+
+```bash
+mamba install cfitsio
+```
+
+Installed version: **4.6.2**.
+
+---
+
+## SDL and SDL-image
+
+Optional. Needed to insert images when using **pdview**:
+
+```bash
+mamba install sdl sdl_image
+```
+
+Installed version: **1.2.68**.
+
+---
+
+## Qt
+
+Optional. Provides windows for **pdview** graphics:
+
+```bash
+mamba install qt
+```
+
+The repo requires Qt4, but I installed **Qt5**.  
+This requires small changes in the `CMakeLists`, which are already included in [my repository](https://github.com/FranUcles/DisPerSE).
+
+---
+
+## MathGL
+
+Optional, but required if you want to use **pdview**.  
+It handles 2D/3D graphics and large datasets. Documentation: [MathGL official website](https://mathgl.sourceforge.net/).
+
+Not available via conda or apt — must be built manually:
+
+1. Download from the [official download page](https://mathgl.sourceforge.net/doc_en/Download.html).  
+2. Extract and run:
+
+```bash
+cmake -Denable-qt5=ON -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX .
+```
+
+- `-Denable-qt5=ON` → enables Qt5 support for DisPerSE  
+- `-DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX` → installs inside the conda environment  
+
+> ⚠️ Omit `-DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX` if you want a system-wide installation.  
+
+3. Compile and install:
+
+```bash
+make -j$(nproc)
+sudo make install -j$(nproc)
+```
+
+The official repo uses MathGL 1.11, but modern versions (e.g., **8.0.3**) are incompatible. I modified the DisPerSE code to work with the latest MathGL.
+
+---
+
+# Compiling and Installing DisPerSE
+
+With all dependencies installed, we can compile the code:
+
+1. Generate Makefile:
+
+```bash
+cmake .
+```
+
+2. Compile:
+
+```bash
+make -j$(nproc)
+```
+
+3. Install (binaries go into the `bin` folder):
+
+```bash
+make install -j$(nproc)
+```
+
+This installs between 2 and 5 executables:
+
+```
+* delaunay_2D (Optional)
+* delaunay_3D (Optional)
+* pdview (Optional)
+* skelconv
+* netconv
+* mse
+```

@@ -56,9 +56,10 @@
 #include <algorithm>
 #include <limits>
 
-#include <mgl/mgl_qt.h>
-#include <mgl/mgl_data.h>
-#include <mgl/mgl.h>
+#include <mgl2/qt.h>
+#include <mgl2/data.h>
+#include <mgl2/mgl.h>
+#include <mgl2/qmathgl.h>
 
 #include "PD_params.hxx"
 
@@ -327,6 +328,7 @@ protected:
 
   mglPoint XY(int x, int y)
   {
+    mglGraph* graph = (mglGraph*)getGraph();
     mglPoint pt = graph->CalcXYZ(x,y);
     if ((!p->logX)&&(!p->logY)) return pt;
 
@@ -725,7 +727,7 @@ public:
 	    if (pLevel[i]<0) continue;
 	    if (pLevel[i]>p->y2) continue;
 	    if (pLevel[i]<p->y1) continue;
-	    
+	    mglGraph* graph = (mglGraph*)getGraph(); 
 	    mglPoint p1 = graph->CalcScr(mglPoint(p->x1,pLevel[i]));
 	    mglPoint p2 = graph->CalcScr(mglPoint(p->x2,pLevel[i]));
 	    painter.drawLine(QLineF(p1.x,height()-p1.y,p2.x,height()-p2.y));
@@ -756,6 +758,7 @@ public:
     else 
       {	
 	QPointF mousePos(this->mapFromGlobal(QCursor::pos()));
+	mglGraph* graph = (mglGraph*)getGraph(); 
 
 	if ((!old_mouseMode)&&(mouseMode!=2))
 	  {

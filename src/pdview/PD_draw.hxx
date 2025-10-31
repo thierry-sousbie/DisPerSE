@@ -49,8 +49,8 @@
 
 #include <string>
 
-#include <mgl/mgl.h>
-#include <mgl/mgl_data.h>
+#include <mgl2/mgl.h>
+#include <mgl2/data.h>
 
 #include <algorithm>
 #include "PD_params.hxx"
@@ -61,7 +61,7 @@ private:
   
   
 public:
-  static int Draw(mglGraph *gr, void *par)
+  static int Draw(mglBase *base, void *par)
   {
     static std::string markOpt[4] = {"b o#", "g s#", "r d#", "p v#"};
     static std::string markOutOpt[4] = {"k o", "k s", "k d", "k v"};
@@ -70,6 +70,8 @@ public:
     //NDnetwork *net = p->net;
     long i;
     //char prm[255];
+    
+    mglGraph *gr = (mglGraph*) base;
 
     if (p->x_data==NULL) return gr->GetNumFrame();  
     if (p->y_data==NULL) return gr->GetNumFrame();  
@@ -81,7 +83,9 @@ public:
     //gr->SetAlphaDef(0.5);
 
     gr->Rotate(0,0);
-    gr->Axis(mglPoint(p->x1,p->y1,1),mglPoint(p->x2,p->y2,1));
+    mglPoint p1(p->x1, p->y1, 1);
+    mglPoint p2(p->x2, p->y2, 1);
+    gr->Line(p1, p2);  
     gr->SetMarkSize(0.01);
     gr->Box("",false);
     gr->Label('x',p->x_label.c_str(),0);
@@ -93,14 +97,14 @@ public:
 	//gr->Dens(p->histo());
 	//printf (" [%ld %ld %ld/%ld]\n",p->Hx.nx,p->Hy.nx,p->H.nx,p->H.ny);
 	//gr->SetPalColor(0,1.0,1.0,1.0);
-
-	gr->CRange(p->H);
-	gr->Dens(p->Hx,p->Hy,p->H,"",-1);	
+        gr->SetRanges(p->H.Minimal(), p->H.Maximal());
+	gr->Dens(p->Hx,p->Hy,p->H,"");	
 	gr->Colorbar();
 	float level=(p->logH)?(log10(2)/30):(2./30);
 	mglData levs;
 	levs.Set(&level,1);
-	gr->Cont(levs,p->Hx,p->Hy,p->H,"k",-0.99);
+	std::string opt = "k,-0.99"; // color black + some option
+        gr->Cont(levs, p->Hx, p->Hy, p->H, "", opt.c_str());
       }
     /*
     mglData a(50,40);
@@ -113,8 +117,7 @@ public:
 	else gr->SetFunc("lg(x)", 0, 0);
       }
     else if (p->logY) gr->SetFunc(0, "lg(y)", 0);
-
-    gr->Axis("xy",true);
+    gr->Axis("xy", "", "g");
 
 
     
